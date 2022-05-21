@@ -7,10 +7,13 @@ public class NoteObject : MonoBehaviour
     private bool canBePressed;
     [SerializeField]
     private string buttonToPress;
+    [SerializeField]
+    private GameObject missEffect, hitEffect, goodEffect, perfectEffect;
+    private Vector3 effectPosition;
 
     void Start()
     {
-        
+        effectPosition = new Vector3(transform.position.x, 0f, transform.position.z);
     }
 
     void Update()
@@ -21,7 +24,26 @@ public class NoteObject : MonoBehaviour
             {
                 // Make the note disappear when hit.
                 gameObject.SetActive(false);
-                GameManager.Instance.NoteHit();
+                
+                // Ok hit.
+                if (Mathf.Abs(transform.position.y) > 1.25)
+                {
+                    GameManager.Instance.OkHit();
+                    Instantiate(hitEffect, effectPosition, hitEffect.transform.rotation);
+                }
+                // Good hit.
+                else if (Mathf.Abs(transform.position.y) > 1.1f)
+                {
+                    GameManager.Instance.GoodHit();
+                    Instantiate(goodEffect, effectPosition, goodEffect.transform.rotation);
+                }
+                // Perfect hit.
+                else
+                {
+                    GameManager.Instance.PerfectHit();
+                    Instantiate(perfectEffect, effectPosition, perfectEffect.transform.rotation);
+                }
+
             }
         }
     }
@@ -40,12 +62,12 @@ public class NoteObject : MonoBehaviour
         // Ensures that note cannot be missed if it was already hit.
         if (this.isActiveAndEnabled)
         {
-            Debug.Log("miss");
             if (other.tag == "Activator")
             {
                 canBePressed = false;
                 // Note is missed if correct button is not pressed by the time note exits hit box.
                 GameManager.Instance.NoteMissed();
+                Instantiate(missEffect, transform.position, missEffect.transform.rotation);
             }
         }
     }

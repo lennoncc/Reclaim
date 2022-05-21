@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     private int currentScore;
     private int scorePerNote = 100;
+    private int scorePerGoodNote = 125;
+    private int scorePerPerfectNote = 150;
     private int currentMultiplier;
     private int multiplierTracker;
     [SerializeField]
@@ -21,6 +23,15 @@ public class GameManager : MonoBehaviour
     private Text scoreText;
     [SerializeField]
     private Text multiText;
+    private float totalNotes = 10;  /*temporary value*/
+    private float missedHits;
+    private float okHits;
+    private float goodHits;
+    private float perfectHits;
+    [SerializeField]
+    private GameObject resultsScreen;
+    [SerializeField]
+    private Text percentHitText, missedText, okText, goodText, perfectText, finalScoreText;
 
     public static GameManager Instance
     {
@@ -38,11 +49,31 @@ public class GameManager : MonoBehaviour
     {
         if (!startPlaying)
         {
+            // Start the level.
             if (Input.anyKeyDown)
             {
                 startPlaying = true;
                 noteController.HasStarted = true;
                 music.Play();
+            }
+        }
+        else
+        {
+            // Show the results at the end of the level.
+            if (!music.isPlaying && !resultsScreen.activeInHierarchy)
+            {
+                resultsScreen.SetActive(true);
+                missedText.text = missedHits.ToString();
+                okText.text = okHits.ToString();
+                goodText.text = goodHits.ToString();
+                perfectText.text = perfectHits.ToString();
+
+                float percentHit = ((okHits + goodHits + perfectHits) / totalNotes) * 100f;
+                // Show percentage as a float to 1 decimal place.
+                percentHitText.text = percentHit.ToString("F1") + "%";
+                finalScoreText.text = currentScore.ToString();
+
+                /*TODO: Get Stars value, Add Stars value to finalScoreText*/
             }
         }
     }
@@ -63,11 +94,32 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + currentScore;
     }
 
+    public void OkHit()
+    {
+        currentScore += scorePerNote + currentScore;
+        NoteHit();
+        okHits++;
+    }
+
+    public void GoodHit()
+    {
+        currentScore += scorePerGoodNote + currentScore;
+        NoteHit();
+        goodHits++;
+    }
+
+    public void PerfectHit()
+    {
+        currentScore += scorePerPerfectNote + currentScore;
+        NoteHit();
+        perfectHits++;
+    }
     public void NoteMissed()
     {
         // Reset multiplier if a note is missed.
         currentMultiplier = 1;
         multiplierTracker = 0;
         multiText.text = "Multiplier: x" + currentMultiplier;
+        missedHits++;
     }
 }
