@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
     private NoteController noteController;
     private static GameManager instance;
     private int currentScore;
-    private int scorePerNote = 100;
-    private int scorePerGoodNote = 125;
-    private int scorePerPerfectNote = 150;
+    private int scorePerNote = 50;
+    private int scorePerGoodNote = 80;
+    private int scorePerPerfectNote = 100;
     private int currentMultiplier;
     private int multiplierTracker;
     [SerializeField]
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject resultsScreen;
     [SerializeField]
-    private Text percentHitText, missedText, okText, goodText, perfectText, finalScoreText;
+    private Text percentAccuracyText, missedText, okText, goodText, perfectText, finalScoreText;
 
     public static GameManager Instance
     {
@@ -68,9 +68,9 @@ public class GameManager : MonoBehaviour
                 goodText.text = goodHits.ToString();
                 perfectText.text = perfectHits.ToString();
 
-                float percentHit = ((okHits + goodHits + perfectHits) / totalNotes) * 100f;
+                float percentAccuracy = (((okHits * 0.5f) + (goodHits * 0.8f) + perfectHits) / totalNotes) * 100f;
                 // Show percentage as a float to 1 decimal place.
-                percentHitText.text = percentHit.ToString("F1") + "%";
+                percentAccuracyText.text = percentAccuracy.ToString("F1") + "%";
                 finalScoreText.text = currentScore.ToString();
 
                 /*TODO: Get Stars value, Add Stars value to finalScoreText*/
