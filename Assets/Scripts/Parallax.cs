@@ -2,22 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parallax : MonoBehaviour {
-    
-    private float length;
-    private float startpos;
-    public GameObject cam;
-    public float parallaxEffect;
+[RequireComponent(typeof(SpriteRenderer))]
+public class Parallax : MonoBehaviour
+{
+    public float ParallaxMagnitude;
+    public Camera Cam;
 
-    void Start ()
+    private float SpriteLength;
+    private float SpriteLeft;
+        
+    void Start()
     {
-        startpos = transform.position.x;
-        length = GetComponent<SpriteRenderer>().bounds.size.x;
+        this.SpriteLeft = this.transform.position.x;
+        this.SpriteLength = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    void Update() 
+    void Update()
     {
-        float dist = (cam.transform.position.x * parallaxEffect);
-        transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
+        float distToSpriteEnd = this.Cam.transform.position.x * this.ParallaxMagnitude;
+        float distAlongSprite = this.Cam.transform.position.x * (1 - this.ParallaxMagnitude);
+
+        this.transform.position = new Vector3(this.SpriteLeft + distToSpriteEnd, this.transform.position.y, this.transform.position.z);
+
+        if (distAlongSprite > this.SpriteLeft + this.SpriteLength)
+        {
+            this.SpriteLeft += this.SpriteLength;
+        } else if (distAlongSprite < this.SpriteLeft - this.SpriteLength)
+        {
+            this.SpriteLeft -= this.SpriteLength;
+        }
     }
 }
