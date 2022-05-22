@@ -5,31 +5,32 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Parallax : MonoBehaviour
 {
-    public float ParallaxMagnitude;
-    public Camera Cam;
+    public float parallaxMagnitude;
+    public Camera cam;
 
-    private float SpriteLength;
-    private float SpriteLeft;
+    private float spriteLength;
+    private float spriteLeft;
         
     void Start()
     {
-        this.SpriteLeft = this.transform.position.x;
-        this.SpriteLength = GetComponent<SpriteRenderer>().bounds.size.x;
+        this.spriteLeft = this.transform.position.x;
+        this.spriteLength = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
     void Update()
     {
-        float distToSpriteEnd = this.Cam.transform.position.x * this.ParallaxMagnitude;
-        float distAlongSprite = this.Cam.transform.position.x * (1 - this.ParallaxMagnitude);
+        float distToSpriteEnd = (this.cam.transform.position.x * this.parallaxMagnitude);
+        float distAlongSprite = (this.cam.transform.position.x * (1 - this.parallaxMagnitude));
 
-        this.transform.position = new Vector3(this.SpriteLeft + distToSpriteEnd, this.transform.position.y, this.transform.position.z);
+        this.transform.position = new Vector3(this.spriteLeft + distToSpriteEnd, this.transform.position.y, this.transform.position.z);
 
-        if (distAlongSprite > this.SpriteLeft + this.SpriteLength)
+        if (distAlongSprite >= this.spriteLeft + this.spriteLength)
         {
-            this.SpriteLeft += this.SpriteLength;
-        } else if (distAlongSprite < this.SpriteLeft - this.SpriteLength)
+            this.spriteLeft += this.spriteLength;
+        } 
+        else if (distAlongSprite < this.spriteLeft - this.spriteLength)
         {
-            this.SpriteLeft -= this.SpriteLength;
+            this.spriteLeft -= this.spriteLength;
         }
     }
 }
