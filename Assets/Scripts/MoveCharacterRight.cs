@@ -8,7 +8,7 @@ namespace Captain.Command
 {
     public class MoveCharacterRight : ScriptableObject, ICaptainCommand
     {
-        private float speed = 5.0f;
+        private float speed = 20.0f;
 
         public void Execute(GameObject gameObject)
         {
@@ -16,12 +16,12 @@ namespace Captain.Command
             if (rigidBody != null)
             {
                 // right movement would have a positive vector
-                if(rigidBody.velocity.x < 5)
+                if(rigidBody.velocity.x < 1)
                 {
                     rigidBody.velocity = new Vector2(this.speed, rigidBody.velocity.y);
                 }
                 // the sprite isn't flipped when moving right
-                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
             }
         }
     }
