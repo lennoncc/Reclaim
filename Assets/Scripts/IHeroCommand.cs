@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Captain.Command
+namespace Hero.Command
 {
-    public interface ICaptainCommand
+    public interface IHeroCommand
     {
         void Execute(GameObject gameObject);
     }

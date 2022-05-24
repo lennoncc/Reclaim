@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using Captain.Command;
+using Hero.Command;
 
-namespace Captain.Command
+namespace Hero.Command
 {
-    public class MoveCharacterRight : ScriptableObject, ICaptainCommand
+    public class MoveHeroRight : ScriptableObject, IHeroCommand
     {
         private float speed = 20.0f;
 
