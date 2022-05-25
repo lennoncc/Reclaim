@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 202369836}
   - component: {fileID: 202369837}
   m_Layer: 0
-  m_Name: Background-2
+  m_Name: Forest2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -725,10 +725,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 730884453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa94eec65faef5a42974843dbeff8d11, type: 3}
+  m_Script: {fileID: 11500000, guid: 6955cfb27ac17924ea01cd8a6681f5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  booty: {fileID: 0}
 --- !u!50 &730884458
 Rigidbody2D:
   serializedVersion: 4
@@ -767,7 +766,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 64, y: 64}
+    oldSize: {x: 64, y: 64.01563}
     newSize: {x: 20.48, y: 20.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -788,7 +787,7 @@ GameObject:
   - component: {fileID: 762339719}
   - component: {fileID: 762339720}
   m_Layer: 0
-  m_Name: Background-3
+  m_Name: Forest3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1149,7 +1148,7 @@ GameObject:
   - component: {fileID: 1539981330}
   - component: {fileID: 1539981331}
   m_Layer: 0
-  m_Name: Background-4
+  m_Name: Forest4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1328,6 +1327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1873145155}
   - component: {fileID: 1873145156}
+  - component: {fileID: 1873145157}
   m_Layer: 0
   m_Name: Background-1 (2)
   m_TagString: Untagged
@@ -1400,6 +1400,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1873145157
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873145154}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60db5a512d3e14754a231bf69d171098, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1915664244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,7 +1431,7 @@ GameObject:
   - component: {fileID: 1915664246}
   - component: {fileID: 1915664248}
   m_Layer: 0
-  m_Name: Background-1
+  m_Name: Forest1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
