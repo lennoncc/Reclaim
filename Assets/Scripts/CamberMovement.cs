@@ -40,7 +40,7 @@ public class CamberMovement : MonoBehaviour
         rb.velocity = new Vector2(move.x * speed * Time.deltaTime, rb.velocity.y);
 
         // Jump function with gravity effect
-        if (Mathf.Abs(rb.velocity.y) < 0.001f && move.y > 0)
+        if (Mathf.Abs(rb.velocity.y) < 0.001f && (Input.GetButtonDown("Jump") || move.y > 0))
         {
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
