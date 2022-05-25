@@ -18,7 +18,7 @@ namespace Hero.Command
                 // right movement would have a positive vector
                 if(rigidBody.velocity.x < 1)
                 {
-                    rigidBody.velocity = new Vector2(this.speed, rigidBody.velocity.y);
+                    rigidBody.velocity = new Vector2(this.speed, rigidBody.velocity.y) * Time.deltaTime;
                 }
                 // the sprite isn't flipped when moving right
                 gameObject.GetComponent<SpriteRenderer>().flipX = false;

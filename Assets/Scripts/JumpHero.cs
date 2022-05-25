@@ -13,7 +13,7 @@ namespace Hero.Command
     // Note: Added a "Ground" tag that was applied to the three Ground objects in MushroomForest, Mountains, and Graveyard
     public class JumpHero : ScriptableObject, IHeroCommand
     {
-        private float force = 5.0f;
+        private float force = 15.0f;
 
 
         public void Execute(GameObject gameObject)
@@ -22,7 +22,7 @@ namespace Hero.Command
             if (rigidBody != null)
             {
                 // This applies a force in the upwards direction to simulate a jump
-                rigidBody.velocity = Vector2.up * force;
+                rigidBody.AddForce(new Vector2(0, force), ForceMode2D.Impulse);
             }
         }
     }

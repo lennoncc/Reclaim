@@ -23,22 +23,12 @@ public class HeroController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetButtonDown("Fire1"))
-        // {
-        //     this.fire1.Execute(this.gameObject);
-        // }
-        // if (Input.GetButtonDown("Fire2"))
-        // {
-        //     this.fire2.Execute(this.gameObject);
-        // }
         if(Input.GetAxis("Horizontal") > 0.01)
         {
-            Debug.Log("right");
             this.right.Execute(this.gameObject);
         }
         if(Input.GetAxis("Horizontal") < -0.01)
         {
-            Debug.Log("left");
             this.left.Execute(this.gameObject);
         }
         if(Input.GetKeyDown("space") && !isStateJump) 
@@ -54,15 +44,8 @@ public class HeroController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision);
-        // if (collision.gameObject.tag == "Mushroom")
-        // {
-        //     Destroy(collision.gameObject);
-        //     this.mushrooms++;
-        // }
         if(collision.gameObject.tag == "Ground")
         {
-            // PHASE 4: Captain is now touching ground, can jump
-            // Added tag called "Ground" and applied to the three Ground objects.
             this.isStateJump = false;
         }
     }
