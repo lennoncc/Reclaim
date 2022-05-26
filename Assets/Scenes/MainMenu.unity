@@ -840,6 +840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAudioMixer: {fileID: 24100000, guid: 063110a1cea16574d9ccac3e87379e1c, type: 2}
+  Slider: MasterVolume
 --- !u!1 &289345398
 GameObject:
   m_ObjectHideFlags: 0
