@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
                 startPlaying = true;
                 noteController.HasStarted = true;
                 music.Play();
+                // FindObjectOfType<SoundManager>().PlayMusicTrack("Prologue");
             }
         }
         else
