@@ -54,6 +54,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayMusicTrack(string title)
     {
+        // Debug.Log(title);
         var track = this.musicTracks.Find(track => track.title == title);
 
         if(null == track) 

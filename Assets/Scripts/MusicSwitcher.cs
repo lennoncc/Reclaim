@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class MusicSwitcher : MonoBehaviour
 {
-    [SerializeField] private string musicTrack = "TitleScreen";
+    [SerializeField] private string musicTrack = "BattleMusic";
     // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        FindObjectOfType<SoundManager>().PlayMusicTrack(this.musicTrack);
+        if(other)
+        {
+            Debug.Log("playing!");
+            FindObjectOfType<SoundManager>().PlayMusicTrack(this.musicTrack);
+        }
+        
     }
 }

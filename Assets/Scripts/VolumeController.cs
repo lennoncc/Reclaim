@@ -8,9 +8,10 @@ using UnityEngine.Audio;
 public class VolumeController : MonoBehaviour
 {
     [SerializeField] private AudioMixer myAudioMixer;
+    [SerializeField] private string Slider;
 
     public void SetVolume(float sliderValue)
     {
-        myAudioMixer.SetFloat("MasterVolume", Mathf.Log10(sliderValue) * 20);
+        myAudioMixer.SetFloat(this.Slider, Mathf.Log10(sliderValue) * 20);
     }
 }
