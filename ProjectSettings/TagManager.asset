@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Activator
   - Ground
+  - Camber
   layers:
   - Default
   - TransparentFX

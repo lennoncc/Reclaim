@@ -1712,7 +1712,7 @@ GameObject:
   - component: {fileID: 1887941385}
   m_Layer: 0
   m_Name: Camber
-  m_TagString: Untagged
+  m_TagString: Camber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

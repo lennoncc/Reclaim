@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 /**
+ * Adapted from SoundManager.cs from Exercise 1, which was
  * Adapted from "Indroduction to AUDIO in Unity" by Brackeys:
  * https://www.youtube.com/watch?v=6OT43pvUyfY
  *
