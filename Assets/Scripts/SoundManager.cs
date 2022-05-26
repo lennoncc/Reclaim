@@ -25,6 +25,7 @@ public class SoundManager : MonoBehaviour
     private List<SoundClip> sfxClips;
 
     private SoundClip trackPlaying;
+    public SoundClip _trackPlaying => trackPlaying;
     private SoundClip trackFading;
     private SoundClip sfxPlaying;
 

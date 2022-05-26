@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
+    // [SerializeField]
+    // private AudioSource music;
     private AudioSource music;
     private bool startPlaying;
     [SerializeField]
@@ -54,8 +55,9 @@ public class GameManager : MonoBehaviour
             {
                 startPlaying = true;
                 noteController.HasStarted = true;
-                music.Play();
-                // FindObjectOfType<SoundManager>().PlayMusicTrack("Prologue");
+                // music.Play();
+                FindObjectOfType<SoundManager>().PlayMusicTrack("Prologue");
+                music = FindObjectOfType<SoundManager>()._trackPlaying.audioSource;
             }
         }
         else
