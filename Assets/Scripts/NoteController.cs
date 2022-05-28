@@ -7,7 +7,7 @@ public class NoteController : MonoBehaviour
     [SerializeField]
     // The beats per minute of the song.
     private float BPM = 120f;
-    // The speed at wihch the notes fall.
+    // Determines the speed at which the notes fall.
     private float speed = 60f;
     private bool hasStarted;
 

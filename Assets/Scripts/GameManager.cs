@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private bool startPlaying;
     [SerializeField]
     private NoteController noteController;
+    [SerializeField]
+    private EnemyController enemyController;
     private static GameManager instance;
     private int currentScore;
     private int scorePerNote = 50;
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
             {
                 startPlaying = true;
                 noteController.HasStarted = true;
+                enemyController.HasStarted = true;
                 // music.Play();
                 FindObjectOfType<SoundManager>().PlayMusicTrack("Prologue");
                 music = FindObjectOfType<SoundManager>()._trackPlaying.audioSource;
