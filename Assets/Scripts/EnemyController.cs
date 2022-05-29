@@ -6,13 +6,13 @@ public class EnemyController : MonoBehaviour
 {
     private float minDamage = 20;
     private float maxDamage = 50;
-    private float attackMultplier = 1;
-    private float[] attackTimes = {3, 6, 9, 12};
+    private float attackMultiplier = 1;
+    private float[] attackTimes = {3, 6, 9, 12}; /* temp */
     private float nextAttackTime;
     private float timeSinceStart;
     private int i;
     [SerializeField]
-    private HealthBarController HealthBarController;
+    private BarController playerHealthBarController;
     [SerializeField]
     private GameObject scrollingText;
     private Vector3 textPosition;
@@ -32,6 +32,8 @@ public class EnemyController : MonoBehaviour
         nextAttackTime = attackTimes[i];
         textPosition = new Vector3(2.5f, 5f, 0f);
         attacksFinished = false;
+        playerHealthBarController.Capacity = 100f;
+        playerHealthBarController.ChangeValueX(1f);
     }
 
     private void ShowScrollingText(string message)
@@ -40,24 +42,27 @@ public class EnemyController : MonoBehaviour
         scrollingText.GetComponent<TextMesh>().text = message;
     }
 
+    // Attack the player.
     private void Attack() {
-        float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, attackMultplier));
+        float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, attackMultiplier));
         ShowScrollingText(damage.ToString());
-        float ratio = (HealthBarController.CurrentValue - damage) / HealthBarController.Capacity;
+        float ratio = (playerHealthBarController.CurrentValue - damage) / playerHealthBarController.Capacity;
         if (ratio < 0f)
         {
             ratio = 0f;
         }
-        HealthBarController.ChangeValue(ratio);
+        playerHealthBarController.ChangeValueX(ratio);
     }
 
     void Update()
     {
         if (hasStarted) {
             if (attacksFinished == false) {
+                // Time for next attack.
                 if (timeSinceStart >= nextAttackTime)
                 {
                     Attack();
+                    // Get the next attack time if there is one.
                     if (i + 1 < attackTimes.Length)
                     {
                         i++;

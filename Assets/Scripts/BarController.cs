@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBarController : MonoBehaviour
+public class BarController : MonoBehaviour
 {
     [SerializeField] private GameObject valueSurface;
     private float capacity;
@@ -22,13 +22,20 @@ public class HealthBarController : MonoBehaviour
 
     void Start()
     {
-        capacity = 100f;
-        currentValue = 100f;
+
     }
 
-    public void ChangeValue(float ratio)
+    // Update value of a bar through X scale.
+    public void ChangeValueX(float ratio)
     {
         SetLocalScaleX(this.valueSurface, ratio);
+        currentValue = capacity * ratio;
+    }
+    
+    // Update value of a bar through Y scale.
+    public void ChangeValueY(float ratio)
+    {
+        SetLocalScaleY(this.valueSurface, ratio);
         currentValue = capacity * ratio;
     }
     
@@ -41,6 +48,13 @@ public class HealthBarController : MonoBehaviour
     {
         var localScale = go.transform.localScale;
         localScale.x = value;
+        go.transform.localScale = localScale;        
+    }
+    
+    static private void SetLocalScaleY(GameObject go, float value)
+    {
+        var localScale = go.transform.localScale;
+        localScale.y = value;
         go.transform.localScale = localScale;        
     }
 }

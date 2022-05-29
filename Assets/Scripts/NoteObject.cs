@@ -10,6 +10,8 @@ public class NoteObject : MonoBehaviour
     [SerializeField]
     private GameObject missEffect, hitEffect, goodEffect, perfectEffect;
     private Vector3 effectPosition;
+    [SerializeField]
+    private PlayerController playerController;
 
     void Start()
     {
@@ -29,18 +31,21 @@ public class NoteObject : MonoBehaviour
                 if (Mathf.Abs(transform.position.y) > 1.25)
                 {
                     GameManager.Instance.OkHit();
+                    playerController.NoteHit(5f);
                     Instantiate(hitEffect, effectPosition, hitEffect.transform.rotation);
                 }
                 // Good hit.
                 else if (Mathf.Abs(transform.position.y) > 1.1f)
                 {
                     GameManager.Instance.GoodHit();
+                    playerController.NoteHit(10f);
                     Instantiate(goodEffect, effectPosition, goodEffect.transform.rotation);
                 }
                 // Perfect hit.
                 else
                 {
                     GameManager.Instance.PerfectHit();
+                    playerController.NoteHit(15f);
                     Instantiate(perfectEffect, effectPosition, perfectEffect.transform.rotation);
                 }
 
