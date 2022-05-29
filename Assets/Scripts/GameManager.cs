@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     // [SerializeField]
     // private AudioSource music;
     private AudioSource music;
+    [SerializeField]
+    private string trackTitle;
     private bool startPlaying;
     [SerializeField]
     private NoteController noteController;
@@ -59,7 +61,7 @@ public class GameManager : MonoBehaviour
                 noteController.HasStarted = true;
                 enemyController.HasStarted = true;
                 // music.Play();
-                FindObjectOfType<SoundManager>().PlayMusicTrack("Prologue");
+                FindObjectOfType<SoundManager>().PlayMusicTrack(trackTitle);
                 music = FindObjectOfType<SoundManager>()._trackPlaying.audioSource;
             }
         }
