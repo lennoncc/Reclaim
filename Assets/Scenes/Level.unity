@@ -1838,6 +1838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b00566d876f464b8305cbfbffd637a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackTitle: Prologue
   noteController: {fileID: 685974344}
   enemyController: {fileID: 292671765}
   multiplierThresholds: 020000000400000006000000
@@ -3759,7 +3760,19 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
-  sfxClips: []
+  sfxClips:
+  - clip: {fileID: 8300000, guid: 88512dec698529c40a1c0013963fc65f, type: 3}
+    audioSource: {fileID: 0}
+    title: Click1
+    volume: 1
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 85c512ab1b8321b42bbb9ffc1c423af8, type: 3}
+    audioSource: {fileID: 0}
+    title: Click2
+    volume: 1
+    pitch: 1
+    loop: 0
 --- !u!4 &1695401801
 Transform:
   m_ObjectHideFlags: 0
