@@ -1838,6 +1838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b00566d876f464b8305cbfbffd637a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackTitle: Prologue
   noteController: {fileID: 685974344}
   enemyController: {fileID: 292671765}
   multiplierThresholds: 020000000400000006000000
