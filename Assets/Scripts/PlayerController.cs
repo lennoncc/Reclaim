@@ -19,6 +19,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject scrollingText;
     private Vector3 textPosition;
+    [SerializeField]
+    private GameObject star1;
+    [SerializeField]
+    private GameObject star2;
+    [SerializeField]
+    private GameObject star3;
 
     void Start()
     {
@@ -30,6 +36,9 @@ public class PlayerController : MonoBehaviour
         gaugeController.ChangeValueY(0f);
         thresholdController.Capacity = 100f;
         thresholdController.ChangeValueX(1f);
+        star1.SetActive(false);
+        star2.SetActive(false);
+        star3.SetActive(false);
     }
 
     private void ShowScrollingText(string message)
@@ -38,6 +47,7 @@ public class PlayerController : MonoBehaviour
         scrollingText.GetComponent<TextMesh>().text = message;
     }
 
+    // Increase the attack gauge depending on the accuracy of note hits.
     public void NoteHit(float gaugeIncrease) 
     {
         float ratio = (gaugeController.CurrentValue + gaugeIncrease) / gaugeController.Capacity;
@@ -58,6 +68,27 @@ public class PlayerController : MonoBehaviour
             ratio = 0f;
         }
         thresholdController.ChangeValueX(ratio);
+        EarnStars();
+    }
+
+    private void EarnStars()
+    {
+        if (thresholdController.CurrentValue <= 0)
+        {
+            star1.SetActive(true);
+            star2.SetActive(true);
+            star3.SetActive(true);
+        }
+        else if (thresholdController.CurrentValue <= 40)
+        {
+            star1.SetActive(true);
+            star2.SetActive(true);
+
+        } 
+        else if (thresholdController.CurrentValue <= 75)
+        {
+            star1.SetActive(true);
+        }
     }
 
     void Update()
