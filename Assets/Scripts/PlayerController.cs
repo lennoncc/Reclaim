@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
             ratio = 1f;
         }
         gaugeController.ChangeValueY(ratio);
+        FindObjectOfType<SoundManager>().PlaySoundEffect("Click1");
     }
 
     public void Attack()
