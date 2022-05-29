@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour
     private bool attacking;
     [SerializeField]
     private GameObject attackBar;
-    private float attackMultiplier;
+    private float multiplier;
     [SerializeField]
-    private int[] attackMultiplierThresholds;
+    private int[] multiplierThresholds;
     [SerializeField]
     private BarController gaugeController;
     private float minDamage = 10f;
@@ -25,13 +25,15 @@ public class PlayerController : MonoBehaviour
     private GameObject star2;
     [SerializeField]
     private GameObject star3;
+    [SerializeField]
+    private BarController playerHealthBarController;
 
     void Start()
     {
         textPosition = new Vector3(6.8f, 5f, 0f);
         attacking = false;
         attackBar.SetActive(false);
-        attackMultiplier = 1f;
+        multiplier = 1f;
         gaugeController.Capacity = 100f;
         gaugeController.ChangeValueY(0f);
         thresholdController.Capacity = 100f;
@@ -59,9 +61,21 @@ public class PlayerController : MonoBehaviour
         FindObjectOfType<SoundManager>().PlaySoundEffect("Click1");
     }
 
+    public void Heal()
+    {
+        float health = 5f * multiplier;
+        ShowScrollingText(health.ToString());
+        float ratio = (playerHealthBarController.CurrentValue + health) / playerHealthBarController.Capacity;
+        if (ratio > 1f)
+        {
+            ratio = 1f;
+        }
+        playerHealthBarController.ChangeValueX(ratio);
+    }
+
     public void Attack()
     {
-        float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, attackMultiplier));
+        float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, multiplier));
         ShowScrollingText(damage.ToString());
         float ratio = (thresholdController.CurrentValue - damage) / thresholdController.Capacity;
         if (ratio < 0f)
@@ -108,13 +122,21 @@ public class PlayerController : MonoBehaviour
                 attackBar.SetActive(false);
             }
             gaugeController.ChangeValueY(0f);
-            attackMultiplier = 1f;
+            multiplier = 1f;
         }
-        // Attack if gauge is full.
+        // Attack/Defend if gauge is full.
         if (gaugeController.CurrentValue == 100f)
         {
-            Attack();
-            gaugeController.ChangeValueY(0f);
+            if (attacking)
+            {
+                Attack();
+                gaugeController.ChangeValueY(0f);
+            }
+            else 
+            {
+                Heal();
+                gaugeController.ChangeValueY(0f);
+            }
         }
     }
 }

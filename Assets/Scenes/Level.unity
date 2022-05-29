@@ -1062,7 +1062,7 @@ GameObject:
   - component: {fileID: 511908887}
   - component: {fileID: 511908889}
   m_Layer: 0
-  m_Name: EnemyGaugeBarEmpty
+  m_Name: GaugeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4708,13 +4708,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackBar: {fileID: 886305678}
-  attackMultiplierThresholds: 
+  multiplierThresholds: 
   gaugeController: {fileID: 511908889}
   thresholdController: {fileID: 709511006}
   scrollingText: {fileID: 363838215371788088, guid: e4fd9f8a8dc84964488cd9c24e8aa65a, type: 3}
   star1: {fileID: 569277664}
   star2: {fileID: 592156787}
   star3: {fileID: 2081083123}
+  playerHealthBarController: {fileID: 1365938083}
 --- !u!95 &1976581754
 Animator:
   serializedVersion: 3
