@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private NoteController noteController;
     [SerializeField]
+    private PlayerController playerController;
+    [SerializeField]
     private EnemyController enemyController;
     private static GameManager instance;
     private int currentScore;
@@ -26,6 +28,8 @@ public class GameManager : MonoBehaviour
     private int[] multiplierThresholds;
     [SerializeField]
     private Text scoreText;
+    [SerializeField]
+    private Text scoreMultiText;
     [SerializeField]
     private Text multiText;
     private float totalNotes = 10;  /*temporary value*/
@@ -52,6 +56,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        multiText.text = "Multiplier: x" + playerController.CurrentMultiplier;
         if (!startPlaying)
         {
             // Start the level.
@@ -88,6 +93,18 @@ public class GameManager : MonoBehaviour
 
     public void NoteHit()
     {
+        // Update the player's attack/defense multiplier.
+        if (playerController.CurrentMultiplierIndex - 1 < playerController.MultiplierThresholds.Length)
+        {
+            playerController.MultiplierTracker++;
+            if (playerController.MultiplierTracker >= playerController.MultiplierThresholds[playerController.CurrentMultiplierIndex - 1])
+            {
+                playerController.MultiplierTracker = 0;
+                playerController.CurrentMultiplierIndex++;
+                playerController.CurrentMultiplier += 0.25f;
+            }
+        }
+        // Update the score multiplier.
         if (currentMultiplier - 1 < multiplierThresholds.Length)
         {
             multiplierTracker++;
@@ -97,7 +114,7 @@ public class GameManager : MonoBehaviour
                 currentMultiplier++;
             }
         }
-        multiText.text = "Multiplier: x" + currentMultiplier;
+        scoreMultiText.text = "Score Multiplier: x" + currentMultiplier;
         currentScore += scorePerNote * currentMultiplier;
         scoreText.text = "Score: " + currentScore;
     }
@@ -124,10 +141,13 @@ public class GameManager : MonoBehaviour
     }
     public void NoteMissed()
     {
-        // Reset multiplier if a note is missed.
+        // Reset multipliers if a note is missed.
+        playerController.CurrentMultiplierIndex = 1;
+        playerController.CurrentMultiplier = 1;
+        playerController.MultiplierTracker = 0;
         currentMultiplier = 1;
         multiplierTracker = 0;
-        multiText.text = "Multiplier: x" + currentMultiplier;
+        scoreMultiText.text = "Score Multiplier: x" + currentMultiplier;
         missedHits++;
     }
 }

@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     private bool attacking;
     [SerializeField]
     private GameObject attackBar;
-    private float multiplier;
+    private float currentMultiplier;
+    private int currentMultiplierIndex;
+    private int multiplierTracker;
     [SerializeField]
     private int[] multiplierThresholds;
     [SerializeField]
@@ -27,13 +29,38 @@ public class PlayerController : MonoBehaviour
     private GameObject star3;
     [SerializeField]
     private BarController playerHealthBarController;
+    
+    public float CurrentMultiplier
+    {
+        get => currentMultiplier;
+        set => currentMultiplier = value;
+    }
+    public int CurrentMultiplierIndex
+    {
+        get => currentMultiplierIndex;
+        set => currentMultiplierIndex = value;
+    }
+    
+    public int MultiplierTracker
+    {
+        get => multiplierTracker;
+        set => multiplierTracker = value;
+    }
+    public int[] MultiplierThresholds
+    {
+        get => multiplierThresholds;
+        set => multiplierThresholds = value;
+    }
+
 
     void Start()
     {
         textPosition = new Vector3(6.8f, 5f, 0f);
-        attacking = false;
-        attackBar.SetActive(false);
-        multiplier = 1f;
+        attacking = true;
+        attackBar.SetActive(true);
+        currentMultiplier = 1f;
+        currentMultiplierIndex = 1;
+        multiplierTracker = 0;
         gaugeController.Capacity = 100f;
         gaugeController.ChangeValueY(0f);
         thresholdController.Capacity = 100f;
@@ -63,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
     public void Heal()
     {
-        float health = 5f * multiplier;
+        float health = 5f * currentMultiplier;
         ShowScrollingText(health.ToString());
         float ratio = (playerHealthBarController.CurrentValue + health) / playerHealthBarController.Capacity;
         if (ratio > 1f)
@@ -75,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
     public void Attack()
     {
-        float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, multiplier));
+        float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, currentMultiplier));
         ShowScrollingText(damage.ToString());
         float ratio = (thresholdController.CurrentValue - damage) / thresholdController.Capacity;
         if (ratio < 0f)
@@ -84,6 +111,7 @@ public class PlayerController : MonoBehaviour
         }
         thresholdController.ChangeValueX(ratio);
         EarnStars();
+        Debug.Log(currentMultiplier);
     }
 
     private void EarnStars()
@@ -108,6 +136,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // End the level if the player dies.
+        if (playerHealthBarController.CurrentValue == 0f)
+        {
+            // TODO: death animation, end the level, level failed pop up screen
+        }
         // Toggle between attack and defense mode.
         if (Input.GetButtonDown("Jump"))
         {
@@ -122,7 +155,9 @@ public class PlayerController : MonoBehaviour
                 attackBar.SetActive(false);
             }
             gaugeController.ChangeValueY(0f);
-            multiplier = 1f;
+            currentMultiplierIndex = 1;
+            currentMultiplier = 1;
+            multiplierTracker = 0;
         }
         // Attack/Defend if gauge is full.
         if (gaugeController.CurrentValue == 100f)
