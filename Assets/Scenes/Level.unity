@@ -1348,6 +1348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteController: {fileID: 685974344}
+  enemyController: {fileID: 292671765}
   multiplierThresholds: 020000000400000006000000
   scoreText: {fileID: 1791990394}
   multiText: {fileID: 2046179001}

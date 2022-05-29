@@ -3,16 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{
-    // Start is called before the first frame update
+{   
+    private bool attacking;
+    [SerializeField]
+    private GameObject attackBar;
+    private float attackMultiplier;
+    [SerializeField]
+    private int[] attackMultiplierThresholds;
+
     void Start()
     {
-        
+        attacking = false;
+        attackBar.SetActive(false);
+        attackMultiplier = 0f;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (attacking == false)
+            {
+                attacking = true;
+                attackBar.SetActive(true);
+            }
+            else 
+            {
+                attacking = false;
+                attackBar.SetActive(false);
+            }
+            attackMultiplier = 0;
+        }
         
     }
 }
