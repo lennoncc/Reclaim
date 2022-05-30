@@ -71,6 +71,12 @@ public class PlayerController : MonoBehaviour
         set => playerHealthBarController = value;
     }
 
+    public bool Attacking
+    {
+        get => attacking;
+        set => attacking = value;
+    }
+
     void Start()
     {
         attackTextPosition = new Vector3(6.8f, 5f, 0f);

@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     private float timeSinceStart;
     private int i;
     [SerializeField]
-    private BarController playerHealthBarController;
+    private PlayerController playerController;
     [SerializeField]
     private GameObject scrollingText;
     private Vector3 textPosition;
@@ -32,8 +32,8 @@ public class EnemyController : MonoBehaviour
         nextAttackTime = attackTimes[i];
         textPosition = new Vector3(2.5f, 5f, 0f);
         attacksFinished = false;
-        playerHealthBarController.Capacity = 100f;
-        playerHealthBarController.ChangeValueX(1f);
+        playerController.PlayerHealthBarController.Capacity = 100f;
+        playerController.PlayerHealthBarController.ChangeValueX(1f);
     }
 
     private void ShowScrollingText(string message)
@@ -46,13 +46,19 @@ public class EnemyController : MonoBehaviour
     private void Attack() {
         // TODO: Add enemy attack animation
         float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, attackMultiplier));
+        // Reduce damage if player is defending.
+        if (!playerController.Attacking)
+        {
+            // TODO: Add player defence animation.
+            damage = Mathf.Round(damage * (1/playerController.CurrentMultiplier));
+        }
         ShowScrollingText(damage.ToString());
-        float ratio = (playerHealthBarController.CurrentValue - damage) / playerHealthBarController.Capacity;
+        float ratio = (playerController.PlayerHealthBarController.CurrentValue - damage) / playerController.PlayerHealthBarController.Capacity;
         if (ratio < 0f)
         {
             ratio = 0f;
         }
-        playerHealthBarController.ChangeValueX(ratio);
+        playerController.PlayerHealthBarController.ChangeValueX(ratio);
     }
 
     void Update()
