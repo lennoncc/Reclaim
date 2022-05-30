@@ -19,8 +19,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private BarController thresholdController;
     [SerializeField]
-    private GameObject scrollingText;
-    private Vector3 textPosition;
+    private GameObject attackScrollingText;
+    [SerializeField]
+    private GameObject healScrollingText;
+    private Vector3 attackTextPosition;
+    private Vector3 healTextPosition;
     [SerializeField]
     private GameObject star1;
     [SerializeField]
@@ -70,7 +73,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        textPosition = new Vector3(6.8f, 5f, 0f);
+        attackTextPosition = new Vector3(6.8f, 5f, 0f);
+        healTextPosition = new Vector3(2.5f, 5f, 0f);
         attacking = true;
         attackBar.SetActive(true);
         currentMultiplier = 1f;
@@ -86,9 +90,9 @@ public class PlayerController : MonoBehaviour
         numStars = 0;
     }
 
-    private void ShowScrollingText(string message)
+    private void ShowScrollingText(string message, Vector3 textPosition, GameObject inScrollingText)
     {
-        var scrollingText = Instantiate(this.scrollingText, textPosition, Quaternion.identity);
+        var scrollingText = Instantiate(inScrollingText, textPosition, Quaternion.identity);
         scrollingText.GetComponent<TextMesh>().text = message;
     }
 
@@ -108,7 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         // TODO: Add player heal animation
         float health = 5f * currentMultiplier;
-        ShowScrollingText(health.ToString());
+        ShowScrollingText(health.ToString(), healTextPosition, healScrollingText);
         float ratio = (playerHealthBarController.CurrentValue + health) / playerHealthBarController.Capacity;
         if (ratio > 1f)
         {
@@ -121,7 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         // TODO: Add player attack animation
         float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, currentMultiplier));
-        ShowScrollingText(damage.ToString());
+        ShowScrollingText(damage.ToString(), attackTextPosition, attackScrollingText);
         float ratio = (thresholdController.CurrentValue - damage) / thresholdController.Capacity;
         if (ratio < 0f)
         {
