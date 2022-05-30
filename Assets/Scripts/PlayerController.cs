@@ -29,12 +29,15 @@ public class PlayerController : MonoBehaviour
     private GameObject star3;
     [SerializeField]
     private BarController playerHealthBarController;
+    [SerializeField]
+    private int numStars;
     
     public float CurrentMultiplier
     {
         get => currentMultiplier;
         set => currentMultiplier = value;
     }
+
     public int CurrentMultiplierIndex
     {
         get => currentMultiplierIndex;
@@ -46,12 +49,18 @@ public class PlayerController : MonoBehaviour
         get => multiplierTracker;
         set => multiplierTracker = value;
     }
+
     public int[] MultiplierThresholds
     {
         get => multiplierThresholds;
         set => multiplierThresholds = value;
     }
 
+    public int NumStars
+    {
+        get => numStars;
+        set => numStars = value;
+    }
 
     void Start()
     {
@@ -68,6 +77,7 @@ public class PlayerController : MonoBehaviour
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
+        numStars = 0;
     }
 
     private void ShowScrollingText(string message)
@@ -111,25 +121,26 @@ public class PlayerController : MonoBehaviour
         }
         thresholdController.ChangeValueX(ratio);
         EarnStars();
-        Debug.Log(currentMultiplier);
     }
 
     private void EarnStars()
     {
         if (thresholdController.CurrentValue <= 0)
         {
+            numStars = 3;
             star1.SetActive(true);
             star2.SetActive(true);
             star3.SetActive(true);
         }
         else if (thresholdController.CurrentValue <= 40)
         {
+            numStars = 2;
             star1.SetActive(true);
             star2.SetActive(true);
-
         } 
         else if (thresholdController.CurrentValue <= 75)
         {
+            numStars = 1;
             star1.SetActive(true);
         }
     }

@@ -32,11 +32,16 @@ public class GameManager : MonoBehaviour
     private Text scoreMultiText;
     [SerializeField]
     private Text multiText;
-    private float totalNotes = 10;  /*temporary value*/
+    [SerializeField]
+    private Text accuracyText;
+    [SerializeField]
+    private Text starsText;
+    private float numNotes;
     private float missedHits;
     private float okHits;
     private float goodHits;
     private float perfectHits;
+    private float percentAccuracy;
     [SerializeField]
     private GameObject resultsScreen;
     [SerializeField]
@@ -52,6 +57,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: 0";
         multiplierTracker = 0;
         currentMultiplier = 1;
+        numNotes = 0;
     }
 
     void Update()
@@ -80,13 +86,12 @@ public class GameManager : MonoBehaviour
                 okText.text = okHits.ToString();
                 goodText.text = goodHits.ToString();
                 perfectText.text = perfectHits.ToString();
+                starsText.text = playerController.NumStars.ToString();
 
-                float percentAccuracy = (((okHits * 0.5f) + (goodHits * 0.8f) + perfectHits) / totalNotes) * 100f;
                 // Show percentage as a float to 1 decimal place.
                 percentAccuracyText.text = percentAccuracy.ToString("F1") + "%";
-                finalScoreText.text = currentScore.ToString();
-
-                /*TODO: Get Stars value, Add Stars value to finalScoreText*/
+                float finalScore = currentScore + (10000 * playerController.NumStars);
+                finalScoreText.text = finalScore.ToString();
             }
         }
     }
@@ -114,30 +119,35 @@ public class GameManager : MonoBehaviour
                 currentMultiplier++;
             }
         }
+        numNotes++;
+        percentAccuracy = (((okHits * 0.5f) + (goodHits * 0.8f) + perfectHits) / numNotes) * 100f;
+        Debug.Log(percentAccuracy);
         scoreMultiText.text = "Score Multiplier: x" + currentMultiplier;
         currentScore += scorePerNote * currentMultiplier;
         scoreText.text = "Score: " + currentScore;
+        accuracyText.text = percentAccuracy.ToString("F1") + "%";
+        
     }
 
     public void OkHit()
     {
         currentScore += scorePerNote + currentScore;
-        NoteHit();
         okHits++;
+        NoteHit();
     }
 
     public void GoodHit()
     {
         currentScore += scorePerGoodNote + currentScore;
-        NoteHit();
         goodHits++;
+        NoteHit();
     }
 
     public void PerfectHit()
     {
         currentScore += scorePerPerfectNote + currentScore;
-        NoteHit();
         perfectHits++;
+        NoteHit();
     }
     public void NoteMissed()
     {
@@ -149,5 +159,8 @@ public class GameManager : MonoBehaviour
         multiplierTracker = 0;
         scoreMultiText.text = "Score Multiplier: x" + currentMultiplier;
         missedHits++;
+        numNotes++;
+        percentAccuracy = (((okHits * 0.5f) + (goodHits * 0.8f) + perfectHits) / numNotes) * 100f;
+        accuracyText.text = percentAccuracy.ToString("F1") + "%";
     }
 }
