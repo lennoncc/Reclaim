@@ -44,6 +44,7 @@ public class EnemyController : MonoBehaviour
 
     // Attack the player.
     private void Attack() {
+        // TODO: Add enemy attack animation
         float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, attackMultiplier));
         ShowScrollingText(damage.ToString());
         float ratio = (playerHealthBarController.CurrentValue - damage) / playerHealthBarController.Capacity;

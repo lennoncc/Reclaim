@@ -61,6 +61,12 @@ public class PlayerController : MonoBehaviour
         get => numStars;
         set => numStars = value;
     }
+    
+    public BarController PlayerHealthBarController
+    {
+        get => playerHealthBarController;
+        set => playerHealthBarController = value;
+    }
 
     void Start()
     {
@@ -100,6 +106,7 @@ public class PlayerController : MonoBehaviour
 
     public void Heal()
     {
+        // TODO: Add player heal animation
         float health = 5f * currentMultiplier;
         ShowScrollingText(health.ToString());
         float ratio = (playerHealthBarController.CurrentValue + health) / playerHealthBarController.Capacity;
@@ -112,6 +119,7 @@ public class PlayerController : MonoBehaviour
 
     public void Attack()
     {
+        // TODO: Add player attack animation
         float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, currentMultiplier));
         ShowScrollingText(damage.ToString());
         float ratio = (thresholdController.CurrentValue - damage) / thresholdController.Capacity;

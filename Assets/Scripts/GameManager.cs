@@ -78,6 +78,12 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            // The player dies,
+            if (playerController.PlayerHealthBarController.CurrentValue == 0f)
+            {
+                // TODO: Add player death animation
+                music.Stop();
+            }
             // Show the results at the end of the level.
             if (!music.isPlaying && !resultsScreen.activeInHierarchy)
             {
@@ -92,6 +98,14 @@ public class GameManager : MonoBehaviour
                 percentAccuracyText.text = percentAccuracy.ToString("F1") + "%";
                 float finalScore = currentScore + (10000 * playerController.NumStars);
                 finalScoreText.text = finalScore.ToString();
+            }
+            if (playerController.PlayerHealthBarController.CurrentValue == 0f || playerController.NumStars == 0)
+            {
+                // TODO: Fail level
+            }
+            else
+            {
+                // TODO: Button to go to next level
             }
         }
     }
@@ -121,7 +135,6 @@ public class GameManager : MonoBehaviour
         }
         numNotes++;
         percentAccuracy = (((okHits * 0.5f) + (goodHits * 0.8f) + perfectHits) / numNotes) * 100f;
-        Debug.Log(percentAccuracy);
         scoreMultiText.text = "Score Multiplier: x" + currentMultiplier;
         currentScore += scorePerNote * currentMultiplier;
         scoreText.text = "Score: " + currentScore;
