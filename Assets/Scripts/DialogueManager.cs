@@ -66,7 +66,7 @@ public class DialogueManager : MonoBehaviour
         {
             // Add character to sentence one by one.
             dialogueText.text += letter;
-            // Waits 1 frame to give animation effect.
+            // Waits 2 frame to give animation effect.
             yield return null;
             yield return null;
         }
