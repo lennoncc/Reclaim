@@ -1241,12 +1241,10 @@ MonoBehaviour:
   dialogue:
     name: Camber
     sentences:
-    - 'TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst
-      TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst
-      TEst TEst '
-    - 'TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst
-      TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst
-      TEst TEst '
+    - 'Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test
+      Test Test Test Test Test Test '
+    - 'Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test
+      Test Test Test Test Test Test '
 --- !u!114 &2126742279
 MonoBehaviour:
   m_ObjectHideFlags: 0
