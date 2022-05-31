@@ -1239,14 +1239,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Camber
+  - name: Camber
     sentences:
-    - 'TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst
-      TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst
-      TEst TEst '
-    - 'TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst
-      TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst TEst
-      TEst TEst '
+    - "My people\u2026 the village\u2026 who could have done this?"
+  - name: Unknown Voice
+    sentences:
+    - You did my dear.
+    - Where was the princess when they needed her most?
+  - name: Camber
+    sentences:
+    - "Who dares? I\u2019ll have your head!"
+  - name: Witch
+    sentences:
+    - "I\u2019ll give you more than my head, with a side of pain and fire for a doomed
+      princess."
+  - name: Camber
+    sentences:
+    - I fear no witch. On your knees!
 --- !u!114 &2126742279
 MonoBehaviour:
   m_ObjectHideFlags: 0

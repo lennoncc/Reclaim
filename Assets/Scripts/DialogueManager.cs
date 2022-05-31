@@ -13,26 +13,39 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    private Queue<Dialogue> dialogues;
+
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+        dialogues = new Queue<Dialogue>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void EnqueueDialogues(Dialogue[] dialogue)
+    {
+        // Queue each dialogue into dialogue queue
+        foreach (Dialogue buf in dialogue)
+        {
+            dialogues.Enqueue(buf);
+        }
+
+        StartDialogue();
+    }
+
+    public void StartDialogue()
     {
         animator.SetBool("IsOpen", true);
 
-        // Debug.Log("Starting dialogue with " + dialogue.name);
 
         // Display name in UI.
-        nameText.text = dialogue.name;
+        nameText.text = dialogues.Peek().name;
 
         // Clear previous dialogue.
         sentences.Clear();
-
+        
         // Add serialized sentences into queue.
-        foreach (string sentence in dialogue.sentences)
+        foreach (string sentence in dialogues.Peek().sentences)
         {
             sentences.Enqueue(sentence);
         }
@@ -45,8 +58,21 @@ public class DialogueManager : MonoBehaviour
         // Check if there are more sentences in queue.
         if (sentences.Count == 0)
         {
-            EndDialogue();
-            return;
+            // Finished working with this particular dialogue, move on to next one
+            dialogues.Dequeue();
+            // If there are still more dialogues to run, run again
+            if (dialogues.Count != 0)
+            {
+                StartDialogue();
+                return; // It took me an hour to figure out I needed this :)
+            }
+            // No more Dialogues left, close dialogue box
+            else
+            {
+                EndDialogue();
+                return;
+            }
+            
         }
         // Get next sentence in queue.
         string sentence = sentences.Dequeue();
@@ -55,7 +81,6 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
         // Call Coroutine to display dialogue in UI.
         StartCoroutine(TypeSentence(sentence));
-        // Debug.Log(sentence);
     }
 
     // Coroutine to loop through each character in sentence. Used to add typed text effect.
