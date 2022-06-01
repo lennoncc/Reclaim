@@ -8,10 +8,13 @@ public class CamberMovement : MonoBehaviour
     public float jumpForce = 35; // Realistic when gravity scale under rigidbody2D is 9.8
     Vector2 move;
     Rigidbody2D rb;
+
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = this.gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,7 +43,7 @@ public class CamberMovement : MonoBehaviour
             FindObjectOfType<SoundManager>().PlayMusicTrack("Act2");
         }
         // Animation link
-        var animator = this.gameObject.GetComponent<Animator>();
+        // var animator = this.gameObject.GetComponent<Animator>();
         animator.SetFloat("Velocity", Mathf.Abs(this.gameObject.GetComponent<Rigidbody2D>().velocity.x/5.0f));
     }
 
