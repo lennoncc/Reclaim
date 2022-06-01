@@ -8,7 +8,9 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue ()
     {
+        FindObjectOfType<PanCamera>().enabled = true;
         FindObjectOfType<DialogueManager>().EnqueueDialogues(dialogue);
+        // FindObjectOfType<PanCamera>().enabled = true;
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,6 +21,8 @@ public class DialogueTrigger : MonoBehaviour
             // other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             other.GetComponent<CamberMovement>().animator.SetFloat("Velocity", 0);
             other.GetComponent<CamberMovement>().enabled = false;
+            FindObjectOfType<PanCamera>().enabled = true;
+
             // GameObject.Find("Camber").GetComponent<CamberMovement>().enabled = false;
         }
         
