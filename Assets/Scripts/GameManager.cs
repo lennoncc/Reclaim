@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
                 // music.Play();
                 FindObjectOfType<SoundManager>().PlayMusicTrack(trackTitle);
                 music = FindObjectOfType<SoundManager>()._trackPlaying.audioSource;
+                //this.GetComponent<ArrowFactory>().Build();
             }
         }
         else

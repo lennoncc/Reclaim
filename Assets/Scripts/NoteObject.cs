@@ -13,6 +13,12 @@ public class NoteObject : MonoBehaviour
     [SerializeField]
     private PlayerController playerController;
 
+    public PlayerController PlayerController
+    {
+        get => playerController;
+        set => playerController = value;
+    }
+
     void Start()
     {
         effectPosition = new Vector3(transform.position.x, 0f, transform.position.z);
