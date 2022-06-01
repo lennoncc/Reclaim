@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Prologue.unity
     guid: bf7a972c8ccd1bd4083675967836d2a4
   - enabled: 1
+    path: Assets/Scenes/Level.unity
+    guid: 77bedd303a3513d4387d960f3c977fce
+  - enabled: 1
     path: Assets/Scenes/TempFailScreen.unity
     guid: 7362b1e72dc67ae41a27e94d275beac2
   m_configObjects: {}
