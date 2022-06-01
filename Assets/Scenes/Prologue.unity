@@ -439,26 +439,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: A long time ago...
+  - name: A long time ago...
     sentences:
-    - 'A time where kingdoms rose and fell, one endured for generations: Amogus'
+    - "A time where kingdoms rose and fell, one endured for generations: Amogus\r"
     - "Under King Sus and Queen Ventria, its lands and borders stretched far and
       wide, and the people were happy.\r"
-    - 'Two children, close to adulthood:'
-    - The eldest daughter, Princess Camber, known for her music, intelligence, and
-      archery
-    - And the younger son, Prince Elec, for his eccentricity, bravery, and swordsmanship
-    - But their enemies were jealous, and witchcraft and sinister plots began to
-      brew.
-    - A coup was staged, and the walls of the castle were breached. The King and
-      Queen were slain, and Amogus fell into panic and despair.
+    - "Two children, close to adulthood:\r"
+    - "The eldest daughter, Princess Camber, known for her music, intelligence, and
+      archery\r"
+    - "And the younger son, Prince Elec, for his eccentricity, bravery, and swordsmanship\r"
+    - "But their enemies were jealous, and witchcraft and sinister plots began to
+      brew.\r"
+    - "A coup was staged, and the walls of the castle were breached. The King and
+      Queen were slain, and Amogus fell into panic and despair.\r"
     - "The two children fled the capitol by their parents\u2019 will, but Elec was
       found and stolen away by the enemy: a rival kingdom who wielded the dark arts
-      and witchcraft."
-    - Camber escaped the enemy, throwing herself into a river and down a waterfall,
-      where her fate was left for dead.
-    - Many days pass by, and we find Camber washed up by the shore. She stirs.
-    - We follow Camber now, lost in her fallen world.
+      and witchcraft.\r"
+    - "Camber escaped the enemy, throwing herself into a river and down a waterfall,
+      where her fate was left for dead.\r"
+    - "Many days pass by, and we find Camber washed up by the shore. She stirs.\r"
+    - "We follow Camber now, lost in her fallen world.\r"
 --- !u!114 &791923528
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// Source: https://www.youtube.com/watch?v=_nRzoTzeyxU (Dialogue Manager tutorial)
+
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
