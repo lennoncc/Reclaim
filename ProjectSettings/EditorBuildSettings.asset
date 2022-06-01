@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TempFailScreen.unity
     guid: 7362b1e72dc67ae41a27e94d275beac2
+  - enabled: 1
+    path: Assets/Scenes/SideScroll.unity
+    guid: bc3efbde28bccf94099ab09ddc45f3f1
   m_configObjects: {}
