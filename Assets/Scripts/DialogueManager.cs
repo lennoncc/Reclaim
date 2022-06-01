@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// Source: https://www.youtube.com/watch?v=_nRzoTzeyxU (Dialogue Manager tutorial)
+
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
@@ -13,7 +15,11 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
-    private Queue<Dialogue> dialogues;
+    public Queue<Dialogue> dialogues;
+
+
+    private bool _isDone = false;
+    public bool isDone => _isDone;
 
     // Start is called before the first frame update
     void Start()
@@ -101,5 +107,6 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         Debug.Log("End of dialogue.");
+        _isDone = true;
     }
 }

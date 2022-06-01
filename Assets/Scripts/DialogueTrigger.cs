@@ -14,12 +14,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(other && other.tag == "Camber")
         {
-            // Debug.Log(other.tag);
             FindObjectOfType<DialogueManager>().EnqueueDialogues(dialogue);
-            // other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            other.GetComponent<CamberMovement>().animator.SetFloat("Velocity", 0);
-            other.GetComponent<CamberMovement>().enabled = false;
-            // GameObject.Find("Camber").GetComponent<CamberMovement>().enabled = false;
         }
         
     }
