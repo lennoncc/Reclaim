@@ -6,6 +6,9 @@ public class InGameDialogueTrigger : MonoBehaviour
 {
     public Dialogue[] dialogue;
 
+    [SerializeField]
+    public string nextScene;
+
     // public void TriggerDialogue ()
     // {
     //     FindObjectOfType<PanCamera>().enabled = true;
@@ -23,9 +26,15 @@ public class InGameDialogueTrigger : MonoBehaviour
             other.GetComponent<CamberMovement>().enabled = false;
             FindObjectOfType<PanCamera>().enabled = true;
             FindObjectOfType<DialogueController>().enabled = true;
-
             // GameObject.Find("Camber").GetComponent<CamberMovement>().enabled = false;
         }
         
+    }
+    void Update()
+    {
+        if (FindObjectOfType<DialogueManager>().isDone == true)
+        {
+            FindObjectOfType<SceneSwitchTrigger>().LoadScene(nextScene);
+        }
     }
 }

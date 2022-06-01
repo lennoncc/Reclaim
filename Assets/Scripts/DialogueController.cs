@@ -15,7 +15,10 @@ public class DialogueController : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            FindObjectOfType<DialogueManager>().DisplayNextSentence();
+            if(FindObjectOfType<DialogueManager>().dialogues.Count > 0)
+            {
+                FindObjectOfType<DialogueManager>().DisplayNextSentence();
+            }
             // Debug.Log("BRUH");
         }
         
