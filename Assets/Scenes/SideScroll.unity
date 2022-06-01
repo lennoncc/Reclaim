@@ -3688,8 +3688,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1374234753}
   - component: {fileID: 1374234752}
-  - component: {fileID: 1374234751}
   - component: {fileID: 1374234754}
+  - component: {fileID: 1374234751}
   m_Layer: 0
   m_Name: DialogueCollider
   m_TagString: Untagged
@@ -3706,7 +3706,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1374234750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96f01501b984215459f56fdc80b095b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 65aa6184f6a3ee440a18332a5f8838fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
