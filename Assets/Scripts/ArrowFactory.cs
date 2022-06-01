@@ -14,7 +14,7 @@ public class ArrowFactory : MonoBehaviour
         gameObj.GetComponent<NoteObject>().PlayerController = GameObject.Find("Camber").GetComponent<PlayerController>();
         return gameObj;
     }
-        void Update()
+    void Update()
     {
         if (Input.anyKeyDown)
         {

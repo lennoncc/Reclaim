@@ -1751,6 +1751,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287a76cd91f44fc45bdc72d44ac08f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  left: {fileID: 8974206722079324963, guid: 3c65f4852b6211a42a202e2578c87fcf, type: 3}
+  down: {fileID: 6703546588377739297, guid: 75df0699c75f4436b865754e857cffc0, type: 3}
+  up: {fileID: 2760841562809810950, guid: ad69edf3f1f284023b78f3aee760e2cb, type: 3}
+  right: {fileID: 1805926922868109989, guid: cbd7af802d0f84ff7ab64f680335ae9b, type: 3}
 --- !u!1 &685974342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,6 +1766,7 @@ GameObject:
   - component: {fileID: 685974343}
   - component: {fileID: 685974344}
   - component: {fileID: 685974345}
+  - component: {fileID: 685974346}
   m_Layer: 0
   m_Name: NoteHolder
   m_TagString: Untagged
@@ -1809,6 +1814,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 6703546588377739297, guid: 75df0699c75f4436b865754e857cffc0, type: 3}
+--- !u!114 &685974346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685974342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287a76cd91f44fc45bdc72d44ac08f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  left: {fileID: 8974206722079324963, guid: 3c65f4852b6211a42a202e2578c87fcf, type: 3}
+  down: {fileID: 6703546588377739297, guid: 75df0699c75f4436b865754e857cffc0, type: 3}
+  up: {fileID: 2760841562809810950, guid: ad69edf3f1f284023b78f3aee760e2cb, type: 3}
+  right: {fileID: 1805926922868109989, guid: cbd7af802d0f84ff7ab64f680335ae9b, type: 3}
 --- !u!1 &709511003
 GameObject:
   m_ObjectHideFlags: 0
