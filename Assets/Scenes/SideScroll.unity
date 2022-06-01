@@ -3659,6 +3659,7 @@ GameObject:
   - component: {fileID: 1374234753}
   - component: {fileID: 1374234752}
   - component: {fileID: 1374234751}
+  - component: {fileID: 1374234754}
   m_Layer: 0
   m_Name: DialogueCollider
   m_TagString: Untagged
@@ -3736,6 +3737,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1374234754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374234750}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ff27a830ed84b4e926053a873404fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlCamera: {fileID: 1016370051}
+  howFar: 40
+  speed: 0.3
+  desiredPos: {x: 0, y: 0, z: 0}
+  currentPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1455424566
 GameObject:
   m_ObjectHideFlags: 0
@@ -4553,7 +4571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a57d7d6b26457043813e24c66a9a2d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 750
+  speed: 1250
   jumpForce: 35
   animator: {fileID: 0}
 --- !u!212 &1887941383
