@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private float minDamage = 2;
-    private float maxDamage = 3;
-    private float attackMultiplier = 1;
+    private float minDamage = 10;
+    private float maxDamage = 11;
     private float[] attackTimes = {10f, 18.5f ,31f, 40f, 64f, 95f}; /* temp */
     private float nextAttackTime;
     private float timeSinceStart;
@@ -16,6 +15,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private GameObject scrollingText;
     private Vector3 textPosition;
+    private bool attacking;
     private bool attacksFinished;
     private bool hasStarted;
 
@@ -27,10 +27,11 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+        attacking = false;
         timeSinceStart = 0;
         i = 0;
-        nextAttackTime = attackTimes[i];
-        textPosition = new Vector3(2.5f, 5f, 0f);
+        nextAttackTime = attackTimes[0];
+        textPosition = new Vector3(3.5f, 5f, 0f);
         attacksFinished = false;
         playerController.PlayerHealthBarController.Capacity = 100f;
         playerController.PlayerHealthBarController.ChangeValueX(1f);
@@ -43,23 +44,24 @@ public class EnemyController : MonoBehaviour
     }
 
     // Attack the player.
-    private void Attack() {
-        // TODO: Add enemy attack animation
-        GameObject.Find("EnemyCaptain 1").GetComponent<Animator>().SetBool("IsAttacking", true);
-        float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, attackMultiplier));
-        // Reduce damage if player is defending.
-        if (!playerController.Attacking)
-        {
-            // TODO: Add player defence animation.
-            damage = Mathf.Round(damage * (1/playerController.CurrentMultiplier));
+    public void Attack(float attackMultiplier) {
+        if (attacking) {
+            // Full damage if player is in attack mode while enemy is attacking.
+            if (playerController.Attacking)
+            {
+                attackMultiplier = 1f;
+            }
+            // TODO: Add enemy attack animation
+    // GameObject.Find("EnemyCaptain 1").GetComponent<Animator>().SetBool("IsAttacking", true);
+            float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, attackMultiplier));
+            ShowScrollingText(damage.ToString());
+            float ratio = (playerController.PlayerHealthBarController.CurrentValue - damage) / playerController.PlayerHealthBarController.Capacity;
+            if (ratio < 0f)
+            {
+                ratio = 0f;
+            }
+            playerController.PlayerHealthBarController.ChangeValueX(ratio);
         }
-        ShowScrollingText(damage.ToString());
-        float ratio = (playerController.PlayerHealthBarController.CurrentValue - damage) / playerController.PlayerHealthBarController.Capacity;
-        if (ratio < 0f)
-        {
-            ratio = 0f;
-        }
-        playerController.PlayerHealthBarController.ChangeValueX(ratio);
     }
 
     void Update()
@@ -67,9 +69,10 @@ public class EnemyController : MonoBehaviour
         if (hasStarted) {
             if (attacksFinished == false) {
                 // Time for next attack.
-                if (timeSinceStart >= nextAttackTime)
+                if (timeSinceStart >= nextAttackTime && attacking == false)
                 {
-                    Attack();
+                    attacking = true;
+                    GameObject.Find("EnemyCaptain 1").GetComponent<Animator>().SetBool("IsAttacking", true);
                     // Get the next attack time if there is one.
                     if (i + 1 < attackTimes.Length)
                     {
@@ -81,9 +84,26 @@ public class EnemyController : MonoBehaviour
                         attacksFinished = true;
                         GameObject.Find("EnemyCaptain 1").GetComponent<Animator>().SetBool("IsAttacking", false);
                     }
-                }
-                timeSinceStart += Time.deltaTime;
+                } 
+                if (timeSinceStart >= nextAttackTime && attacking == true)
+                {
+                    // TODO: dtop enemy attack animation
+                    attacking = false;
+                    GameObject.Find("EnemyCaptain 1").GetComponent<Animator>().SetBool("IsAttacking", false);
+                    // Get the next attack time if there is one.
+                    if (i + 1 < attackTimes.Length)
+                    {
+                        i++;
+                        nextAttackTime = attackTimes[i];
+                    }
+                    else
+                    {
+                        attacksFinished = true;
+                        GameObject.Find("EnemyCaptain 1").GetComponent<Animator>().SetBool("IsAttacking", false);
+                    }
+                } 
             }
+             timeSinceStart += Time.deltaTime;
         }
     }
 }

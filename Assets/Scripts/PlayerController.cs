@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         attackTextPosition = new Vector3(6.8f, 5f, 0f);
-        healTextPosition = new Vector3(2.5f, 5f, 0f);
+        healTextPosition = new Vector3(1.5f, 5f, 0f);
         attacking = true;
         attackBar.SetActive(true);
         currentMultiplier = 1f;
@@ -200,8 +200,11 @@ public class PlayerController : MonoBehaviour
             }
             else 
             {
-                Heal();
-                gaugeController.ChangeValueY(0f);
+                if (playerHealthBarController.CurrentValue != 100f)
+                {
+                    Heal();
+                    gaugeController.ChangeValueY(0f);
+                }
             }
         }
         if (gaugeController.CurrentValue > 0f)

@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     {
         get => instance;
     }
+
     void Start()
     {
         instance = this;
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // The player dies,
+            // The player dies.
             if (playerController.PlayerHealthBarController.CurrentValue == 0f)
             {
                 // TODO: Add player death animation
@@ -148,6 +149,8 @@ public class GameManager : MonoBehaviour
         currentScore += scorePerNote + currentScore;
         okHits++;
         NoteHit();
+        enemyController.Attack(0.8f);
+
     }
 
     public void GoodHit()
@@ -155,6 +158,7 @@ public class GameManager : MonoBehaviour
         currentScore += scorePerGoodNote + currentScore;
         goodHits++;
         NoteHit();
+        enemyController.Attack(0.5f);
     }
 
     public void PerfectHit()
@@ -162,6 +166,7 @@ public class GameManager : MonoBehaviour
         currentScore += scorePerPerfectNote + currentScore;
         perfectHits++;
         NoteHit();
+        enemyController.Attack(0f);
     }
     public void NoteMissed()
     {
@@ -176,5 +181,6 @@ public class GameManager : MonoBehaviour
         numNotes++;
         percentAccuracy = (((okHits * 0.5f) + (goodHits * 0.8f) + perfectHits) / numNotes) * 100f;
         accuracyText.text = percentAccuracy.ToString("F1") + "%";
+        enemyController.Attack(1f);
     }
 }
