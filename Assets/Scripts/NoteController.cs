@@ -8,7 +8,7 @@ public class NoteController : MonoBehaviour
     // The beats per minute of the song.
     private float BPM = 120f;
     // Determines the speed at which the notes fall.
-    private float speed = 60f;
+    private float speed = 20f;
     private bool hasStarted;
 
     public bool HasStarted
