@@ -811,7 +811,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.502
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2027,7 +2027,7 @@ MonoBehaviour:
   musicMixerGroup: {fileID: 24300002, guid: 063110a1cea16574d9ccac3e87379e1c, type: 2}
   sfxMixerGroup: {fileID: 24300002, guid: 063110a1cea16574d9ccac3e87379e1c, type: 2}
   musicTracks:
-  - clip: {fileID: 8300000, guid: 6509c6633ff6ae44dbc85e0e545f5079, type: 3}
+  - clip: {fileID: 8300000, guid: f57171d4a60a70c4386af30ca7a52797, type: 3}
     audioSource: {fileID: 0}
     title: TitleScreen
     volume: 1

@@ -13,5 +13,6 @@ public class VolumeController : MonoBehaviour
     public void SetVolume(float sliderValue)
     {
         myAudioMixer.SetFloat(this.Slider, Mathf.Log10(sliderValue) * 20);
+        PlayerPrefs.SetFloat("MasterVolume", sliderValue);
     }
 }
