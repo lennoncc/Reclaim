@@ -193,6 +193,8 @@ public class PlayerController : MonoBehaviour
         {
             if (attacking)
             {
+                // GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsCharging", false);
+                GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
                 Attack();
                 gaugeController.ChangeValueY(0f);
             }
@@ -200,6 +202,13 @@ public class PlayerController : MonoBehaviour
             {
                 Heal();
                 gaugeController.ChangeValueY(0f);
+            }
+        }
+        if (gaugeController.CurrentValue > 0f)
+        {
+            if(attacking)
+            {
+                GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsCharging", true);
             }
         }
     }

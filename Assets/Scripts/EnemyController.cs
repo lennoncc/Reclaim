@@ -45,6 +45,7 @@ public class EnemyController : MonoBehaviour
     // Attack the player.
     private void Attack() {
         // TODO: Add enemy attack animation
+        GameObject.Find("EnemyCaptain 1").GetComponent<Animator>().SetBool("IsAttacking", true);
         float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, attackMultiplier));
         // Reduce damage if player is defending.
         if (!playerController.Attacking)
@@ -78,6 +79,7 @@ public class EnemyController : MonoBehaviour
                     else
                     {
                         attacksFinished = true;
+                        GameObject.Find("EnemyCaptain 1").GetComponent<Animator>().SetBool("IsAttacking", false);
                     }
                 }
                 timeSinceStart += Time.deltaTime;
