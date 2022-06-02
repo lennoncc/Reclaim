@@ -3764,7 +3764,7 @@ MonoBehaviour:
   - name: Camber
     sentences:
     - I fear no witch. On your knees!
-  nextScene: SceneForDemo
+  nextScene: LevelTemplate
 --- !u!61 &1374234752
 BoxCollider2D:
   m_ObjectHideFlags: 0
