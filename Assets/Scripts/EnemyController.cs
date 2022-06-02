@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private float minDamage = 20;
-    private float maxDamage = 50;
+    private float minDamage = 2;
+    private float maxDamage = 3;
     private float attackMultiplier = 1;
-    private float[] attackTimes = {3, 6, 9, 12}; /* temp */
+    private float[] attackTimes = {10f, 18.5f ,31f, 40f, 64f, 95f}; /* temp */
     private float nextAttackTime;
     private float timeSinceStart;
     private int i;

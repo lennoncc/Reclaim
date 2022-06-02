@@ -18,7 +18,7 @@ public class ArrowFactory : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            this.Build();
+            // this.Build();
         }
     }
 

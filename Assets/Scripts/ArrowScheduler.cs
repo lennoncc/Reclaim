@@ -11,6 +11,10 @@ public class ArrowScheduler : MonoBehaviour
     [SerializeField] private GameObject down;
     [SerializeField] private GameObject up;
     [SerializeField] private GameObject right;
+    private float songTime = 0;
+    private ArrowSpec curSpec;
+    private bool moreArrows = true;
+    private bool hasStarted = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +24,7 @@ public class ArrowScheduler : MonoBehaviour
         while(!inp_stm.EndOfStream)
         {
             string inp_ln = inp_stm.ReadLine( );
-            Debug.Log(inp_ln);
+            // Debug.Log(inp_ln);
             string[] parameters = inp_ln.Split(' ');
             ArrowSpec specs = new ArrowSpec();
             specs.direction = int.Parse(parameters[0]);
@@ -42,19 +46,55 @@ public class ArrowScheduler : MonoBehaviour
             }
             q.Enqueue(specs);
         }
+        curSpec = (ArrowSpec)q.Dequeue();
         inp_stm.Close();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (q.Count > 0) 
-        { 
-            ArrowSpec curSpec;
-            curSpec = (ArrowSpec)q.Dequeue();
-            var gameObj = Instantiate(curSpec.arrow, curSpec.arrow.transform.position, Quaternion.identity);
-            gameObj.transform.parent = gameObject.transform;
-            gameObj.GetComponent<NoteObject>().PlayerController = GameObject.Find("Camber").GetComponent<PlayerController>();
+        if (hasStarted) {
+            this.songTime += Time.deltaTime * 1000;
+            Debug.Log(songTime);
+            if (songTime >= curSpec.hitTime - 1500) 
+            {
+                if (moreArrows == true) {
+                    var gameObj = Instantiate(curSpec.arrow, curSpec.arrow.transform.position, Quaternion.identity);
+                    gameObj.transform.parent = gameObject.transform;
+                    gameObj.GetComponent<NoteObject>().PlayerController = GameObject.Find("Camber").GetComponent<PlayerController>();
+                    if (q.Count == 0) 
+                    { 
+                        moreArrows = false;
+                    }
+                }
+                if (q.Count > 0) 
+                { 
+                    curSpec = (ArrowSpec)q.Dequeue();
+                    // double araoroarws 
+                    if (songTime >= curSpec.hitTime - 1500)  
+                    {
+                        var gameObj = Instantiate(curSpec.arrow, curSpec.arrow.transform.position, Quaternion.identity);
+                        gameObj.transform.parent = gameObject.transform;
+                        gameObj.GetComponent<NoteObject>().PlayerController = GameObject.Find("Camber").GetComponent<PlayerController>();
+                        if (q.Count == 0) 
+                        { 
+                            moreArrows = false;
+                        }
+                        if (q.Count > 0) 
+                        {
+                            curSpec = (ArrowSpec)q.Dequeue();
+                        }
+                    }
+                }
+            }
+        }
+        else 
+        {
+            if (Input.anyKeyDown)
+            {
+                hasStarted = true;
+                this.songTime = 0;
+            }
         }
     }
 }
