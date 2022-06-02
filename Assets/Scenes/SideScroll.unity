@@ -3757,14 +3757,14 @@ MonoBehaviour:
   - name: Camber
     sentences:
     - "Who dares? I\u2019ll have your head!"
-  - name: Witch
+  - name: Unknown Voice
     sentences:
     - "I\u2019ll give you more than my head, with a side of pain and fire for a doomed
       princess."
   - name: Camber
     sentences:
     - I fear no witch. On your knees!
-  nextScene: Level
+  nextScene: SceneForDemo
 --- !u!61 &1374234752
 BoxCollider2D:
   m_ObjectHideFlags: 0
