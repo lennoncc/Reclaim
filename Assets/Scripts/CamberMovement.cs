@@ -15,6 +15,7 @@ public class CamberMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = this.gameObject.GetComponent<Animator>();
+        animator.SetBool("IsSideScrolling", true);
     }
 
     // Update is called once per frame
