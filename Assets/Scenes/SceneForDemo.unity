@@ -4395,6 +4395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 42238769}
   scrollingText: {fileID: 363838215371788088, guid: e4fd9f8a8dc84964488cd9c24e8aa65a, type: 3}
+  animator: {fileID: 0}
 --- !u!212 &1776183046
 SpriteRenderer:
   m_ObjectHideFlags: 0
