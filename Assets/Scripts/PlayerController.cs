@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
         star2.SetActive(false);
         star3.SetActive(false);
         numStars = 0;
+        GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsCharging", true);
     }
 
     private void ShowScrollingText(string message, Vector3 textPosition, GameObject inScrollingText)
@@ -130,6 +131,10 @@ public class PlayerController : MonoBehaviour
     public void Attack()
     {
         // TODO: Add player attack animation
+        GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
+        GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", false);
+
+        Debug.Log("attacking");
         float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, currentMultiplier));
         ShowScrollingText(damage.ToString(), attackTextPosition, attackScrollingText);
         float ratio = (thresholdController.CurrentValue - damage) / thresholdController.Capacity;
@@ -173,15 +178,20 @@ public class PlayerController : MonoBehaviour
         // Toggle between attack and defense mode.
         if (Input.GetButtonDown("Jump"))
         {
+            // Attacking
             if (attacking == false)
             {
+                GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", false);
                 attacking = true;
                 attackBar.SetActive(true);
             }
+            // Defend
             else 
             {
                 attacking = false;
                 attackBar.SetActive(false);
+                GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", true);
+
             }
             gaugeController.ChangeValueY(0f);
             currentMultiplierIndex = 1;
@@ -193,8 +203,7 @@ public class PlayerController : MonoBehaviour
         {
             if (attacking)
             {
-                // GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsCharging", false);
-                GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
+                GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsCharging", false);
                 Attack();
                 gaugeController.ChangeValueY(0f);
             }
