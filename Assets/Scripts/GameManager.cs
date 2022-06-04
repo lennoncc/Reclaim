@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour
             {
                 // TODO: Add player death animation
                 music.Stop();
+                GameObject.Find("Camber").GetComponent<Animator>().SetBool("isDead", true);
+
             }
             // Show the results at the end of the level.
             if (!music.isPlaying && !resultsScreen.activeInHierarchy)

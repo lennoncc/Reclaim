@@ -21,6 +21,7 @@ public class CamberMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("IsSideScrolling", true);
         // "move" detects the direction of movement Camber is moving to, provided from GetAxisRaw()
         move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 

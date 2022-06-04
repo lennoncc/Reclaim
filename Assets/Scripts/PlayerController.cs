@@ -174,6 +174,8 @@ public class PlayerController : MonoBehaviour
         if (playerHealthBarController.CurrentValue == 0f)
         {
             // TODO: death animation, end the level, level failed pop up screen
+            GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsDead", true);
+
         }
         // Toggle between attack and defense mode.
         if (Input.GetButtonDown("Jump"))
