@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516368aca8faea845bf8b713f78c25d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonToPress: Up
+  buttonToPress: UpR
   missEffect: {fileID: 3460899148889797175, guid: 161c36670a506ac4a85d052f0333873b, type: 3}
   hitEffect: {fileID: 3053930009363467911, guid: c4b534d40807c934780dc7dc01de85c4, type: 3}
   goodEffect: {fileID: 4478669061789546741, guid: c9847fedf27563f41af6ffd4852175f3, type: 3}
