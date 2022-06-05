@@ -3294,6 +3294,7 @@ MonoBehaviour:
   down: {fileID: 944491787293912554, guid: d7b538b7c468546a786aa9d58b4bc33e, type: 3}
   up: {fileID: 664993511003757887, guid: b3c6430c87f4c4bbfa1804e89c066d36, type: 3}
   right: {fileID: 8717618017089671365, guid: 8af981216925940f49b800129f1cf6b9, type: 3}
+  levelFile: 
 --- !u!1001 &677836743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3455,6 +3456,7 @@ MonoBehaviour:
   down: {fileID: 944491787293912554, guid: d7b538b7c468546a786aa9d58b4bc33e, type: 3}
   up: {fileID: 664993511003757887, guid: b3c6430c87f4c4bbfa1804e89c066d36, type: 3}
   right: {fileID: 8717618017089671365, guid: 8af981216925940f49b800129f1cf6b9, type: 3}
+  levelFile: Prologlevel
 --- !u!1 &709511003
 GameObject:
   m_ObjectHideFlags: 0

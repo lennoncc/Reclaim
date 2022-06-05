@@ -11,16 +11,20 @@ public class ArrowScheduler : MonoBehaviour
     [SerializeField] private GameObject down;
     [SerializeField] private GameObject up;
     [SerializeField] private GameObject right;
+    [SerializeField] private string levelFile;
     private float songTime = 0;
     private ArrowSpec curSpec;
     private bool moreArrows = true;
     private bool hasStarted = false;
+
     // Start is called before the first frame update
     void Start()
     {
         // reads in the level
-        var file_path = Resources.Load<TextAsset>("Prologlevel");
-        string input = file_path.text;
+        // TextAsset file_path = new TextAsset();
+        Object file_path = Resources.Load<TextAsset>(levelFile);
+        Debug.Log(file_path);
+        string input = file_path.ToString();
         // Debug.Log(file_path);
         // string file_path = "./Assets/Resources/Prologlevel.txt";
         // StreamReader inp_stm = new StreamReader(file_path);
