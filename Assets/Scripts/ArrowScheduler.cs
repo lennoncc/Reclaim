@@ -29,7 +29,6 @@ public class ArrowScheduler : MonoBehaviour
         foreach (string inp_ln in inp_stm)
         {
             // string inp_ln = inp_stm.ReadLine( );
-            Debug.Log(inp_ln);
             string[] parameters = inp_ln.Split(' ');
             ArrowSpec specs = new ArrowSpec();
             specs.direction = int.Parse(parameters[0]);
@@ -60,7 +59,6 @@ public class ArrowScheduler : MonoBehaviour
     {
         if (hasStarted) {
             this.songTime += Time.deltaTime * 1000;
-            Debug.Log(songTime);
             if (songTime >= curSpec.hitTime - 1500) 
             {
                 if (moreArrows == true) {
