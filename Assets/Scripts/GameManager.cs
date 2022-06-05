@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     private GameObject resultsScreen;
     [SerializeField]
     private GameObject gameOverScreen;
+    [SerializeField]
     private Text percentAccuracyText, missedText, okText, goodText, perfectText, finalScoreText;
 
     public static GameManager Instance
@@ -86,17 +87,14 @@ public class GameManager : MonoBehaviour
             // The player dies.
             if (playerController.PlayerHealthBarController.CurrentValue == 0f)
             {
-                // TODO: Add player death animation
                 music.Stop();
-
             }
             if ((playerController.PlayerHealthBarController.CurrentValue == 0f || playerController.NumStars == 0) && !music.isPlaying)
             {
-                // TODO: Fail level
                 gameOverScreen.SetActive(true);
             }
             // Show the results at the end of the level.
-            if (!music.isPlaying && playerController.NumStars > 0 && !resultsScreen.activeInHierarchy)
+            if (!music.isPlaying && !resultsScreen.activeInHierarchy)
             {
                 resultsScreen.SetActive(true);
                 missedText.text = missedHits.ToString();

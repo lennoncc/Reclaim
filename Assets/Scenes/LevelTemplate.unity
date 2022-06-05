@@ -3272,6 +3272,12 @@ MonoBehaviour:
   starsText: {fileID: 1294892955}
   resultsScreen: {fileID: 766832845}
   gameOverScreen: {fileID: 416408983}
+  percentAccuracyText: {fileID: 1903861623}
+  missedText: {fileID: 325538177}
+  okText: {fileID: 1991264647}
+  goodText: {fileID: 1982387921}
+  perfectText: {fileID: 723331160}
+  finalScoreText: {fileID: 745663033}
 --- !u!114 &670142936
 MonoBehaviour:
   m_ObjectHideFlags: 0
