@@ -118,6 +118,8 @@ public class PlayerController : MonoBehaviour
     public void Heal()
     {
         // TODO: Add player heal animation
+        GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsHealing", true);
+
         float health = 5f * currentMultiplier;
         ShowScrollingText(health.ToString(), healTextPosition, healScrollingText);
         float ratio = (playerHealthBarController.CurrentValue + health) / playerHealthBarController.Capacity;
@@ -193,7 +195,6 @@ public class PlayerController : MonoBehaviour
                 attacking = false;
                 attackBar.SetActive(false);
                 GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", true);
-
             }
             gaugeController.ChangeValueY(0f);
             currentMultiplierIndex = 1;
@@ -223,6 +224,10 @@ public class PlayerController : MonoBehaviour
             if(attacking)
             {
                 GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsCharging", true);
+            }
+            else 
+            {
+                GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsHealing", false);
             }
         }
     }
