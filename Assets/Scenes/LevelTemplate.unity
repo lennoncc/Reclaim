@@ -370,7 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultImage: {fileID: 21300000, guid: ea1c3665a0528442cbeeed901d2404fe, type: 3}
   pressedImage: {fileID: 21300000, guid: e297fd057cd534bb5bdc6c9955d2bf3f, type: 3}
-  buttonToPress: Up
+  buttonToPress: UpR
 --- !u!50 &42740292
 Rigidbody2D:
   serializedVersion: 4
@@ -2028,7 +2028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultImage: {fileID: 21300000, guid: 7adbf6a37e9df419aa8309bf8254e49a, type: 3}
   pressedImage: {fileID: 21300000, guid: cef2d8df78e8e4420bf4eeebbdc9936e, type: 3}
-  buttonToPress: Down
+  buttonToPress: DownR
 --- !u!50 &335185283
 Rigidbody2D:
   serializedVersion: 4
@@ -2388,7 +2388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultImage: {fileID: 21300000, guid: 48b7cd1d2b3d74e0fa5bfc9a1d3b3345, type: 3}
   pressedImage: {fileID: 21300000, guid: 3fdf024b145044054a49f1895df04d1a, type: 3}
-  buttonToPress: Left
+  buttonToPress: LeftR
 --- !u!50 &450328918
 Rigidbody2D:
   serializedVersion: 4
@@ -8107,7 +8107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultImage: {fileID: 21300000, guid: a386f4b632851426bb27f6e9d8380d02, type: 3}
   pressedImage: {fileID: 21300000, guid: 18c457bfee6fe4c71b6306224c9afe8f, type: 3}
-  buttonToPress: Right
+  buttonToPress: RightR
 --- !u!50 &1954822629
 Rigidbody2D:
   serializedVersion: 4
