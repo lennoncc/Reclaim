@@ -55,6 +55,7 @@ public class EnemyController : MonoBehaviour
             }
             // TODO: Add enemy attack animation
             animator.SetBool("IsAttacking", true);
+            GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = true;
 
             float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, attackMultiplier));
             ShowScrollingText(damage.ToString());
@@ -86,6 +87,7 @@ public class EnemyController : MonoBehaviour
                     {
                         attacksFinished = true;
                         animator.SetBool("IsAttacking", false);
+                        GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = false;
                     }
                 } 
                 if (timeSinceStart >= nextAttackTime && attacking == true)
@@ -93,6 +95,7 @@ public class EnemyController : MonoBehaviour
                     // TODO: stop enemy attack animation
                     attacking = false;
                     animator.SetBool("IsAttacking", false);
+                    GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = false;
                     // Get the next attack time if there is one.
                     if (i + 1 < attackTimes.Length)
                     {
@@ -103,11 +106,13 @@ public class EnemyController : MonoBehaviour
                     {
                         attacksFinished = true;
                         animator.SetBool("IsAttacking", false);
+                        GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = false;
                     }
                 } 
             }
             timeSinceStart += Time.deltaTime;
             animator.SetBool("IsAttacking", false);
+            // GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }
