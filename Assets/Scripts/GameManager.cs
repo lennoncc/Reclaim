@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,13 +28,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int[] multiplierThresholds;
     [SerializeField]
-    private Text scoreText;
+    private TextMeshProUGUI scoreText;
     [SerializeField]
-    private Text scoreMultiText;
+    private TextMeshProUGUI scoreMultiText;
     [SerializeField]
-    private Text multiText;
+    private TextMeshProUGUI multiText;
     [SerializeField]
-    private Text accuracyText;
+    private TextMeshProUGUI accuracyText;
     [SerializeField]
     private Text starsText;
     private float numNotes;
