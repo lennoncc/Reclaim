@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private float minDamage = 10;
-    private float maxDamage = 11;
+    private float minDamage = 7;
+    private float maxDamage = 7;
     private float[] attackTimes = {10f, 18.5f ,31f, 40f, 64f, 95f}; /* temp */
     private float nextAttackTime;
     private float timeSinceStart;
@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
         timeSinceStart = 0;
         i = 0;
         nextAttackTime = attackTimes[0];
-        textPosition = new Vector3(3.5f, 5f, 0f);
+        textPosition = new Vector3(2f, 2f, 0f);
         attacksFinished = false;
         playerController.PlayerHealthBarController.Capacity = 100f;
         playerController.PlayerHealthBarController.ChangeValueX(1f);
@@ -58,7 +58,10 @@ public class EnemyController : MonoBehaviour
             GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = true;
 
             float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, attackMultiplier));
-            ShowScrollingText(damage.ToString());
+            if (damage != 0)
+            {
+                ShowScrollingText(damage.ToString());
+            }
             float ratio = (playerController.PlayerHealthBarController.CurrentValue - damage) / playerController.PlayerHealthBarController.Capacity;
             if (ratio < 0f)
             {

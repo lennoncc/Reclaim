@@ -79,8 +79,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        attackTextPosition = new Vector3(6.8f, 5f, 0f);
-        healTextPosition = new Vector3(1.5f, 5f, 0f);
+        attackTextPosition = new Vector3(6f, 2f, 0f);
+        healTextPosition = new Vector3(0f, 2f, 0f);
         attacking = true;
         attackBar.SetActive(true);
         currentMultiplier = 1f;
@@ -117,7 +117,6 @@ public class PlayerController : MonoBehaviour
 
     public void Heal()
     {
-        // TODO: Add player heal animation
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsHealing", true);
 
         float health = 5f * currentMultiplier;
@@ -132,11 +131,9 @@ public class PlayerController : MonoBehaviour
 
     public void Attack()
     {
-        // TODO: Add player attack animation
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", false);
 
-        Debug.Log("attacking");
         float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, currentMultiplier));
         ShowScrollingText(damage.ToString(), attackTextPosition, attackScrollingText);
         float ratio = (thresholdController.CurrentValue - damage) / thresholdController.Capacity;
@@ -175,9 +172,7 @@ public class PlayerController : MonoBehaviour
         // End the level if the player dies.
         if (playerHealthBarController.CurrentValue == 0f)
         {
-            // TODO: death animation, end the level, level failed pop up screen
             GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsDead", true);
-
         }
         // Toggle between attack and defense mode.
         if (Input.GetButtonDown("Jump"))

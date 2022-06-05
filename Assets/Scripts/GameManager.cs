@@ -6,8 +6,6 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    // [SerializeField]
-    // private AudioSource music;
     private AudioSource music;
     [SerializeField]
     private string trackTitle;
@@ -75,11 +73,9 @@ public class GameManager : MonoBehaviour
                 startPlaying = true;
                 noteController.HasStarted = true;
                 enemyController.HasStarted = true;
-                // music.Play();
                 FindObjectOfType<SoundManager>().PlayMusicTrack(trackTitle);
                 music = FindObjectOfType<SoundManager>()._trackPlaying.audioSource;
                 GameObject.Find("Instructions").SetActive(false);
-                //this.GetComponent<ArrowFactory>().Build();
             }
         }
         else
@@ -89,10 +85,7 @@ public class GameManager : MonoBehaviour
             {
                 music.Stop();
             }
-            if ((playerController.PlayerHealthBarController.CurrentValue == 0f || playerController.NumStars == 0) && !music.isPlaying)
-            {
-                gameOverScreen.SetActive(true);
-            }
+
             // Show the results at the end of the level.
             if (!music.isPlaying && !resultsScreen.activeInHierarchy)
             {
@@ -108,9 +101,22 @@ public class GameManager : MonoBehaviour
                 float finalScore = currentScore + (10000 * playerController.NumStars);
                 finalScoreText.text = finalScore.ToString();
             }
-            else
+
+            // The player lost the level.
+            if ((playerController.PlayerHealthBarController.CurrentValue == 0f || playerController.NumStars == 0) && resultsScreen.activeInHierarchy)
             {
-                // TODO: Button to go to next level
+                if (Input.anyKeyDown)
+                {
+                    gameOverScreen.SetActive(true);
+                }
+            }
+            // The player beat the level.
+            else if (resultsScreen.activeInHierarchy)
+            {
+                if (Input.anyKeyDown)
+                {
+                    // TODO: Add screen to go ot next level
+                }
             }
         }
     }
@@ -152,7 +158,7 @@ public class GameManager : MonoBehaviour
         currentScore += scorePerNote + currentScore;
         okHits++;
         NoteHit();
-        enemyController.Attack(0.8f);
+        enemyController.Attack(0.5f);
 
     }
 
@@ -161,7 +167,7 @@ public class GameManager : MonoBehaviour
         currentScore += scorePerGoodNote + currentScore;
         goodHits++;
         NoteHit();
-        enemyController.Attack(0.5f);
+        enemyController.Attack(0.25f);
     }
 
     public void PerfectHit()

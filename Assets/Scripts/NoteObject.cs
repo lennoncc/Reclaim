@@ -32,16 +32,17 @@ public class NoteObject : MonoBehaviour
             {
                 // Make the note disappear when hit.
                 gameObject.SetActive(false);
+                Debug.Log(Mathf.Abs(transform.position.y - 1f));
                 
                 // Ok hit.
-                if (Mathf.Abs(transform.position.y) > 1.25)
+                if (Mathf.Abs(transform.position.y - 1f) > 0.30f)
                 {
                     GameManager.Instance.OkHit();
                     playerController.NoteHit(5f);
                     Instantiate(hitEffect, effectPosition, hitEffect.transform.rotation);
                 }
                 // Good hit.
-                else if (Mathf.Abs(transform.position.y) > 1.1f)
+                else if (Mathf.Abs(transform.position.y -1f) > 0.20f)
                 {
                     GameManager.Instance.GoodHit();
                     playerController.NoteHit(10f);
