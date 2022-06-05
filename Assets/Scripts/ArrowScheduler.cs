@@ -12,6 +12,7 @@ public class ArrowScheduler : MonoBehaviour
     [SerializeField] private GameObject up;
     [SerializeField] private GameObject right;
     [SerializeField] private string levelFile;
+    [SerializeField] int offset;
     private float songTime = 0;
     private ArrowSpec curSpec;
     private bool moreArrows = true;
@@ -23,7 +24,7 @@ public class ArrowScheduler : MonoBehaviour
         // reads in the level
         // TextAsset file_path = new TextAsset();
         Object file_path = Resources.Load<TextAsset>(levelFile);
-        Debug.Log(file_path);
+        // Debug.Log(file_path);
         string input = file_path.ToString();
         // Debug.Log(file_path);
         // string file_path = "./Assets/Resources/Prologlevel.txt";
@@ -63,7 +64,7 @@ public class ArrowScheduler : MonoBehaviour
     {
         if (hasStarted) {
             this.songTime += Time.deltaTime * 1000;
-            if (songTime >= curSpec.hitTime - 1500) 
+            if (songTime >= curSpec.hitTime - offset) 
             {
                 if (moreArrows == true) {
                     var gameObj = Instantiate(curSpec.arrow, curSpec.arrow.transform.position, Quaternion.identity);
@@ -78,7 +79,7 @@ public class ArrowScheduler : MonoBehaviour
                 { 
                     curSpec = (ArrowSpec)q.Dequeue();
                     // double araoroarws 
-                    if (songTime >= curSpec.hitTime - 1500)  
+                    if (songTime >= curSpec.hitTime - offset)  
                     {
                         var gameObj = Instantiate(curSpec.arrow, curSpec.arrow.transform.position, Quaternion.identity);
                         gameObj.transform.parent = gameObject.transform;

@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         currentMultiplier = 1;
         multiplierTracker = 0;
         numNotes = 0;
+        multiText.enabled = false;
     }
 
     void Update()
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
                 FindObjectOfType<SoundManager>().PlayMusicTrack(trackTitle);
                 music = FindObjectOfType<SoundManager>()._trackPlaying.audioSource;
                 GameObject.Find("Instructions").SetActive(false);
+                multiText.enabled = true;
             }
         }
         else
