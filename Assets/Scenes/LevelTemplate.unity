@@ -958,7 +958,7 @@ GameObject:
   - component: {fileID: 248022692}
   - component: {fileID: 248022694}
   - component: {fileID: 248022693}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ScoreMultiplierText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3264,7 +3264,7 @@ MonoBehaviour:
   noteController: {fileID: 685974344}
   playerController: {fileID: 1976581753}
   enemyController: {fileID: 292671765}
-  multiplierThresholds: 0a000000140000001e000000
+  multiplierThresholds: 0a0000000f0000001400000019000000
   scoreText: {fileID: 1226166180}
   scoreMultiText: {fileID: 248022693}
   multiText: {fileID: 885083803}
@@ -4555,7 +4555,7 @@ GameObject:
   - component: {fileID: 885083802}
   - component: {fileID: 885083804}
   - component: {fileID: 885083803}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MultiplierText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9166,7 +9166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2036540599}
   - component: {fileID: 2036540600}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}

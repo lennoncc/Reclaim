@@ -13,7 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 363838215371788088, guid: e4fd9f8a8dc84964488cd9c24e8aa65a, type: 3}
       propertyPath: m_Name
-      value: ScrollingText
+      value: ScrollingText Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 363838215371788088, guid: e4fd9f8a8dc84964488cd9c24e8aa65a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7490878057743206242, guid: e4fd9f8a8dc84964488cd9c24e8aa65a, type: 3}
       propertyPath: m_RootOrder
