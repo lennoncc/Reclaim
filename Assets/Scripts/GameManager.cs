@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject resultsScreen;
     [SerializeField]
+    private GameObject gameOverScreen;
     private Text percentAccuracyText, missedText, okText, goodText, perfectText, finalScoreText;
 
     public static GameManager Instance
@@ -87,8 +88,13 @@ public class GameManager : MonoBehaviour
                 music.Stop();
 
             }
+            if ((playerController.PlayerHealthBarController.CurrentValue == 0f || playerController.NumStars == 0) && !music.isPlaying)
+            {
+                // TODO: Fail level
+                gameOverScreen.SetActive(true);
+            }
             // Show the results at the end of the level.
-            if (!music.isPlaying && !resultsScreen.activeInHierarchy)
+            if (!music.isPlaying && playerController.NumStars > 0 && !resultsScreen.activeInHierarchy)
             {
                 resultsScreen.SetActive(true);
                 missedText.text = missedHits.ToString();
@@ -101,10 +107,6 @@ public class GameManager : MonoBehaviour
                 percentAccuracyText.text = percentAccuracy.ToString("F1") + "%";
                 float finalScore = currentScore + (10000 * playerController.NumStars);
                 finalScoreText.text = finalScore.ToString();
-            }
-            if (playerController.PlayerHealthBarController.CurrentValue == 0f || playerController.NumStars == 0)
-            {
-                // TODO: Fail level
             }
             else
             {
