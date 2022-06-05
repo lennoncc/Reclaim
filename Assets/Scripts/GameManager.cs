@@ -17,11 +17,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private EnemyController enemyController;
     private static GameManager instance;
-    private int currentScore;
+    private float currentScore;
     private int scorePerNote = 50;
     private int scorePerGoodNote = 80;
     private int scorePerPerfectNote = 100;
-    private int currentMultiplier;
+    private float currentMultiplier;
+    private int currentMultiplierIndex;
     private int multiplierTracker;
     [SerializeField]
     private int[] multiplierThresholds;
@@ -57,8 +58,9 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         scoreText.text = "Score: 0";
-        multiplierTracker = 0;
+        currentMultiplierIndex = 1;
         currentMultiplier = 1;
+        multiplierTracker = 0;
         numNotes = 0;
     }
 
@@ -135,19 +137,19 @@ public class GameManager : MonoBehaviour
             }
         }
         // Update the score multiplier.
-        if (currentMultiplier - 1 < multiplierThresholds.Length)
+        if (currentMultiplierIndex - 1 < multiplierThresholds.Length)
         {
             multiplierTracker++;
-            if (multiplierTracker >= multiplierThresholds[currentMultiplier - 1])
+            if (multiplierTracker >= multiplierThresholds[currentMultiplierIndex - 1])
             {
                 multiplierTracker = 0;
-                currentMultiplier++;
+                currentMultiplierIndex++;
+                currentMultiplier += 0.25f;
             }
         }
         numNotes++;
         percentAccuracy = (((okHits * 0.5f) + (goodHits * 0.8f) + perfectHits) / numNotes) * 100f;
         scoreMultiText.text = "Score Multiplier: x" + currentMultiplier;
-        currentScore += scorePerNote * currentMultiplier;
         scoreText.text = "Score: " + currentScore;
         accuracyText.text = percentAccuracy.ToString("F1") + "%";
         
@@ -155,7 +157,7 @@ public class GameManager : MonoBehaviour
 
     public void OkHit()
     {
-        currentScore += scorePerNote + currentScore;
+        currentScore += scorePerNote * currentMultiplier;
         okHits++;
         NoteHit();
         enemyController.Attack(0.5f);
@@ -164,7 +166,7 @@ public class GameManager : MonoBehaviour
 
     public void GoodHit()
     {
-        currentScore += scorePerGoodNote + currentScore;
+        currentScore += scorePerGoodNote * currentMultiplier;
         goodHits++;
         NoteHit();
         enemyController.Attack(0.25f);
@@ -172,7 +174,7 @@ public class GameManager : MonoBehaviour
 
     public void PerfectHit()
     {
-        currentScore += scorePerPerfectNote + currentScore;
+        currentScore += scorePerPerfectNote * currentMultiplier;
         perfectHits++;
         NoteHit();
         enemyController.Attack(0f);
@@ -183,6 +185,7 @@ public class GameManager : MonoBehaviour
         playerController.CurrentMultiplierIndex = 1;
         playerController.CurrentMultiplier = 1;
         playerController.MultiplierTracker = 0;
+        currentMultiplierIndex = 1;
         currentMultiplier = 1;
         multiplierTracker = 0;
         scoreMultiText.text = "Score Multiplier: x" + currentMultiplier;

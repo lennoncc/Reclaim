@@ -3264,7 +3264,7 @@ MonoBehaviour:
   noteController: {fileID: 685974344}
   playerController: {fileID: 1976581753}
   enemyController: {fileID: 292671765}
-  multiplierThresholds: 0a000000140000001e000000
+  multiplierThresholds: 0a0000000f0000001400000019000000
   scoreText: {fileID: 1226166180}
   scoreMultiText: {fileID: 248022693}
   multiText: {fileID: 885083803}
