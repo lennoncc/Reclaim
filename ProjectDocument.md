@@ -48,6 +48,9 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
 
+## Producer
+
+
 # Sub-Roles
 
 ## Audio
