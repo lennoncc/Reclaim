@@ -28,7 +28,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## User Interface
 **Jimmy Trinh**
-The UI is present in every aspect of our game. From the start, the Main Menu allows players to Play, Quit, or control options. I implemented elements such as a volume slider to achieve a modern look. Within the game, I implemented a scalable Dialogue Box Manager. The dialogue box is able to be used in any scene, and can take in text input to generate the dialogue. There are animation keyframes to have the dialoguebox go off and on the screen when it should. Furthermore,
+The UI is present in every aspect of our game. From the start, the Main Menu allows players to Play, Quit, or control options. I implemented UI elements such as a volume slider to achieve a modern look. Within the game, I implemented a scalable Dialogue Box Manager. The dialogue box is able to be used in any scene, and can take in text input to generate the dialogue. There are animation keyframes to have the dialoguebox go off and on the screen when it should. There is a way to continue dialogue and the text scrolls like a typewriter so it isn't just static text reading. Furthermore, during gameplay, UI elements such as health, enemy health, and score are being used. And upon player fail, there are UI elements that allow them to replay.
 
 ## Movement/Physics
 
