@@ -15,24 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Prologue.unity
     guid: bf7a972c8ccd1bd4083675967836d2a4
   - enabled: 1
-    path: Assets/Scenes/Level.unity
-    guid: 77bedd303a3513d4387d960f3c977fce
-  - enabled: 1
-    path: Assets/Scenes/TempFailScreen.unity
-    guid: 7362b1e72dc67ae41a27e94d275beac2
-  - enabled: 1
     path: Assets/Scenes/SideScroll.unity
     guid: bc3efbde28bccf94099ab09ddc45f3f1
-  - enabled: 0
-    path: Assets/Scenes/SceneForDemo.unity
-    guid: 87b0ed024a9930e49a5803000cbe1850
   - enabled: 1
-    path: Assets/Scenes/LevelTemplate.unity
+    path: Assets/Scenes/PrologueLevel.unity
     guid: 7e770a68293d4a645844d579cf43f00e
+  - enabled: 1
+    path: Assets/Scenes/SideScrollVillage.unity
+    guid: b6000a140a3c74e6d9093a9a4d9ca35a
   - enabled: 1
     path: Assets/Scenes/Act1.unity
     guid: 83e531e1226366a468fd14aef4ae945f
   - enabled: 1
     path: Assets/Scenes/SideScrollCastle.unity
     guid: d879c8cb129c34234a516cd6816c39f3
+  - enabled: 1
+    path: Assets/Scenes/Act2.unity
+    guid: 467707e1d110341d7a26dd024732483f
   m_configObjects: {}

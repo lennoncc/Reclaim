@@ -4304,7 +4304,7 @@ MonoBehaviour:
     sentences:
     - Oh he would...and you will too.
     - Now... KNEEL!
-  nextScene: LevelTemplate
+  nextScene: Act1
 --- !u!114 &1937532534
 MonoBehaviour:
   m_ObjectHideFlags: 0
