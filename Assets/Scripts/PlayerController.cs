@@ -131,6 +131,8 @@ public class PlayerController : MonoBehaviour
 
     public void Attack()
     {
+        // GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
+        GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsCharging", false);
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", false);
         FindObjectOfType<SoundManager>().PlaySoundEffect("Bow");
@@ -204,6 +206,7 @@ public class PlayerController : MonoBehaviour
             if (attacking)
             {
                 GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsCharging", false);
+                GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
                 Attack();
                 gaugeController.ChangeValueY(0f);
             }
@@ -216,7 +219,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        if (gaugeController.CurrentValue > 0f)
+        if (gaugeController.CurrentValue > 0f && gaugeController.CurrentValue != 100f)
         {
             if(attacking)
             {
