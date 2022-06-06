@@ -34,16 +34,7 @@ public class CamberMovement : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
-
-        // if (Input.GetButtonDown("Fire1"))
-        // {
-        //     FindObjectOfType<SoundManager>().PlayMusicTrack("Act1");
-        // }
-
-        // if (Input.GetButtonDown("Fire2"))
-        // {
-        //     FindObjectOfType<SoundManager>().PlayMusicTrack("Act2");
-        // }
+        
         // Animation link
         // var animator = this.gameObject.GetComponent<Animator>();
         animator.SetFloat("Velocity", Mathf.Abs(this.gameObject.GetComponent<Rigidbody2D>().velocity.x/5.0f));
