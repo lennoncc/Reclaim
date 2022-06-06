@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
     public void Heal()
     {
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsHealing", true);
-
+        FindObjectOfType<SoundManager>().PlaySoundEffect("Heal");
         float health = 5f * currentMultiplier;
         ShowScrollingText(health.ToString(), healTextPosition, healScrollingText);
         float ratio = (playerHealthBarController.CurrentValue + health) / playerHealthBarController.Capacity;
@@ -133,6 +133,7 @@ public class PlayerController : MonoBehaviour
     {
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", false);
+        FindObjectOfType<SoundManager>().PlaySoundEffect("Bow");
 
         float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, currentMultiplier));
         ShowScrollingText(damage.ToString(), attackTextPosition, attackScrollingText);
@@ -173,6 +174,7 @@ public class PlayerController : MonoBehaviour
         if (playerHealthBarController.CurrentValue == 0f)
         {
             GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsDead", true);
+            FindObjectOfType<SoundManager>().PlaySoundEffect("Death");
         }
         // Toggle between attack and defense mode.
         if (Input.GetButtonDown("Jump"))

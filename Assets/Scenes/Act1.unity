@@ -1970,6 +1970,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+  - clip: {fileID: 8300000, guid: 12b3858aaa4396645b1b5f282298c161, type: 3}
+    audioSource: {fileID: 0}
+    title: Bow
+    volume: 1
+    pitch: 1
+    loop: 0
 --- !u!4 &535574239
 Transform:
   m_ObjectHideFlags: 0

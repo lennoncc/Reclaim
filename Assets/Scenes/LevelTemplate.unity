@@ -7667,6 +7667,24 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+  - clip: {fileID: 8300000, guid: 12b3858aaa4396645b1b5f282298c161, type: 3}
+    audioSource: {fileID: 0}
+    title: Bow
+    volume: 1
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 4c0f5529a82a04144a0db16dc79ac5c4, type: 3}
+    audioSource: {fileID: 0}
+    title: Heal
+    volume: 1
+    pitch: 1
+    loop: 0
+  - clip: {fileID: 8300000, guid: 79500e364fd9c014ca41f45a300eb312, type: 3}
+    audioSource: {fileID: 0}
+    title: Death
+    volume: 1
+    pitch: 1
+    loop: 0
 --- !u!4 &1695401801
 Transform:
   m_ObjectHideFlags: 0

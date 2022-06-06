@@ -23,5 +23,5 @@ heal_1 - Pickup_04.wav
 https://freesound.org/people/LittleRobotSoundFactory/sounds/270338/
 bow_1 - Open_01.wav
 
-https://maskedsound.itch.io/8-bit-sfx-pack
-death_1 - 01_Game Over_v1.wav
+https://www.youtube.com/watch?v=br3OzOrARh4
+death_1 - Game Over (8-Bit Music)
