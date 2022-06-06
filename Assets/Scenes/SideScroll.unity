@@ -3747,23 +3747,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
+  - name: Enemy Captain
+    sentences:
+    - Halt! Who goes there?
+    - Wait, you wear the armor of Amogus. It's Princess Camber!
   - name: Camber
     sentences:
-    - "My people\u2026 the village\u2026 who could have done this?"
-  - name: Unknown Voice
+    - You invade my land and sack my home. I'll have your head!
+  - name: Enemy Captain
     sentences:
-    - You did my dear.
-    - Where was the princess when they needed her most?
+    - Death awaits you and your cursed family, wench.
   - name: Camber
     sentences:
-    - "Who dares? I\u2019ll have your head!"
-  - name: Unknown Voice
-    sentences:
-    - "I\u2019ll give you more than my head, with a side of pain and fire for a doomed
-      princess."
-  - name: Camber
-    sentences:
-    - I fear no witch. On your knees!
+    - And an arrow will find its way through that mouth of yours, bastard!
   nextScene: LevelTemplate
 --- !u!61 &1374234752
 BoxCollider2D:
