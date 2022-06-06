@@ -27,7 +27,7 @@ Here is an example:
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 ## User Interface
-**Jimmy Trinh**
+**Jimmy Trinh:**
 The UI is present in every aspect of our game. From the start, the Main Menu allows players to Play, Quit, or control options. I implemented UI elements such as a volume slider to achieve a modern look. Within the game, I implemented a scalable Dialogue Box Manager. The dialogue box is able to be used in any scene, and can take in text input to generate the dialogue. There are animation keyframes to have the dialoguebox go off and on the screen when it should. There is a way to continue dialogue and the text scrolls like a typewriter so it isn't just static text reading. Furthermore, during gameplay, UI elements such as health, enemy health, and score are being used. And upon player fail, there are UI elements that allow them to replay.
 
 ## Movement/Physics
@@ -117,9 +117,12 @@ When searching for music, we knew our game was going to be in an 8-bit style, so
 ## Press Kit and Trailer
 
 **Include links to your presskit materials and trailer.**
+[Video Trailer](https://youtu.be/7dvsoHZtaAM)
+[Presskit](https://github.com/lennoncc/Reclaim/blob/main/Presskit.md)
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
-
+- I decided to give an intro to the characters, and explain a little bit of the narrative. Our narrative designer took time to craft a story, so we felt it was good to showcase that. Then, we didn't want to spoil the scenes and music in our rhythm game levels, so we wanted to show as little gameplay as possible while hooking the audience. I mainly showed the first two levels, and our sidescrolling features, leaving the final boss out so it wouldn't spoil anything. Also, our animator spent a lot of time making great animations, so I made sure to include those in action.
+- For the screenshots, I decided to choose screenshots of each major scene throughout the game, as well as important visuals such as the attack and shielding aspects of Reclaim.
 
 
 ## Game Feel
