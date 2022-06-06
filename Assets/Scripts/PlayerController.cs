@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
 
     public void Attack()
     {
-        // GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
+        GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsCharging", false);
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", false);
@@ -201,12 +201,12 @@ public class PlayerController : MonoBehaviour
             multiplierTracker = 0;
         }
         // Attack/Defend if gauge is full.
-        if (gaugeController.CurrentValue == 100f)
+        if (gaugeController.CurrentValue >= 100f)
         {
             if (attacking)
             {
                 GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsCharging", false);
-                GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
+                Debug.Log("ATTACK");
                 Attack();
                 gaugeController.ChangeValueY(0f);
             }
@@ -219,7 +219,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        if (gaugeController.CurrentValue > 0f && gaugeController.CurrentValue != 100f)
+        else if (gaugeController.CurrentValue > 0f && gaugeController.CurrentValue < 100f)
         {
             if(attacking)
             {
