@@ -27,7 +27,7 @@ Here is an example:
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 ## User Interface
-**Jimmy Trinh:**
+**Jimmy Trinh**
 The UI is present in every aspect of our game. From the start, the Main Menu allows players to Play, Quit, or control options. I implemented UI elements such as a volume slider to achieve a modern look. Within the game, I implemented a scalable Dialogue Box Manager. The dialogue box is able to be used in any scene, and can take in text input to generate the dialogue. There are animation keyframes to have the dialoguebox go off and on the screen when it should. There is a way to continue dialogue and the text scrolls like a typewriter so it isn't just static text reading. Furthermore, during gameplay, UI elements such as health, enemy health, and score are being used. And upon player fail, there are UI elements that allow them to replay.
 
 ## Movement/Physics
@@ -38,9 +38,31 @@ The next part was focusing on how the arrows that Camber fires would be implemen
 
 ## Animation and Visuals
 
-**List your assets including their sources and licenses.**
+**Assets used for Backgrounds:**  
+[Forest](https://anokolisa.itch.io/high-forest-assets-pack)  
+License: "Legacy Fantasy High Forest" by Anokolisa  
+[Demon Woods](https://aethrall.itch.io/demon-woods-parallax-background)  
+License: "Demon Woods Parallax Background" by Aethrall  
+[Village Props](https://cainos.itch.io/pixel-art-platformer-village-props)  
+License: "Pixel Art Platformer Village Props" by Cainos  
+[Castle](https://anokolisa.itch.io/heros-journey-castle-hall)  
+License: "Hero's Journey Castle Hall" by Anokolisa  
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+Animations and visuals were done on the Piskel browser site, allowing for both sketches and frame-by-frame animations of each of the characters we had in the game. Our game consisted of four main characters, Camber, the Mage Captain, the Witch, and King Elec.  
+A major factor in the game was to have the art to stay consistent when creating each level, including the external assets used for the background. As such, I decided to use a 16-bit retro style for the game environment, in agreement with Audio Design and Game Feel to use 8-bit music to create an immersive effect within the game.  
+Overall, Camber's gameplay was comprised of 10 animation clips, while each enemy had 2 animation clips, one for being Idle, and another for Attacking.  
+The animation clips themselves were comprised from anywhere between 5 to 20 frames depending on how complex the animation was (e.g Camber walking).  
+The state machines shown below show how actions were determined by using Boolean parameters in order to tell the animator which state to transition to next.  
+Camber:  
+![image](https://drive.google.com/uc?export=view&id=1JKCk8P1WSR9F8gYvaXmJXFhbb2WbCGF3)  
+  
+General Enemy:  
+![image](https://drive.google.com/uc?export=view&id=10opyI5vavvKgy0Azqf8gkWlcuyOOsOc3)  
+
+In addition to the animations and visual, the background used a [Parallax.cs](https://github.com/lennoncc/Reclaim/blob/bbaa894956cffaeffc3c6ba49dcff9231cfff9aa/Assets/Scripts/Parallax.cs) script similar to the one used in Exercise 1 in addition to coding implementations made in [PlayerController.cs](https://github.com/lennoncc/Reclaim/blob/bbaa894956cffaeffc3c6ba49dcff9231cfff9aa/Assets/Scripts/PlayerController.cs) and [EnemyController.cs](https://github.com/lennoncc/Reclaim/blob/bbaa894956cffaeffc3c6ba49dcff9231cfff9aa/Assets/Scripts/EnemyController.cs) in order to set and reset booleans listed in the state machine parameters in order for the state transitions to occur.
+
+In addition, the visual style guide for the character design and animations shown below:  
+[Visual Style Guide](https://docs.google.com/document/d/1BTymkhHpYFkGf392tWce5TPe7hf9extUBVgBbXq5NlM/edit?usp=sharing)
 
 ## Input
 **Lennon Cruz:** 
@@ -106,23 +128,34 @@ When searching for music, we knew our game was going to be in an 8-bit style, so
 
 ## Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
+[Gameplay Test Results](https://docs.google.com/document/d/1IWK-ffmyFXmgQgZxkubBjRLW1HUEBvl414KBRuQF7AM/edit?usp=sharing)
 
-**Summarize the key findings from your gameplay tests.**
+**Judy Zhang:**  
+Through gameplay testing with 10 individuals, we discovered that several difficulties that the players faced while playing the game.
+First and foremost, we initially did not include instructions in the game to determine how the players would react and see which controls were more intuitive.  
+We quickly discovered that WASD or the arrow keys were well-known between the majority of the players during the platformer portion of the game.  
+However, the playtesters were largely confused about which direction to head towards, resulting in some of them heading left to absolutely nothing. While we still wanted the element of exploration within the game, we decided to add an invisible barrier to the left of the gameplay area to prevent the player from infinitely heading towards the left of the game. We also did not want players to get confused by the invisible barrier, which resulted in a cat blocking your way :).  
+In addition, some playtesters found it difficult to know when to use the spacebar to attack or defend during the rhythm/combat portion of the game. In an effort to mitigate the confusion, the team used a red overlay over the rhythm game whenever the enemy was attacking to signal the playtester to switch to defense mode.  
+Finally, the falling arrows and matching buttons that were initially used in the first draft of our rhythm game were scrapped for one major reason, the UI for the buttons were aligned in a row, while the arrow keys on a player's keyboard were not aligned. We decided to use rectangles instead, binded to the d, f, j, and k keys as input. This avoided the physical dissociation that the playtesters felt when playing the rhythm game while also allowing for them to be able to access the space bar with both hands when switching between attack/defense.  
+In addition to these control mechanisms that were edited, the UI and Physics were also revised from the playtesters' comments. For example, the dialogue text box was revised such that the text would scroll through faster, and Camber's movements were also speedier during the platformer parts of the game.  
+Overall, the playtesters seemed to enjoy the visuals, animations, and audio, with the majority of them stating that they would gift it to a younger demographic, mainly little siblings or cousins, due to the vibrant and simple nature of the game.  
 
 ## Narrative Design
+**Matthew Tom:** The entire point about this story is the path of reclaiming what was lost to fit the theme of "It was the best of times, it was the worst of times." From the sound design of music to give that inspiring, heroic like atmosphere, to the tactical decisions of switching between attack and defense modes, as well as the powerful enemies Camber faces, they all combine together to demonstrate a tale of struggle, strife, and victory through overcoming the odds. Every battle Camber fought required moments of sacrifice in the gameplay, such as sacrificing potential moments to build up the charge meter to attack, only to be met with a relentless attack from the enemy. The medieval look of Reclaim as a whole was an intentional choice as a reference back to the Medieval and Dark Ages in our history, where humanity arguably was at one of its lowest peaks. The worn down castle and the burning village in the later levels contrasted the opening first level and prologue where everything was much brighter and hopeful, further driving the point of how far the kingdom had fallen, and it would be up to Camber to save it.
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+A full narrative story was prototyped by me, found [here](https://docs.google.com/presentation/d/1HUj8aGtn-xqBHmpcKCYfG4XwCgd9Raxp5f-lnLd8QSg/edit?usp=sharing). 
+
+Additional assets that were used to build scenes were found in free assets in Unity's asset store:
+[Medieval Pixel Art](https://assetstore.unity.com/packages/p/medieval-pixel-art-asset-free-130131) and
+[Pixel Art Platformer](https://assetstore.unity.com/packages/p/medieval-pixel-art-asset-free-130131).
+
 
 ## Press Kit and Trailer
 
 **Include links to your presskit materials and trailer.**
-[Video Trailer](https://youtu.be/7dvsoHZtaAM)
-[Presskit](https://github.com/lennoncc/Reclaim/blob/main/Presskit.md)
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
-- I decided to give an intro to the characters, and explain a little bit of the narrative. Our narrative designer took time to craft a story, so we felt it was good to showcase that. Then, we didn't want to spoil the scenes and music in our rhythm game levels, so we wanted to show as little gameplay as possible while hooking the audience. I mainly showed the first two levels, and our sidescrolling features, leaving the final boss out so it wouldn't spoil anything. Also, our animator spent a lot of time making great animations, so I made sure to include those in action.
-- For the screenshots, I decided to choose screenshots of each major scene throughout the game, as well as important visuals such as the attack and shielding aspects of Reclaim.
+
 
 
 ## Game Feel
