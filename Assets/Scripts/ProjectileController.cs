@@ -10,11 +10,4 @@ public class ProjectileController : MonoBehaviour
     public void Shoot(){ 
         Instantiate(projectile, bowPosition.position, transform.rotation);
     }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other && other.tag == "Enemy") {
-            Destroy(this.gameObject);
-        }
-    }
 }

@@ -14,7 +14,7 @@ public class BowArrowBehavior : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other && other.tag == "Enemy") {
+        if (other.gameObject.tag == "Enemy") {
             Destroy(this.gameObject);
         }
     }
