@@ -122,4 +122,4 @@ When searching for music, we knew our game was going to be in an 8-bit style, so
 
 ## Game Feel
 
-**Document what you added to and how you tweaked your game to improve its game feel.**
+We originally had arrow keys for the hit box, but then we changed it to larger rectangular boxes to account for spacing and sizing. The arrow keys were too small and close to each other, which does not provide the most optimal game feel.
