@@ -7689,6 +7689,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+  - clip: {fileID: 8300000, guid: 79500e364fd9c014ca41f45a300eb312, type: 3}
+    audioSource: {fileID: 0}
+    title: Death
+    volume: 1
+    pitch: 1
+    loop: 0
   sfxClips:
   - clip: {fileID: 8300000, guid: 88512dec698529c40a1c0013963fc65f, type: 3}
     audioSource: {fileID: 0}
@@ -7711,12 +7717,6 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 4c0f5529a82a04144a0db16dc79ac5c4, type: 3}
     audioSource: {fileID: 0}
     title: Heal
-    volume: 1
-    pitch: 1
-    loop: 0
-  - clip: {fileID: 8300000, guid: 79500e364fd9c014ca41f45a300eb312, type: 3}
-    audioSource: {fileID: 0}
-    title: Death
     volume: 1
     pitch: 1
     loop: 0
