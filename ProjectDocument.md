@@ -77,17 +77,16 @@ Rhythm Game:
 
 For the rhythm part of the game, we followed this tutorial (https://youtu.be/cZzf1FQQFA0) to get a basic version of our game working. Similar to classic rhythm games, we have four different "notes" that fall from the sky that the player must match the input for using the dfjk keys on their keyboard. The buttons and falling notes are controlled here:
 
-[ButtonController.cs]https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/ButtonController.cs 
+[ButtonController.cs](https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/ButtonController.cs)
 
-[NoteObject.cs]https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/NoteObject.cs
+[NoteObject.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/NoteObject.cs)
 
-[NoteController.cs]https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/NoteController.cs
+[NoteController.cs](https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/NoteController.cs)
 
-Depending on how accurate the player times the hits 
-(miss, ok, good, perfect), they will be rewarded more points.
+Depending on how accurate the player times the hits (miss, ok, good, perfect), they will be rewarded more points.
 ![image](https://user-images.githubusercontent.com/37753647/172221400-cecd518c-d3af-4cb7-ac8d-12f0e7f071cd.png)
 
-Game Manager: [GameManager.cs]https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/GameManager.cs 
+Game Manager: [GameManager.cs](https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/GameManager.cs)
 
 The Game Manager handles the music that plays (level music and player death music). It also keeps track and updates all of the data related to scoring, such as multipliers, the number of each type of note hit, current score, and accuracy. This is where the logic for showing the results and game over screens is as well.
 
@@ -95,21 +94,21 @@ Score System:
 
 The player earns points depending on the accuracy of their hits and the current multiplier, with perfect hits earning 100, good hits 80, and ok hits 50. The player can also get up to a 2x score multiplier by continuosly hitting notes, without any misses. Up to 3 stars can also be earned in each level, which give a final score increae of 10000 points each. At the end of the level, the results, including the types of each hit, accuraccy, number of stars earned, and final score, are displayed to the screen.
 
-Player Controller: [PlayerController.cs]https://github.com/lennoncc/Reclaim/blob/1eaf21865018780ce2f04524f1cc7b36007d9c57/Assets/Scripts/PlayerController.cs
+Player Controller: [PlayerController.cs](https://github.com/lennoncc/Reclaim/blob/1eaf21865018780ce2f04524f1cc7b36007d9c57/Assets/Scripts/PlayerController.cs)
 
 This script controls the player, Camber. It contains the logic for switching between attack and defense modes and functions for her attack and heal, which are called when the gauge bar is full. The Player Controller script fills and resets the gauge bar and lowers the enemy threshold bar. Since the enemy threshold bar contains the stars, this script is also responsible for getting the number of stars the player has earned.
 
-Enemy Controller: [EnemyController.cs]https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/EnemyController.cs
+Enemy Controller: [EnemyController.cs](https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/EnemyController.cs)
 
 This script controls the enemies (mage captain, blood witch, and prince Elec). It handles their attack durations and the attacks themselves, by conntrolling the player's health bar.
 
-Bar controller: [BarController.cs]https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/BarController.cs
+Bar controller: [BarController.cs](https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/BarController.cs)
 
 The game has 3 bars at each level (gauge, player health, and enemy threshold), so this is a genereal script that controls all 3. It holds the current value and capacity of each bar and contains functions to change their current values, which also updates the wy they look in game.
 
 Combat System: 
 
-Genereal: The game's combat system involves the player having to switch between attack and defense modes, to earn stars while avoiding enemy attacks. The attacks use the [Damage Engine]https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/DamageEngine.cs to get the amount of damage. There is an attack/heal multiplier, separate from the score multiplier, that increases attack damage or health regeneration. The multiplier can go up to x2, depending on if the player continuously hits the notes without misses. The player can toggle between attack and defense using the spacebar. Swicthing between attack and defense resets the gauge bar and attack/heal multiplier.
+Genereal: The game's combat system involves the player having to switch between attack and defense modes, to earn stars while avoiding enemy attacks. The attacks use the [Damage Engine](https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/DamageEngine.cs) to get the amount of damage. There is an attack/heal multiplier, separate from the score multiplier, that increases attack damage or health regeneration. The multiplier can go up to x2, depending on if the player continuously hits the notes without misses. The player can toggle between attack and defense using the spacebar. Swicthing between attack and defense resets the gauge bar and attack/heal multiplier.
 
 Attacking and defending: When the gauge bar is full, the player will attack or heal, depending on which mode they are in. The enemy has set attack durations, chosen by our level designer for each song. During these enemy attacks, the player must switch to defense mode or else take damage. Being in attack mode while the enemy is in attack mode causes the player to take full damage. If the player is in defense mode and hits perfects, they will not take any damage. If they hit good and ok notes, they will take 50% and 25% of the enemy attack damage respectively.
 
@@ -118,12 +117,12 @@ About the bars: The gauge bar fills up according to the accuracy of the hits; be
 Lose/Win Logic: 
 
 The logic to lose or win the game is in the Game Manager. The code is written to have the correct screen display, depending on if they win or lose the level. If the player wins, they can continue to the next level. If they lose, they can retry the level.
-https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/GameManager.cs#L93
+(https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/GameManager.cs#L93)
 
 The player loses if they run out of health, or if they get to the end of the song, but have not earned at least 1 star. Otherwise, the player wins.
 
 Creating the note objects:
-The falling note objects are created by the [ArrowScheduler.cs]https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/ArrowScheduler.cs, which parses a .txt file for a list of arrow types and times that the arrows should be pressed. The Arrow Scheduler was written by Anthony, our level designer, and uses the [ArrowFactory.cs]https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/ArrowFactory.cs, which I wrote following the factory design pattern, to instantiate the notes, put them under the NoteHolder object in the scene hierarchy, and give them the player controller component.
+The falling note objects are created by the [ArrowScheduler.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/ArrowScheduler.cs), which parses a .txt file for a list of arrow types and times that the arrows should be pressed. The Arrow Scheduler was written by Anthony, our level designer, and uses the [ArrowFactory.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/ArrowFactory.cs), which I wrote following the factory design pattern, to instantiate the notes, put them under the NoteHolder object in the scene hierarchy, and give them the player controller component.
 
 Here's a chart of how the game logic works together:
 ![image](https://user-images.githubusercontent.com/37753647/172223336-df7a305f-efcd-4dd6-ab37-85bf2f8af06f.png)
