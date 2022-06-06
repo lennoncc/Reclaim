@@ -27,6 +27,7 @@ Camber shielding
 Camber attacking
 
 ![alt text](https://i.imgur.com/Tga2cPf.png)
-Level 1
+Act 1
 
-![alt text]()
+![alt text](https://i.imgur.com/ou4sp07.png)
+Act 2
