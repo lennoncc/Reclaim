@@ -186,10 +186,12 @@ Additional assets that were used to build scenes were found in free assets in Un
 
 
 ## Press Kit and Trailer
-
-**Include links to your presskit materials and trailer.**
+[Video Trailer](https://youtu.be/7dvsoHZtaAM)
+[Presskit](https://github.com/lennoncc/Reclaim/blob/main/Presskit.md)
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+- I decided to give an intro to the characters, and explain a little bit of the narrative. Our narrative designer took time to craft a story, so we felt it was good to showcase that. Then, we didn't want to spoil the scenes and music in our rhythm game levels, so we wanted to show as little gameplay as possible while hooking the audience. I mainly showed the first two levels, and our sidescrolling features, leaving the final boss out so it wouldn't spoil anything. Also, our animator spent a lot of time making great animations, so I made sure to include those in action.
+- For the screenshots, I decided to choose screenshots of each major scene throughout the game, as well as important visuals such as the attack and shielding aspects of Reclaim.
 
 
 
