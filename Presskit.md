@@ -20,7 +20,8 @@ Instructions before battle
 ![alt text](https://i.imgur.com/f6ifyGx.png)
 Rhythm Game elements
 
-![alt text]()
+![alt text](https/i.imgur.com/Tga2cPf.png)
+Level 1
 
 ![alt text]()
 
