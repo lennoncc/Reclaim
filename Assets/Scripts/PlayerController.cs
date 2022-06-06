@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
     private int[] multiplierThresholds;
     [SerializeField]
     private BarController gaugeController;
-    private float minDamage = 10f;
-    private float maxDamage = 25f;
+    private float minDamage = 2f;
+    private float maxDamage = 5f;
     [SerializeField]
     private BarController thresholdController;
     [SerializeField]
@@ -169,6 +169,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Toggle() 
+    {
+        // Attacking
+        if (attacking == false)
+        {
+            GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", false);
+            attacking = true;
+            attackBar.SetActive(true);
+        }
+        // Defend
+        else 
+        {
+            attacking = false;
+            attackBar.SetActive(false);
+            GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", true);
+        }
+        gaugeController.ChangeValueY(0f);
+        currentMultiplierIndex = 1;
+        currentMultiplier = 1;
+        multiplierTracker = 0;
+    }
+
     void Update()
     {
         // End the level if the player dies.
@@ -179,24 +201,7 @@ public class PlayerController : MonoBehaviour
         // Toggle between attack and defense mode.
         if (Input.GetButtonDown("Jump"))
         {
-            // Attacking
-            if (attacking == false)
-            {
-                GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", false);
-                attacking = true;
-                attackBar.SetActive(true);
-            }
-            // Defend
-            else 
-            {
-                attacking = false;
-                attackBar.SetActive(false);
-                GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", true);
-            }
-            gaugeController.ChangeValueY(0f);
-            currentMultiplierIndex = 1;
-            currentMultiplier = 1;
-            multiplierTracker = 0;
+            Toggle();
         }
         // Attack/Defend if gauge is full.
         if (gaugeController.CurrentValue >= 100f)

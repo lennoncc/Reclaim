@@ -25,6 +25,23 @@ public class CamberMovement : MonoBehaviour
         // "move" detects the direction of movement Camber is moving to, provided from GetAxisRaw()
         move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
+        // Mobile support for movement. Tap right to go right and tap left to go left.
+        if (Input.GetMouseButton(0)) {
+            Vector3 touchPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float difference = touchPos.x - rb.transform.position.x;
+            Debug.Log(difference);
+            if (difference > 1) 
+            {
+                move.x = 1;
+            }
+
+            if (difference < 1) 
+            {
+                move.x = -1;
+            }
+            
+        }
+
         // Flip the sprite left or right if needed dependent on horizontal movement
         if (move.x < 0)
         {

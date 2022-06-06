@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 664993511003757886}
   m_Layer: 0
   m_Name: FallingYellow
-  m_TagString: Untagged
+  m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

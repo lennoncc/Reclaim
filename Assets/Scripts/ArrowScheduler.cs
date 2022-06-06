@@ -23,7 +23,7 @@ public class ArrowScheduler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // reads in the level
+        // Reads in the level and creates the specs for each object.
         Object level = Resources.Load<TextAsset>(levelFile);
         string data = level.ToString();
         string[] lines = data.Split('\n');
@@ -59,15 +59,11 @@ public class ArrowScheduler : MonoBehaviour
         // Stop the game if the player dies.
         if (hasStarted && playerController.PlayerHealthBarController.CurrentValue != 0f) {
             this.songTime += Time.deltaTime * 1000;
+            // Instantiates the notes when it is the correct time.
             if (songTime >= curSpec.hitTime - offset) 
             {
                 if (moreArrows == true) {
                     this.GetComponent<ArrowFactory>().Build(curSpec.arrow);
-                    /*
-                    var gameObj = Instantiate(curSpec.arrow, curSpec.arrow.transform.position, Quaternion.identity);
-                    gameObj.transform.parent = gameObject.transform;
-                    gameObj.GetComponent<NoteObject>().PlayerController = GameObject.Find("Camber").GetComponent<PlayerController>();
-                    */
                     if (q.Count == 0) 
                     { 
                         moreArrows = false;
@@ -76,15 +72,9 @@ public class ArrowScheduler : MonoBehaviour
                 if (q.Count > 0) 
                 { 
                     curSpec = (ArrowSpec)q.Dequeue();
-                    // double araoroarws 
                     if (songTime >= curSpec.hitTime - offset)  
                     {
                         this.GetComponent<ArrowFactory>().Build(curSpec.arrow);
-                        /*
-                        var gameObj = Instantiate(curSpec.arrow, curSpec.arrow.transform.position, Quaternion.identity);
-                        gameObj.transform.parent = gameObject.transform;
-                        gameObj.GetComponent<NoteObject>().PlayerController = GameObject.Find("Camber").GetComponent<PlayerController>();
-                        */
                         if (q.Count == 0) 
                         { 
                             moreArrows = false;

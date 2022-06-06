@@ -22,6 +22,7 @@ public class NoteObject : MonoBehaviour
     void Start()
     {
         effectPosition = new Vector3(transform.position.x, 0f, transform.position.z);
+        Application.targetFrameRate = 300;
     }
 
     void Update()
@@ -30,30 +31,38 @@ public class NoteObject : MonoBehaviour
         {
             if (canBePressed)
             {
-                // Make the note disappear when hit.
-                gameObject.SetActive(false);
-                // Ok hit.
-                if (Mathf.Abs(transform.position.y - 1f) > 0.30f)
-                {
-                    GameManager.Instance.OkHit();
-                    playerController.NoteHit(5f);
-                    Instantiate(hitEffect, effectPosition, hitEffect.transform.rotation);
-                }
-                // Good hit.
-                else if (Mathf.Abs(transform.position.y -1f) > 0.20f)
-                {
-                    GameManager.Instance.GoodHit();
-                    playerController.NoteHit(10f);
-                    Instantiate(goodEffect, effectPosition, goodEffect.transform.rotation);
-                }
-                // Perfect hit.
-                else
-                {
-                    GameManager.Instance.PerfectHit();
-                    playerController.NoteHit(15f);
-                    Instantiate(perfectEffect, effectPosition, perfectEffect.transform.rotation);
-                }
+                Press();
+            }
+        }
+    }
 
+
+    public void Press()
+    {
+        if (canBePressed)
+        {
+            // Make the note disappear when hit.
+            gameObject.SetActive(false);
+            // Ok hit.
+            if (Mathf.Abs(transform.position.y - 1f) > 0.30f)
+            {
+                GameManager.Instance.OkHit();
+                playerController.NoteHit(5f);
+                Instantiate(hitEffect, effectPosition, hitEffect.transform.rotation);
+            }
+            // Good hit.
+            else if (Mathf.Abs(transform.position.y -1f) > 0.20f)
+            {
+                GameManager.Instance.GoodHit();
+                playerController.NoteHit(10f);
+                Instantiate(goodEffect, effectPosition, goodEffect.transform.rotation);
+            }
+            // Perfect hit.
+            else
+            {
+                GameManager.Instance.PerfectHit();
+                playerController.NoteHit(15f);
+                Instantiate(perfectEffect, effectPosition, perfectEffect.transform.rotation);
             }
         }
     }

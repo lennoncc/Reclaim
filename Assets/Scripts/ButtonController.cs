@@ -30,4 +30,16 @@ public class ButtonController : MonoBehaviour
         }
         
     }
+
+    public void Press(string color)
+    {
+        var notes = GameObject.FindGameObjectsWithTag("Note");
+        foreach (var clone in notes)
+        {
+            if (clone.name == "Falling"+color+"(Clone)")
+            {
+                clone.GetComponent<NoteObject>().Press();
+            }
+        }
+    }
 }

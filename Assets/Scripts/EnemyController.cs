@@ -6,8 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     private float minDamage = 5;
     private float maxDamage = 5;
-    // private float[10] attackTimes = {10f, 18.5f ,31f, 40f, 64f, 95f}; /* temp */
-    private float[] attackTimes = new float[10]; /* temp */
+    private float[] attackTimes = new float[10]; 
 
     private float nextAttackTime;
     private float timeSinceStart;
@@ -136,6 +135,5 @@ public class EnemyController : MonoBehaviour
             timeSinceStart += Time.deltaTime;
             animator.SetBool("IsAttacking", false);
         }
-        Debug.Log(timeSinceStart);
     }
 }

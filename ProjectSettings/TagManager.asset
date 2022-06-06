@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Camber
   - Enemy
+  - Note
   layers:
   - Default
   - TransparentFX
