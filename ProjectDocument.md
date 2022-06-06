@@ -117,11 +117,12 @@ About the bars: The gauge bar fills up according to the accuracy of the hits; be
 Lose/Win Logic: 
 
 The logic to lose or win the game is in the Game Manager. The code is written to have the correct screen display, depending on if they win or lose the level. If the player wins, they can continue to the next level. If they lose, they can retry the level.
-(https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/GameManager.cs#L93)
+https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/GameManager.cs#L93
 
 The player loses if they run out of health, or if they get to the end of the song, but have not earned at least 1 star. Otherwise, the player wins.
 
 Creating the note objects:
+
 The falling note objects are created by the [ArrowScheduler.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/ArrowScheduler.cs), which parses a .txt file for a list of arrow types and times that the arrows should be pressed. The Arrow Scheduler was written by Anthony, our level designer, and uses the [ArrowFactory.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/ArrowFactory.cs), which I wrote following the factory design pattern, to instantiate the notes, put them under the NoteHolder object in the scene hierarchy, and give them the player controller component.
 
 Here's a chart of how the game logic works together:
