@@ -130,7 +130,7 @@ Here's a chart of how the game logic works together:
 
 ## Producer
 **Ferica Ting:** 
-As producer, I facilitated team meetings and organized a master task list that lists out things to do for each part of the project. Based on the progress I gauge from team meetings, I assigned and divided the tasks by day for each role. 
+As producer, I facilitated team meetings and organized a master task list that lists out things to do for each part of the project. I laid out all the features that we need and split that up into smaller parts to turn them into individual tasks. Based on the progress I gauge from team meetings, I assigned and divided the tasks by day for each role. Some features required multiple roles to work on them, so I coordinated that in the task document as well. I made sure that everyone was on track with their individual tasks so that we could meet the deadline.
 
 Master task list: https://docs.google.com/document/d/1qWD-5el6uZG7cLrMdEkR3v5YtZmKVY-BncE4M4HeELc/edit?usp=sharing
 
@@ -226,7 +226,7 @@ Additional assets that were used to build scenes were found in free assets in Un
 
 ## Game Feel
 **Ferica Ting:** 
-We originally had arrow keys for the hit box, but then we changed it to larger rectangular boxes to account for spacing and sizing. The arrow keys were too small and close to each other, which does not provide the most optimal game feel.
+We originally had arrow keys for the hit box, but then we realized that the spacing and sizing and the arrows did not provide the most optimal game feel. The arrows were a bit too small, so we ended up changing the arrows to larger rectangular boxes. Consequently, we also changed the input keys from arrow to DFJK. The DFJK keys go across the keyboard and correspond to the ordering of the rectangles. It did not make sense to keep the arrow keys as input, since it is not intuitive which keys would correspond to which rectangles.
 
 ## Cross-Platform
 **Anthony Vu:** 
