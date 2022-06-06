@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SideScrollCastle.unity
     guid: d879c8cb129c34234a516cd6816c39f3
+  - enabled: 1
+    path: Assets/Scenes/SideScrollVillage.unity
+    guid: b6000a140a3c74e6d9093a9a4d9ca35a
   m_configObjects: {}
