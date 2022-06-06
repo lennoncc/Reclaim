@@ -37,7 +37,6 @@ public class SoundManager : MonoBehaviour
         {
             track.audioSource = this.gameObject.AddComponent<AudioSource>();
             track.audioSource.clip = track.clip;
-            // track.audioSource.volume = track.volume;
             track.audioSource.volume = PlayerPrefs.GetFloat("MasterVolume", track.volume);
             track.audioSource.pitch = track.pitch;
             track.audioSource.loop = track.loop;
@@ -48,7 +47,6 @@ public class SoundManager : MonoBehaviour
         {
             clip.audioSource = this.gameObject.AddComponent<AudioSource>();
             clip.audioSource.clip = clip.clip;
-            // clip.audioSource.volume = clip.volume;
             clip.audioSource.volume = PlayerPrefs.GetFloat("MasterVolume", clip.volume);
             clip.audioSource.pitch = clip.pitch;
             clip.audioSource.loop = clip.loop;
@@ -58,7 +56,6 @@ public class SoundManager : MonoBehaviour
 
     public void PlayMusicTrack(string title)
     {
-        // Debug.Log(title);
         var track = this.musicTracks.Find(track => track.title == title);
 
         if(null == track) 
@@ -68,14 +65,13 @@ public class SoundManager : MonoBehaviour
         }
         
         track.audioSource.Play();
-
-        if(null != this.trackPlaying) { // If there's a current track playing, stop it
+        // If there's a current track playing, stop it
+        if(null != this.trackPlaying) {
             this.trackPlaying.audioSource.Stop();
         }   
 
         this.trackPlaying = track;
     }
-
 
     public void PlaySoundEffect(string title)
     {

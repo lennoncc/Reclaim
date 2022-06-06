@@ -10,12 +10,12 @@ public class DialogueTrigger : MonoBehaviour
     {
         FindObjectOfType<DialogueManager>().EnqueueDialogues(dialogue);
     }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other && other.tag == "Camber")
         {
             FindObjectOfType<DialogueManager>().EnqueueDialogues(dialogue);
         }
-        
     }
 }

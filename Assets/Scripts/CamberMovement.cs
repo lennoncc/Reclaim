@@ -5,12 +5,13 @@ using UnityEngine;
 public class CamberMovement : MonoBehaviour
 {
     public float speed = 750;
-    public float jumpForce = 35; // Realistic when gravity scale under rigidbody2D is 9.8
+    // Realistic when gravity scale under rigidbody2D is 9.8
+    public float jumpForce = 35;
     Vector2 move;
     Rigidbody2D rb;
 
     public Animator animator;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,7 +19,6 @@ public class CamberMovement : MonoBehaviour
         animator.SetBool("IsSideScrolling", true);
     }
 
-    // Update is called once per frame
     void Update()
     {
         animator.SetBool("IsSideScrolling", true);
@@ -53,7 +53,6 @@ public class CamberMovement : MonoBehaviour
         }
         
         // Animation link
-        // var animator = this.gameObject.GetComponent<Animator>();
         animator.SetFloat("Velocity", Mathf.Abs(this.gameObject.GetComponent<Rigidbody2D>().velocity.x/5.0f));
     }
 

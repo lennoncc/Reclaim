@@ -141,7 +141,6 @@ public class GameManager : MonoBehaviour
                 if (Input.anyKeyDown)
                 {
                     continueButton.SetActive(true);
-                    // TODO: Add screen to go ot next level
                 }
             }
         }

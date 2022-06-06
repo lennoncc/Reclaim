@@ -178,7 +178,7 @@ public class PlayerController : MonoBehaviour
             attacking = true;
             attackBar.SetActive(true);
         }
-        // Defend
+        // Defending
         else 
         {
             attacking = false;

@@ -7,7 +7,6 @@ public class EnemyController : MonoBehaviour
     private float minDamage = 5;
     private float maxDamage = 5;
     private float[] attackTimes = new float[10]; 
-
     private float nextAttackTime;
     private float timeSinceStart;
     private int i;
@@ -67,7 +66,6 @@ public class EnemyController : MonoBehaviour
             {
                 attackMultiplier = 1f;
             }
-            // TODO: Add enemy attack animation
             animator.SetBool("IsAttacking", true);
             GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = true;
             laser.GetComponent<SpriteRenderer>().enabled = true;
@@ -112,7 +110,6 @@ public class EnemyController : MonoBehaviour
                 } 
                 if (timeSinceStart >= nextAttackTime && attacking == true)
                 {
-                    // TODO: stop enemy attack animation
                     attacking = false;
                     animator.SetBool("IsAttacking", false);
                     GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = false;

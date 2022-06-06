@@ -15,6 +15,5 @@ public class MusicSwitcher : MonoBehaviour
             Debug.Log(other.tag);
             FindObjectOfType<SoundManager>().PlayMusicTrack(this.musicTrack);
         }
-        
     }
 }
