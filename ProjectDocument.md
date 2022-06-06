@@ -128,8 +128,6 @@ The falling note objects are created by the [ArrowScheduler.cs](https://github.c
 Here's a chart of how the game logic works together:
 ![image](https://user-images.githubusercontent.com/37753647/172223336-df7a305f-efcd-4dd6-ab37-85bf2f8af06f.png)
 
-**Document what game states and game data you managed and what design patterns you used to complete your task.**
-
 ## Producer
 **Ferica Ting:** 
 As producer, I facilitated team meetings and organized a master task list that lists out things to do for each part of the project. Based on the progress I gauge from team meetings, I assigned and divided the tasks by day for each role. 
