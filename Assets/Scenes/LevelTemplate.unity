@@ -3440,6 +3440,7 @@ MonoBehaviour:
   right: {fileID: 8717618017089671365, guid: 8af981216925940f49b800129f1cf6b9, type: 3}
   levelFile: PrologLevel
   offset: 1500
+  playerController: {fileID: 1976581753}
 --- !u!1 &709511003
 GameObject:
   m_ObjectHideFlags: 0

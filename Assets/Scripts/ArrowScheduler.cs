@@ -17,6 +17,8 @@ public class ArrowScheduler : MonoBehaviour
     private ArrowSpec curSpec;
     private bool moreArrows = true;
     private bool hasStarted = false;
+    [SerializeField]
+    private PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +64,7 @@ public class ArrowScheduler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasStarted) {
+        if (hasStarted && playerController.PlayerHealthBarController.CurrentValue != 0f) {
             this.songTime += Time.deltaTime * 1000;
             if (songTime >= curSpec.hitTime - offset) 
             {

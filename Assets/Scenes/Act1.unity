@@ -5688,6 +5688,7 @@ MonoBehaviour:
   right: {fileID: 8717618017089671365, guid: 8af981216925940f49b800129f1cf6b9, type: 3}
   levelFile: Act1Level
   offset: 1000
+  playerController: {fileID: 658192099}
 --- !u!114 &2011119545
 MonoBehaviour:
   m_ObjectHideFlags: 0

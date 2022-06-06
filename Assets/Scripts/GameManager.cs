@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     private GameObject gameOverScreen;
     [SerializeField]
     private Text percentAccuracyText, missedText, okText, goodText, perfectText, finalScoreText;
+    private float deathAnimationTimer;
 
     public static GameManager Instance
     {
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour
         multiplierTracker = 0;
         numNotes = 0;
         multiText.enabled = false;
+        deathAnimationTimer = 0;
     }
 
     void Update()
@@ -88,10 +90,14 @@ public class GameManager : MonoBehaviour
             if (playerController.PlayerHealthBarController.CurrentValue == 0f)
             {
                 music.Stop();
+                if (deathAnimationTimer < 7f)
+                {
+                    deathAnimationTimer += Time.deltaTime;
+                }
             }
 
             // Show the results at the end of the level.
-            if (!music.isPlaying && !resultsScreen.activeInHierarchy)
+            if (!music.isPlaying && !resultsScreen.activeInHierarchy && playerController.PlayerHealthBarController.CurrentValue != 0f || (deathAnimationTimer >= 7f))
             {
                 resultsScreen.SetActive(true);
                 missedText.text = missedHits.ToString();
@@ -111,6 +117,7 @@ public class GameManager : MonoBehaviour
             {
                 if (Input.anyKeyDown)
                 {
+                    resultsScreen.SetActive(false);
                     gameOverScreen.SetActive(true);
                 }
             }
