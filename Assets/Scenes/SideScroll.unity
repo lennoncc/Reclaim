@@ -3760,7 +3760,7 @@ MonoBehaviour:
   - name: Camber
     sentences:
     - And an arrow will find its way through that mouth of yours, bastard!
-  nextScene: LevelTemplate
+  nextScene: PrologueLevel
 --- !u!61 &1374234752
 BoxCollider2D:
   m_ObjectHideFlags: 0
