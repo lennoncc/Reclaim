@@ -1,8 +1,7 @@
 # Reclaim
 ## Press Kit
 
-### Trailer
-[Reclaim](https://youtu.be/7dvsoHZtaAM)
+### [Reclaim Trailer](https://youtu.be/7dvsoHZtaAM)
 
 ### Screenshots
 
