@@ -1945,6 +1945,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+  - clip: {fileID: 8300000, guid: 79500e364fd9c014ca41f45a300eb312, type: 3}
+    audioSource: {fileID: 0}
+    title: Death
+    volume: 1
+    pitch: 1
+    loop: 0
   sfxClips:
   - clip: {fileID: 8300000, guid: 88512dec698529c40a1c0013963fc65f, type: 3}
     audioSource: {fileID: 0}
@@ -1958,7 +1964,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
-  - clip: {fileID: 8300000, guid: ee30d70cb4bdd334b806810d61adb212, type: 3}
+  - clip: {fileID: 8300000, guid: 79500e364fd9c014ca41f45a300eb312, type: 3}
     audioSource: {fileID: 0}
     title: Death
     volume: 1
@@ -5719,7 +5725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59556060babce9542b3fd0bdf93cf7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 944491787293912554, guid: d7b538b7c468546a786aa9d58b4bc33e, type: 3}
 --- !u!4 &2011119546
 Transform:
   m_ObjectHideFlags: 0

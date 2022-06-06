@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text percentAccuracyText, missedText, okText, goodText, perfectText, finalScoreText;
     private float deathAnimationTimer;
+    private bool stopTrack;
+    private bool deathTrack;
 
     public static GameManager Instance
     {
@@ -65,6 +67,8 @@ public class GameManager : MonoBehaviour
         numNotes = 0;
         multiText.enabled = false;
         deathAnimationTimer = 0;
+        stopTrack = false;
+        deathTrack =  false;
     }
 
     void Update()
@@ -89,7 +93,17 @@ public class GameManager : MonoBehaviour
             // The player dies.
             if (playerController.PlayerHealthBarController.CurrentValue == 0f)
             {
-                music.Stop();
+                if (!stopTrack)
+                {
+                    music.Stop();
+                    stopTrack = true;
+                }
+                if (!deathTrack)
+                {
+                    FindObjectOfType<SoundManager>().PlayMusicTrack("Death");
+                    music = FindObjectOfType<SoundManager>()._trackPlaying.audioSource;
+                    deathTrack = true;
+                }
                 if (deathAnimationTimer < 7f)
                 {
                     deathAnimationTimer += Time.deltaTime;
@@ -98,7 +112,7 @@ public class GameManager : MonoBehaviour
 
             // Show the results at the end of the level.
             // If the player died, wait for the death animation to finish before displaying results.
-            if (!music.isPlaying && !resultsScreen.activeInHierarchy && playerController.PlayerHealthBarController.CurrentValue != 0f || (deathAnimationTimer >= 7f))
+            if ((stopTrack && !resultsScreen.activeInHierarchy && playerController.PlayerHealthBarController.CurrentValue != 0f || (deathAnimationTimer >= 7f)) && !gameOverScreen.activeInHierarchy)
             {
                 resultsScreen.SetActive(true);
                 missedText.text = missedHits.ToString();

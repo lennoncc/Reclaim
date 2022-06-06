@@ -174,7 +174,6 @@ public class PlayerController : MonoBehaviour
         if (playerHealthBarController.CurrentValue == 0f)
         {
             GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsDead", true);
-            FindObjectOfType<SoundManager>().PlaySoundEffect("Death");
         }
         // Toggle between attack and defense mode.
         if (Input.GetButtonDown("Jump"))
