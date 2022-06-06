@@ -106,9 +106,17 @@ When searching for music, we knew our game was going to be in an 8-bit style, so
 
 ## Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
+[Gameplay Test Results](https://docs.google.com/document/d/1IWK-ffmyFXmgQgZxkubBjRLW1HUEBvl414KBRuQF7AM/edit?usp=sharing)
 
-**Summarize the key findings from your gameplay tests.**
+**Judy Zhang:**  
+Through gameplay testing with 10 individuals, we discovered that several difficulties that the players faced while playing the game.
+First and foremost, we initially did not include instructions in the game to determine how the players would react and see which controls were more intuitive.  
+We quickly discovered that WASD or the arrow keys were well-known between the majority of the players during the platformer portion of the game.  
+However, the playtesters were largely confused about which direction to head towards, resulting in some of them heading left to absolutely nothing. While we still wanted the element of exploration within the game, we decided to add an invisible barrier to the left of the gameplay area to prevent the player from infinitely heading towards the left of the game. We also did not want players to get confused by the invisible barrier, which resulted in a cat blocking your way :).
+In addition, some playtesters found it difficult to know when to use the spacebar to attack or defend during the rhythm/combat portion of the game. In an effort to mitigate the confusion, the team used a red overlay over the rhythm game whenever the enemy was attacking to signal the playtester to switch to defense mode.  
+Finally, the falling arrows and matching buttons that were initially used in the first draft of our rhythm game were scrapped for one major reason, the UI for the buttons were aligned in a row, while the arrow keys on a player's keyboard were not aligned. We decided to use rectangles instead, binded to the d, f, j, and k keys as input. This avoided the physical dissociation that the playtesters felt when playing the rhythm game while also allowing for them to be able to access the space bar with both hands when switching between attack/defense.  
+In addition to these control mechanisms that were edited, the UI and Physics were also revised from the playtesters' comments. For example, the dialogue text box was revised such that the text would scroll through faster, and Camber's movements were also speedier during the platformer parts of the game.  
+Overall, the playtesters seemed to enjoy the visuals, animations, and audio, with the majority of them stating that they would gift it to a younger demographic, mainly little siblings or cousins, due to the vibrant and simple nature of the game.  
 
 ## Narrative Design
 **Matthew Tom:** The entire point about this story is the path of reclaiming what was lost to fit the theme of "It was the best of times, it was the worst of times." From the sound design of music to give that inspiring, heroic like atmosphere, to the tactical decisions of switching between attack and defense modes, as well as the powerful enemies Camber faces, they all combine together to demonstrate a tale of struggle, strife, and victory through overcoming the odds. Every battle Camber fought required moments of sacrifice in the gameplay, such as sacrificing potential moments to build up the charge meter to attack, only to be met with a relentless attack from the enemy. The medieval look of Reclaim as a whole was an intentional choice as a reference back to the Medieval and Dark Ages in our history, where humanity arguably was at one of its lowest peaks. The worn down castle and the burning village in the later levels contrasted the opening first level and prologue where everything was much brighter and hopeful, further driving the point of how far the kingdom had fallen, and it would be up to Camber to save it.
