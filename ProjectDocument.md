@@ -6,8 +6,12 @@ Our rhythm game follows a storyline, and the ultimate goal is to reclaim the los
 
 ## Gameplay Explanation ##
 
-The optimal gameplay strategy is to match the rectangular blocks as closely as possible to maximize your score and avoid dying. The input keys for each of the four blocks are d, f, j, and k which corresponds to the blocks from left to right. During the rhythm game, there will be a red bar that gets displayed to indicate that the enemy is attacking. When the enemy is attacking, the player should switch to defense mode if they're not already defending. Conversely, when the enemy is not attacking, the player would want to be in attack mode. To switch between attack and defense mode, you would press the spacebar. To navigate the player around, you would use the arrow keys.
+The optimal gameplay strategy is to match the rectangular blocks as closely as possible to maximize your score and avoid dying. The input keys for each of the four blocks are d, f, j, and k which corresponds to the blocks from left to right. During the rhythm game, there will be a red bar that gets displayed to indicate that the enemy is attacking. When the enemy is attacking, the player should switch to defense mode if they're not already defending. Conversely, when the enemy is not attacking, the player would want to be in attack mode. To switch between attack and defense mode, you would press the spacebar. To navigate the player around, you coudl either use the WASD keys or the arrow keys.
 
+
+**If you did work that should be factored in to your grade that does not fit easily into the proscribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
+
+**Lennon Cruz:** I made it so that dialogue generation was dynamic through the utilization of [queues](https://github.com/lennoncc/Reclaim/blob/7012832800e07e38d71ac555b1f0d3038be1ec2f/Assets/Scripts/DialogueManager.cs#L31), which was kind of similar to some of the concepts we learned in Exercise 3. I also helped to link the [slider for volume](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/VolumeController.cs) in the Main Menu to change the volume of the game.
 
 # Main Roles #
 
@@ -37,8 +41,8 @@ You should replay any **bold text** with your relevant information. Liberally us
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
 ## Input
-
-**Describe the default input configuration.**
+**Lennon Cruz:** 
+The default input configuration utilizes [WASD](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/CamberMovement.cs) and the Arrow Keys for left and right movement and Spacebar for jump in the sidescrolling parts, and DFJK and Spacebar for the rhythm game parts. DFJK are utilized for hitting notes, and Spacebar is utilized to switch between attack and defense modes. Alongside this, UI elements can be controlled with buttons that are clicked with the mouse pointer, and dialogue boxes can be navigated/skipped through by using the [Spacebar](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/DialogueController.cs). Unity's Input Manager was utilized to get the various inputs working; for example, since key D in WASD during the sidescrolling part conflicted with the key D in DFJK during the rhythm game part, I created new inputs in the input manager so that the rhythm game utilized different inputs from the sidescrolling parts.
 
 **Add an entry for each platform or input style your project supports.**
 
@@ -52,12 +56,44 @@ You should replay any **bold text** with your relevant information. Liberally us
 # Sub-Roles
 
 ## Audio
+**Lennon Cruz:**
+My Assets are as follows, and can also be seen in a README.md in the Audio folder:
 
-**List your assets including their sources and licenses.**
+**Music**
+
+https://www.fesliyanstudios.com/royalty-free-music/downloads-c/8-bit-music/6
+prologue_1 - 8 Bit Nostalgia
+
+Following Music by Marllon Silva (xDeviruchi) - https://xdeviruchi.itch.io/8-bit-fantasy-adventure-music-pack
+
+sidescroll_1 - xDeviruchi - Exploring The Unknown
+
+act1_1 - xDeviruchi - And The Journey Begins
+
+act2_1 - xDeviruchi - Prepare For Battle!
+
+
+**Sound Effects**
+
+https://kasse.itch.io/ui-buttons-sound-effects-pack?download
+click_1 - UI_button01.wav
+
+https://freesound.org/people/LittleRobotSoundFactory/sounds/270341/
+heal_1 - Pickup_04.wav
+
+https://freesound.org/people/LittleRobotSoundFactory/sounds/270338/
+bow_1 - Open_01.wav
+
+https://www.youtube.com/watch?v=br3OzOrARh4
+death_1 - Game Over (8-Bit Music)
 
 **Describe the implementation of your audio system.**
 
+The audio system [SoundManager](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/SoundManager.cs) is largely based off SoundManager.cs from Exercise 1. [Modifications](https://github.com/lennoncc/Reclaim/blob/bb3bce343e1de79f0a70d7002a6f947833cb8a97/Assets/Scripts/SoundManager.cs#L41) were made to account for player's preferred audio volume when playing tracks/sfx.
+
 **Document the sound style.** 
+
+When searching for music, we knew our game was going to be in an 8-bit style, so I searched for royalty free chiptune styled music, that was of the fantasy/medieval/adventure genre. I also wanted to find music that was more upbeat in tone as this is a rhythm game; slower songs are harder to work with in terms of fun.
 
 ## Gameplay Testing
 
