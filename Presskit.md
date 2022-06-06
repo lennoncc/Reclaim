@@ -17,7 +17,7 @@ Prologue Level Intro
 ![alt text](https://i.imgur.com/0RwrLUx.png)
 Instructions before battle
 
-![alt text](https://i.imgur.com/Sw3Q6O6.png)
+![alt text](https://i.imgur.com/f6ifyGx.png)
 Rhythm Game elements
 
 ![alt text]()
