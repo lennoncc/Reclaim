@@ -32,8 +32,6 @@ public class NoteObject : MonoBehaviour
             {
                 // Make the note disappear when hit.
                 gameObject.SetActive(false);
-                Debug.Log(Mathf.Abs(transform.position.y - 1f));
-                
                 // Ok hit.
                 if (Mathf.Abs(transform.position.y - 1f) > 0.30f)
                 {

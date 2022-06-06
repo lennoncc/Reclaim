@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
 
             // Show the results at the end of the level.
             // If the player died, wait for the death animation to finish before displaying results.
-            if ((stopTrack && !resultsScreen.activeInHierarchy && playerController.PlayerHealthBarController.CurrentValue != 0f || (deathAnimationTimer >= 7f)) && !gameOverScreen.activeInHierarchy)
+            if ((!music.isPlaying || deathAnimationTimer >= 7f) && !resultsScreen.activeInHierarchy && !gameOverScreen.activeInHierarchy)
             {
                 resultsScreen.SetActive(true);
                 missedText.text = missedHits.ToString();
