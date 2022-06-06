@@ -72,6 +72,7 @@ The default input configuration utilizes [WASD](https://github.com/lennoncc/Recl
 
 ## Game Logic
 **Angelina Vu**
+
 Rhythm Game: 
 
 For the rhythm part of the game, we followed this tutorial (https://youtu.be/cZzf1FQQFA0) to get a basic version of our game working. Similar to classic rhythm games, we have four different "notes" that fall from the sky that the player must match the input for using the dfjk keys on their keyboard. The buttons and falling notes are controlled here:
