@@ -143,6 +143,7 @@ public class PlayerController : MonoBehaviour
             ratio = 0f;
         }
         thresholdController.ChangeValueX(ratio);
+        GetComponent<ProjectileController>().Shoot();
         EarnStars();
     }
 
