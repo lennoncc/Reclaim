@@ -83,6 +83,18 @@ Master task list: https://docs.google.com/document/d/1qWD-5el6uZG7cLrMdEkR3v5YtZ
 Weekly/scheduled task list:
 https://docs.google.com/document/d/1noumZGm8JTSRwwNUEN3i5zEBxNGPvAYrRijhTiqgklE/edit?usp=sharing
 
+## Level Design
+**Anthony Vu:**
+
+The level designer was a role made up by us. Overall, my task was to come up the levels and the mechanics within the level. First, I designed the layout of each level and where each object should be on the screen. I made a rough sketch based on the artwork that was given to me at the time.
+![image](https://imgur.com/jUD7gK4)  
+
+The bulk of my tasks was in actually charting the rhythm aspect of the game. I decided where, when, and how fast each note falls. I had to listen to the music multiple times to get a feel of what the music is like. I then used a metronome to figure out the BPM (Beats per Minute) of each song. After all of that setup, I mapped out where and when each note should fall based on the song and its beat. I did this in a .txt file as you can see [here.](https://github.com/lennoncc/Reclaim/blob/6f58e883a3b49b89e7ddc93c49e2e161d7512e0e/Assets/Resources/Prologlevel.txt#L1) The first number in each line is the index of the note, ie 0 is the most left and 3 is the most right. The second number is the time in milisecconds that the note should be instantiated.
+
+In terms of actual code, I wrote a majority of ArrowScheduler.cs. I created the ArrowSpecs struct, which holds the neccessary information needed to instantiate each note, such as the position and the time it needs to be instantiated. I parsed through my level text files to obtain the neccessary information [here].(https://github.com/lennoncc/Reclaim/blob/6f58e883a3b49b89e7ddc93c49e2e161d7512e0e/Assets/Scripts/ArrowScheduler.cs#L27)
+
+After parsing through the file, I pushed each of the ArrowSpecs into a queue so that it would be easy to take stuff out later on. This process was very similar to exercise 4 when scheduling the projectiles. I had a timer that kept track of the time that has elapsed since the beginning of the song and instantiate the next arrow in the queue if the time is right. The code is [here.](https://github.com/lennoncc/Reclaim/blob/6f58e883a3b49b89e7ddc93c49e2e161d7512e0e/Assets/Scripts/ArrowScheduler.cs#L63)
+
 
 # Sub-Roles
 
@@ -161,3 +173,9 @@ Additional assets that were used to build scenes were found in free assets in Un
 ## Game Feel
 **Ferica Ting:** 
 We originally had arrow keys for the hit box, but then we changed it to larger rectangular boxes to account for spacing and sizing. The arrow keys were too small and close to each other, which does not provide the most optimal game feel.
+
+## Cross-Platform
+**Anthony Vu:** 
+The game is primarily going to be played on PC, so most of the game logic and design was made to be PC friendly. I also made the game playable on mobile devices. I had to make some changes in the code to make the rhythm part work with mobile. I added invisible buttons where the notes are supposed to be pressed so that the player could tap there and the notes will be pressed. I had to add new logic to make the notes disappear [here](https://github.com/lennoncc/Reclaim/blob/6f58e883a3b49b89e7ddc93c49e2e161d7512e0e/Assets/Scripts/ButtonController.cs#L34) becuase the player would have to tap on the falling notes if I were to use the code we had for the PC version. I also added an invisible button to switch between attack and defense mode.
+
+Most of the UI elements already worked for the main menue and dialog. However, I still had to implement movement for the side scroller scenes. I did this by checking if the player tapped on the left or right side of Camber and that would cause Camber to walk in that [direction.](https://github.com/lennoncc/Reclaim/blob/6f58e883a3b49b89e7ddc93c49e2e161d7512e0e/Assets/Scripts/CamberMovement.cs#L29)
