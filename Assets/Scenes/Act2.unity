@@ -2224,7 +2224,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.7, y: 3.5}
+  m_Size: {x: 5.7, y: 8}
   m_EdgeRadius: 0
 --- !u!114 &324214104
 MonoBehaviour:
@@ -3096,7 +3096,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LevelTemplate
+          m_StringArgument: Act2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &555410544
@@ -3863,7 +3863,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.7, y: 3.5}
+  m_Size: {x: 5.7, y: 8}
   m_EdgeRadius: 0
 --- !u!114 &682464833
 MonoBehaviour:
@@ -7560,7 +7560,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.7, y: 3.5}
+  m_Size: {x: 5.7, y: 8}
   m_EdgeRadius: 0
 --- !u!114 &1450275341
 MonoBehaviour:
@@ -8105,7 +8105,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.7, y: 3.5}
+  m_Size: {x: 5.7, y: 8}
   m_EdgeRadius: 0
 --- !u!114 &1629330035
 MonoBehaviour:

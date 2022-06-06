@@ -424,7 +424,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.7, y: 3.5}
+  m_Size: {x: 5.7, y: 8}
   m_EdgeRadius: 0
 --- !u!1 &74193096
 GameObject:
@@ -2205,7 +2205,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.7, y: 3.5}
+  m_Size: {x: 5.7, y: 8}
   m_EdgeRadius: 0
 --- !u!1 &416408983
 GameObject:
@@ -2569,7 +2569,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.7, y: 3.5}
+  m_Size: {x: 5.7, y: 8}
   m_EdgeRadius: 0
 --- !u!1001 &461510790
 PrefabInstance:
@@ -8727,7 +8727,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.7, y: 3.5}
+  m_Size: {x: 5.7, y: 8}
   m_EdgeRadius: 0
 --- !u!1 &1971809611
 GameObject:
@@ -8900,7 +8900,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LevelTemplate
+          m_StringArgument: PrologueLevel
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1972252882
