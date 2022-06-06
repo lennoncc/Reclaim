@@ -24,19 +24,12 @@ public class ArrowScheduler : MonoBehaviour
     void Start()
     {
         // reads in the level
-        // TextAsset file_path = new TextAsset();
-        Object file_path = Resources.Load<TextAsset>(levelFile);
-        // Debug.Log(file_path);
-        string input = file_path.ToString();
-        // Debug.Log(file_path);
-        // string file_path = "./Assets/Resources/Prologlevel.txt";
-        // StreamReader inp_stm = new StreamReader(file_path);
-        // var input = ""
-        string[] inp_stm = input.Split('\n');
-        foreach (string inp_ln in inp_stm)
+        Object level = Resources.Load<TextAsset>(levelFile);
+        string data = level.ToString();
+        string[] lines = data.Split('\n');
+        foreach (string line in lines)
         {
-            // string inp_ln = inp_stm.ReadLine( );
-            string[] parameters = inp_ln.Split(' ');
+            string[] parameters = line.Split(' ');
             ArrowSpec specs = new ArrowSpec();
             specs.direction = int.Parse(parameters[0]);
             specs.hitTime = int.Parse(parameters[1]);
@@ -58,7 +51,6 @@ public class ArrowScheduler : MonoBehaviour
             q.Enqueue(specs);
         }
         curSpec = (ArrowSpec)q.Dequeue();
-        // inp_stm.Close();
     }
 
     // Update is called once per frame

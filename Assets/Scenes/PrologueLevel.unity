@@ -1611,6 +1611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f86952441f06e7408f83781cdce133a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackFile: PrologAttack
   playerController: {fileID: 1976581753}
   scrollingText: {fileID: 363838215371788088, guid: e4fd9f8a8dc84964488cd9c24e8aa65a, type: 3}
   animator: {fileID: 292671766}

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private float minDamage = 7;
-    private float maxDamage = 7;
-    private float[] attackTimes = {10f, 18.5f ,31f, 40f, 64f, 95f}; /* temp */
+    private float minDamage = 0;
+    private float maxDamage = 0;
+    // private float[10] attackTimes = {10f, 18.5f ,31f, 40f, 64f, 95f}; /* temp */
+    private float[] attackTimes = new float[10]; /* temp */
+
     private float nextAttackTime;
     private float timeSinceStart;
     private int i;
+    [SerializeField] 
+    private string attackFile;
     [SerializeField]
     private PlayerController playerController;
     [SerializeField]
@@ -31,6 +35,16 @@ public class EnemyController : MonoBehaviour
     {
         attacking = false;
         timeSinceStart = 0;
+        i = 0;
+        Object level = Resources.Load<TextAsset>(attackFile);
+        string data = level.ToString();
+        string[] lines = data.Split('\n');
+        foreach (string line in lines)
+        {
+            float num = float.Parse(line);
+            attackTimes[i] = num;
+            i++;
+        }
         i = 0;
         nextAttackTime = attackTimes[0];
         textPosition = new Vector3(2f, 2f, 0f);
@@ -122,5 +136,6 @@ public class EnemyController : MonoBehaviour
             timeSinceStart += Time.deltaTime;
             animator.SetBool("IsAttacking", false);
         }
+        Debug.Log(timeSinceStart);
     }
 }
