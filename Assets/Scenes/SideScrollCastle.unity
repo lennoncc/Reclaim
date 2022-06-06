@@ -2910,7 +2910,7 @@ MonoBehaviour:
   - name: Elec
     sentences:
     - So be it. Ready yourself, sister.
-  nextScene: LevelTemplate
+  nextScene: Act2
 --- !u!114 &1006387769
 MonoBehaviour:
   m_ObjectHideFlags: 0
