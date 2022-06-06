@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     private bool attacksFinished;
     private bool hasStarted;
     public Animator animator;
+    [SerializeField] private GameObject laser;
 
     public bool HasStarted
     {
@@ -56,6 +57,7 @@ public class EnemyController : MonoBehaviour
             // TODO: Add enemy attack animation
             animator.SetBool("IsAttacking", true);
             GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = true;
+            laser.GetComponent<SpriteRenderer>().enabled = true;
 
             float damage = Mathf.Round(DamageEngine.GetDamage(minDamage, maxDamage, attackMultiplier));
             if (damage != 0)
@@ -67,6 +69,7 @@ public class EnemyController : MonoBehaviour
             {
                 ratio = 0f;
             }
+            GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = true;
             playerController.PlayerHealthBarController.ChangeValueX(ratio);
         }
     }
@@ -91,6 +94,7 @@ public class EnemyController : MonoBehaviour
                         attacksFinished = true;
                         animator.SetBool("IsAttacking", false);
                         GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = false;
+                        laser.GetComponent<SpriteRenderer>().enabled = false;
                     }
                 } 
                 if (timeSinceStart >= nextAttackTime && attacking == true)
@@ -99,6 +103,7 @@ public class EnemyController : MonoBehaviour
                     attacking = false;
                     animator.SetBool("IsAttacking", false);
                     GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = false;
+                    laser.GetComponent<SpriteRenderer>().enabled = false;
                     // Get the next attack time if there is one.
                     if (i + 1 < attackTimes.Length)
                     {
@@ -110,12 +115,12 @@ public class EnemyController : MonoBehaviour
                         attacksFinished = true;
                         animator.SetBool("IsAttacking", false);
                         GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = false;
+                        laser.GetComponent<SpriteRenderer>().enabled = false;
                     }
                 } 
             }
             timeSinceStart += Time.deltaTime;
             animator.SetBool("IsAttacking", false);
-            // GameObject.Find("AttackIndicator").GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }
