@@ -70,6 +70,9 @@ The default input configuration utilizes [WASD](https://github.com/lennoncc/Recl
 
 **Add an entry for each platform or input style your project supports.**
 
+**Anthony Vu:** 
+There is also mobile compatiblity added to the game. You tap the buttons at bottom where the notes are supposed to land. You can switch between attack/defence mode by tapping the icon next to the health bar. In the side scroller scenes, you tap the right of the screen to go right and tap the left of the screen to go left. The UI elements could be tapped to navigate through the menues and dialogs.
+
 ## Game Logic
 **Angelina Vu**
 
