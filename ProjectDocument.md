@@ -123,3 +123,13 @@ When searching for music, we knew our game was going to be in an 8-bit style, so
 ## Game Feel
 **Ferica Ting:** 
 We originally had arrow keys for the hit box, but then we changed it to larger rectangular boxes to account for spacing and sizing. The arrow keys were too small and close to each other, which does not provide the most optimal game feel.
+
+## Design Translation
+**Angelina Vu:**
+This is one of the roles that our team made up and the main task for this role is to create diagrams that help others understand how the game works. The following are things I worked on for this sub-role.
+Gantt Chart: https://ucdavis365-my.sharepoint.com/:w:/g/personal/athvu_ucdavis_edu/EdYyHaV_HlVChNt4J49-rfgBsqmByEnG_q7FALKK_8ApgA?e=4ePnla
+
+Reclaim Game Logic Diagram: https://www.figma.com/file/4hGvLDmeaYvzbiD3lzMAHl/Reclaim-Game-Logic?node-id=0%3A1
+
+
+Camber Animation FSM: https://docs.google.com/drawings/d/1jrccfaZD3c2KzukeoIZutvb3XEGru94xvKhegclnFGs/edit?usp=sharing
