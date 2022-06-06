@@ -47,6 +47,7 @@ The default input configuration utilizes [WASD](https://github.com/lennoncc/Recl
 **Add an entry for each platform or input style your project supports.**
 
 ## Game Logic
+**Angelina Vu:** 
 
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
 
@@ -126,7 +127,9 @@ We originally had arrow keys for the hit box, but then we changed it to larger r
 
 ## Design Translation
 **Angelina Vu:**
+
 This is one of the roles that our team made up and the main task for this role is to create diagrams that help others understand how the game works. The following are things I worked on for this sub-role.
+
 Gantt Chart: https://ucdavis365-my.sharepoint.com/:w:/g/personal/athvu_ucdavis_edu/EdYyHaV_HlVChNt4J49-rfgBsqmByEnG_q7FALKK_8ApgA?e=4ePnla
 
 Reclaim Game Logic Diagram: https://www.figma.com/file/4hGvLDmeaYvzbiD3lzMAHl/Reclaim-Game-Logic?node-id=0%3A1
