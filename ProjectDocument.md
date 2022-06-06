@@ -27,8 +27,8 @@ Here is an example:
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 ## User Interface
-
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
+**Jimmy Trinh**
+The UI is present in every aspect of our game. From the start, the Main Menu allows players to Play, Quit, or control options. I implemented elements such as a volume slider to achieve a modern look. Within the game, I implemented a scalable Dialogue Box Manager. The dialogue box is able to be used in any scene, and can take in text input to generate the dialogue. There are animation keyframes to have the dialoguebox go off and on the screen when it should. Furthermore,
 
 ## Movement/Physics
 
