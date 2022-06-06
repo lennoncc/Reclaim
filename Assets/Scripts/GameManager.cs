@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
             }
 
             // Show the results at the end of the level.
+            // If the player died, wait for the death animation to finish before displaying results.
             if (!music.isPlaying && !resultsScreen.activeInHierarchy && playerController.PlayerHealthBarController.CurrentValue != 0f || (deathAnimationTimer >= 7f))
             {
                 resultsScreen.SetActive(true);
