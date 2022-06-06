@@ -99,7 +99,7 @@ Arrow factory:
 
 ## Producer
 **Ferica Ting:** 
-As producer, I facilitated team meetings and organized a master task list that lists out things to do for each part of the project. Based on the progress I gauge from team meetings, I assigned and divided the tasks by day for each role. 
+As producer, I facilitated team meetings and organized a master task list that lists out things to do for each part of the project. I laid out all the features that we need and split that up into smaller parts to turn them into individual tasks. Based on the progress I gauge from team meetings, I assigned and divided the tasks by day for each role. Some features required multiple roles to work on them, so I coordinated that in the task document as well. I made sure that everyone was on track with their individual tasks so that we could meet the deadline.
 
 Master task list: https://docs.google.com/document/d/1qWD-5el6uZG7cLrMdEkR3v5YtZmKVY-BncE4M4HeELc/edit?usp=sharing
 
