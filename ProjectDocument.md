@@ -87,7 +87,7 @@ https://docs.google.com/document/d/1noumZGm8JTSRwwNUEN3i5zEBxNGPvAYrRijhTiqgklE/
 **Anthony Vu:**
 
 The level designer was a role made up by us. Overall, my task was to come up the levels and the mechanics within the level. First, I designed the layout of each level and where each object should be on the screen. I made a rough sketch based on the artwork that was given to me at the time.
-![image](https://imgur.com/jUD7gK4)  
+![image](https://i.imgur.com/jUD7gK4.png)  
 
 The bulk of my tasks was in actually charting the rhythm aspect of the game. I decided where, when, and how fast each note falls. I had to listen to the music multiple times to get a feel of what the music is like. I then used a metronome to figure out the BPM (Beats per Minute) of each song. After all of that setup, I mapped out where and when each note should fall based on the song and its beat. I did this in a .txt file as you can see [here.](https://github.com/lennoncc/Reclaim/blob/6f58e883a3b49b89e7ddc93c49e2e161d7512e0e/Assets/Resources/Prologlevel.txt#L1) The first number in each line is the index of the note, ie 0 is the most left and 3 is the most right. The second number is the time in milisecconds that the note should be instantiated.
 
