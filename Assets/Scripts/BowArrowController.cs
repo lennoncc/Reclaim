@@ -7,7 +7,7 @@ public class BowArrowController : MonoBehaviour
     public BowArrowBehavior arrow;
     public Transform bowPosition;
 
-    public void Shoot(){ 
+    public void Shoot() {
         Instantiate(arrow, bowPosition.position, transform.rotation);
     }
 }

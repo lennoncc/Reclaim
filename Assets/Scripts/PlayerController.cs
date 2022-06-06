@@ -132,8 +132,6 @@ public class PlayerController : MonoBehaviour
     public void Attack()
     {
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
-        GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsCharging", false);
-        GameObject.Find("Camber").GetComponent<Animator>().SetBool("IsShooting", true);
         GameObject.Find("Camber").GetComponent<Animator>().SetBool("HasShield", false);
         FindObjectOfType<SoundManager>().PlaySoundEffect("Bow");
 
