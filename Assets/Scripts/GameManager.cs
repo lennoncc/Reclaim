@@ -42,12 +42,11 @@ public class GameManager : MonoBehaviour
     private float goodHits;
     private float perfectHits;
     private float percentAccuracy;
-    [SerializeField]
-    private GameObject resultsScreen;
-    [SerializeField]
-    private GameObject gameOverScreen;
-    [SerializeField]
-    private Text percentAccuracyText, missedText, okText, goodText, perfectText, finalScoreText;
+    [SerializeField] private GameObject resultsScreen;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject continueButton;
+    [SerializeField] private GameObject instructions;
+    [SerializeField] private Text percentAccuracyText, missedText, okText, goodText, perfectText, finalScoreText;
     private float deathAnimationTimer;
     private bool stopTrack;
     private bool deathTrack;
@@ -84,7 +83,7 @@ public class GameManager : MonoBehaviour
                 enemyController.HasStarted = true;
                 FindObjectOfType<SoundManager>().PlayMusicTrack(trackTitle);
                 music = FindObjectOfType<SoundManager>()._trackPlaying.audioSource;
-                GameObject.Find("Instructions").SetActive(false);
+                instructions.SetActive(false);
                 multiText.enabled = true;
             }
         }
@@ -141,6 +140,7 @@ public class GameManager : MonoBehaviour
             {
                 if (Input.anyKeyDown)
                 {
+                    continueButton.SetActive(true);
                     // TODO: Add screen to go ot next level
                 }
             }
