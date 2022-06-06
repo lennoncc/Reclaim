@@ -27,8 +27,8 @@ Here is an example:
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 ## User Interface
-**Jimmy Trinh:**
-The UI is present in every aspect of our game. From the start, the Main Menu allows players to Play, Quit, or control options. I implemented UI elements such as a volume slider to achieve a modern look. These are Unity UI components which I added onclicks to in order to switch to certain states/scenes. [MainMenu.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/MainMenu.cs), [SceneSwitchTrigger.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/SceneSwitchTrigger.cs). Within the game, I implemented a scalable Dialogue Box Manager. [Dialogue.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/Dialogue.cs), [DialogueManager.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/DialogueManager.cs), [DialogueTrigger.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/DialogueTrigger.cs). The dialogue box is able to be used in any scene, and can take in text input to generate the dialogue. There are animation keyframes to have the dialoguebox go off and on the screen when it should. There is a way to continue dialogue and the text scrolls like a typewriter so it isn't just static text reading. Furthermore, during gameplay, UI elements such as health, enemy health, and score are being used. And upon player fail, there are UI elements that allow them to replay.
+**Jimmy Trinh**
+The UI is present in every aspect of our game. From the start, the Main Menu allows players to Play, Quit, or control options. I implemented UI elements such as a volume slider to achieve a modern look. Within the game, I implemented a scalable Dialogue Box Manager. The dialogue box is able to be used in any scene, and can take in text input to generate the dialogue. There are animation keyframes to have the dialoguebox go off and on the screen when it should. There is a way to continue dialogue and the text scrolls like a typewriter so it isn't just static text reading. Furthermore, during gameplay, UI elements such as health, enemy health, and score are being used. And upon player fail, there are UI elements that allow them to replay.
 
 ## Movement/Physics
 **Matthew Tom:**
@@ -72,34 +72,66 @@ The default input configuration utilizes [WASD](https://github.com/lennoncc/Recl
 
 ## Game Logic
 **Angelina Vu**
-Rhythm Game: For the rhythm part of the game, we followed this tutorial (https://youtu.be/cZzf1FQQFA0) to get a basic version of our game working. Similar to classic rhythm games, we have four different "notes" that fall from the sky that the player must match the input for using the dfjk keys on their keyboard. The buttons and falling notes are controlled here:
+Rhythm Game: 
 
-https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/ButtonController.cs 
+For the rhythm part of the game, we followed this tutorial (https://youtu.be/cZzf1FQQFA0) to get a basic version of our game working. Similar to classic rhythm games, we have four different "notes" that fall from the sky that the player must match the input for using the dfjk keys on their keyboard. The buttons and falling notes are controlled here:
 
-https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/NoteObject.cs
+[ButtonController.cs]https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/ButtonController.cs 
 
-https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/NoteController.cs
+[NoteObject.cs]https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/NoteObject.cs
+
+[NoteController.cs]https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/NoteController.cs
 
 Depending on how accurate the player times the hits 
 (miss, ok, good, perfect), they will be rewarded more points.
 ![image](https://user-images.githubusercontent.com/37753647/172221400-cecd518c-d3af-4cb7-ac8d-12f0e7f071cd.png)
 
+Game Manager: [GameManager.cs]https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/GameManager.cs 
 
-Game Manager: https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/GameManager.cs 
+The Game Manager handles the music that plays (level music and player death music). It also keeps track and updates all of the data related to scoring, such as multipliers, the number of each type of note hit, current score, and accuracy. This is where the logic for showing the results and game over screens is as well.
 
-Score System: stars
-Combat System: toggle, multiplier, heal, attacks, update bars
-Player Controller:
-Enemy Controller:
-Bar controller:
-Lose/Win Logic:
-Arrow factory:
+Score System: 
+
+The player earns points depending on the accuracy of their hits and the current multiplier, with perfect hits earning 100, good hits 80, and ok hits 50. The player can also get up to a 2x score multiplier by continuosly hitting notes, without any misses. Up to 3 stars can also be earned in each level, which give a final score increae of 10000 points each. At the end of the level, the results, including the types of each hit, accuraccy, number of stars earned, and final score, are displayed to the screen.
+
+Player Controller: [PlayerController.cs]https://github.com/lennoncc/Reclaim/blob/1eaf21865018780ce2f04524f1cc7b36007d9c57/Assets/Scripts/PlayerController.cs
+
+This script controls the player, Camber. It contains the logic for switching between attack and defense modes and functions for her attack and heal, which are called when the gauge bar is full. The Player Controller script fills and resets the gauge bar and lowers the enemy threshold bar. Since the enemy threshold bar contains the stars, this script is also responsible for getting the number of stars the player has earned.
+
+Enemy Controller: [EnemyController.cs]https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/EnemyController.cs
+
+This script controls the enemies (mage captain, blood witch, and prince Elec). It handles their attack durations and the attacks themselves, by conntrolling the player's health bar.
+
+Bar controller: [BarController.cs]https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/BarController.cs
+
+The game has 3 bars at each level (gauge, player health, and enemy threshold), so this is a genereal script that controls all 3. It holds the current value and capacity of each bar and contains functions to change their current values, which also updates the wy they look in game.
+
+Combat System: 
+
+Genereal: The game's combat system involves the player having to switch between attack and defense modes, to earn stars while avoiding enemy attacks. The attacks use the [Damage Engine]https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/DamageEngine.cs to get the amount of damage. There is an attack/heal multiplier, separate from the score multiplier, that increases attack damage or health regeneration. The multiplier can go up to x2, depending on if the player continuously hits the notes without misses. The player can toggle between attack and defense using the spacebar. Swicthing between attack and defense resets the gauge bar and attack/heal multiplier.
+
+Attacking and defending: When the gauge bar is full, the player will attack or heal, depending on which mode they are in. The enemy has set attack durations, chosen by our level designer for each song. During these enemy attacks, the player must switch to defense mode or else take damage. Being in attack mode while the enemy is in attack mode causes the player to take full damage. If the player is in defense mode and hits perfects, they will not take any damage. If they hit good and ok notes, they will take 50% and 25% of the enemy attack damage respectively.
+
+About the bars: The gauge bar fills up according to the accuracy of the hits; better accuracy means a greater increase. The player health bar descreases/increases on being attacked by the enemy or the player healing. The enemy threshold bar decreases when attacked. The stars on the bar will also become colored in, upon earning the star.
+
+Lose/Win Logic: 
+
+The logic to lose or win the game is in the Game Manager. The code is written to have the correct screen display, depending on if they win or lose the level. If the player wins, they can continue to the next level. If they lose, they can retry the level.
+https://github.com/lennoncc/Reclaim/blob/562a153f9cefac98dc2f4e941c3337abf73d01f6/Assets/Scripts/GameManager.cs#L93
+
+The player loses if they run out of health, or if they get to the end of the song, but have not earned at least 1 star. Otherwise, the player wins.
+
+Creating the note objects:
+The falling note objects are created by the [ArrowScheduler.cs]https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/ArrowScheduler.cs, which parses a .txt file for a list of arrow types and times that the arrows should be pressed. The Arrow Scheduler was written by Anthony, our level designer, and uses the [ArrowFactory.cs]https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/ArrowFactory.cs, which I wrote following the factory design pattern, to instantiate the notes, put them under the NoteHolder object in the scene hierarchy, and give them the player controller component.
+
+Here's a chart of how the game logic works together:
+![image](https://user-images.githubusercontent.com/37753647/172223336-df7a305f-efcd-4dd6-ab37-85bf2f8af06f.png)
 
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
 
 ## Producer
 **Ferica Ting:** 
-As producer, I facilitated team meetings and organized a master task list that lists out things to do for each part of the project. I laid out all the features that we need and split that up into smaller parts to turn them into individual tasks. Based on the progress I gauge from team meetings, I assigned and divided the tasks by day for each role. Some features required multiple roles to work on them, so I coordinated that in the task document as well. I made sure that everyone was on track with their individual tasks so that we could meet the deadline.
+As producer, I facilitated team meetings and organized a master task list that lists out things to do for each part of the project. Based on the progress I gauge from team meetings, I assigned and divided the tasks by day for each role. 
 
 Master task list: https://docs.google.com/document/d/1qWD-5el6uZG7cLrMdEkR3v5YtZmKVY-BncE4M4HeELc/edit?usp=sharing
 
@@ -186,18 +218,14 @@ Additional assets that were used to build scenes were found in free assets in Un
 
 
 ## Press Kit and Trailer
-[Video Trailer](https://youtu.be/7dvsoHZtaAM)
-[Presskit](https://github.com/lennoncc/Reclaim/blob/main/Presskit.md)
+
+**Include links to your presskit materials and trailer.**
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
-- I decided to give an intro to the characters, and explain a little bit of the narrative. Our narrative designer took time to craft a story, so we felt it was good to showcase that. Then, we didn't want to spoil the scenes and music in our rhythm game levels, so we wanted to show as little gameplay as possible while hooking the audience. I mainly showed the first two levels, and our sidescrolling features, leaving the final boss out so it wouldn't spoil anything. Also, our animator spent a lot of time making great animations, so I made sure to include those in action.
-- For the screenshots, I decided to choose screenshots of each major scene throughout the game, as well as important visuals such as the attack and shielding aspects of Reclaim.
-
-
 
 ## Game Feel
 **Ferica Ting:** 
-We originally had arrow keys for the hit box, but then we realized that the spacing and sizing and the arrows did not provide the most optimal game feel. The arrows were a bit too small, so we ended up changing the arrows to larger rectangular boxes. Consequently, we also changed the input keys from arrow to DFJK. The DFJK keys go across the keyboard and correspond to the ordering of the rectangles. It did not make sense to keep the arrow keys as input, since it is not intuitive which keys would correspond to which rectangles.
+We originally had arrow keys for the hit box, but then we changed it to larger rectangular boxes to account for spacing and sizing. The arrow keys were too small and close to each other, which does not provide the most optimal game feel.
 
 ## Cross-Platform
 **Anthony Vu:** 
