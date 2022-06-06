@@ -195,7 +195,7 @@ Additional assets that were used to build scenes were found in free assets in Un
 
 ## Game Feel
 **Ferica Ting:** 
-We originally had arrow keys for the hit box, but then we changed it to larger rectangular boxes to account for spacing and sizing. The arrow keys were too small and close to each other, which does not provide the most optimal game feel.
+We originally had arrow keys for the hit box, but then we realized that the spacing and sizing and the arrows did not provide the most optimal game feel. The arrows were a bit too small, so we ended up changing the arrows to larger rectangular boxes. Consequently, we also changed the input keys from arrow to DFJK. The DFJK keys go across the keyboard and correspond to the ordering of the rectangles. It did not make sense to keep the arrow keys as input, since it is not intuitive which keys would correspond to which rectangles.
 
 ## Cross-Platform
 **Anthony Vu:** 
