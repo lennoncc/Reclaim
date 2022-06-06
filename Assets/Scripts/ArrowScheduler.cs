@@ -64,14 +64,18 @@ public class ArrowScheduler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Stop the game if the player dies.
         if (hasStarted && playerController.PlayerHealthBarController.CurrentValue != 0f) {
             this.songTime += Time.deltaTime * 1000;
             if (songTime >= curSpec.hitTime - offset) 
             {
                 if (moreArrows == true) {
+                    this.GetComponent<ArrowFactory>().Build(curSpec.arrow);
+                    /*
                     var gameObj = Instantiate(curSpec.arrow, curSpec.arrow.transform.position, Quaternion.identity);
                     gameObj.transform.parent = gameObject.transform;
                     gameObj.GetComponent<NoteObject>().PlayerController = GameObject.Find("Camber").GetComponent<PlayerController>();
+                    */
                     if (q.Count == 0) 
                     { 
                         moreArrows = false;
@@ -83,9 +87,12 @@ public class ArrowScheduler : MonoBehaviour
                     // double araoroarws 
                     if (songTime >= curSpec.hitTime - offset)  
                     {
+                        this.GetComponent<ArrowFactory>().Build(curSpec.arrow);
+                        /*
                         var gameObj = Instantiate(curSpec.arrow, curSpec.arrow.transform.position, Quaternion.identity);
                         gameObj.transform.parent = gameObject.transform;
                         gameObj.GetComponent<NoteObject>().PlayerController = GameObject.Find("Camber").GetComponent<PlayerController>();
+                        */
                         if (q.Count == 0) 
                         { 
                             moreArrows = false;
