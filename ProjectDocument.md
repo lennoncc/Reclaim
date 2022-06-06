@@ -51,6 +51,13 @@ The default input configuration utilizes [WASD](https://github.com/lennoncc/Recl
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
 
 ## Producer
+**Ferica Ting:** 
+As producer, I facilitated team meetings and organized a master task list that lists out things to do for each part of the project. Based on the progress I gauge from team meetings, I assigned and divided the tasks by day for each role. 
+
+Master task list: https://docs.google.com/document/d/1qWD-5el6uZG7cLrMdEkR3v5YtZmKVY-BncE4M4HeELc/edit?usp=sharing
+
+Weekly/scheduled task list:
+https://docs.google.com/document/d/1noumZGm8JTSRwwNUEN3i5zEBxNGPvAYrRijhTiqgklE/edit?usp=sharing
 
 
 # Sub-Roles
