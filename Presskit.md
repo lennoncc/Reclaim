@@ -5,7 +5,7 @@
 
 ### Screenshots
 
-![alt text](https://i.imgur.com/xjCVFhQ.png)
+![alt text](https://i.imgur.com/fFzMws4.png)
 Main Menu
 
 ![alt text](https://i.imgur.com/Ur8BuRF.png)
