@@ -12,8 +12,9 @@ public class BowArrowBehavior : MonoBehaviour
         transform.position += transform.right * Time.deltaTime * Speed;
     }
 
-    private void OnCollisionEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Hit");
         if (other.gameObject.tag == "Enemy") {
             Destroy(gameObject);
         }
