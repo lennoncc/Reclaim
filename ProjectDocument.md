@@ -11,8 +11,6 @@ Our rhythm game follows a storyline, and the ultimate goal is to reclaim the los
 The optimal gameplay strategy is to match the rectangular blocks as closely as possible to maximize your score and avoid dying. The input keys for each of the four blocks are d, f, j, and k which corresponds to the blocks from left to right. During the rhythm game, there will be a red bar that gets displayed to indicate that the enemy is attacking. When the enemy is attacking, the player should switch to defense mode if they're not already defending. Conversely, when the enemy is not attacking, the player would want to be in attack mode. To switch between attack and defense mode, you would press the spacebar. To navigate the player around, you would use the arrow keys.
 
 
-**If you did work that should be factored in to your grade that does not fit easily into the proscribed roles, add it here! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
-
 # Main Roles #
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
