@@ -31,8 +31,10 @@ You should replay any **bold text** with your relevant information. Liberally us
 The UI is present in every aspect of our game. From the start, the Main Menu allows players to Play, Quit, or control options. I implemented UI elements such as a volume slider to achieve a modern look. Within the game, I implemented a scalable Dialogue Box Manager. The dialogue box is able to be used in any scene, and can take in text input to generate the dialogue. There are animation keyframes to have the dialoguebox go off and on the screen when it should. There is a way to continue dialogue and the text scrolls like a typewriter so it isn't just static text reading. Furthermore, during gameplay, UI elements such as health, enemy health, and score are being used. And upon player fail, there are UI elements that allow them to replay.
 
 ## Movement/Physics
+**Matthew Tom:**
+Working alongside input, the initial movement physics in the sidescroller sequences were based off of CaptainController.cs from Exercise 1. However, when translating movement to Camber's functionality, the animations were much more janky and inconsistent, with the impact of not looking natural at all. [CamberMovement.cs](https://github.com/lennoncc/Reclaim/blob/bbaa894956cffaeffc3c6ba49dcff9231cfff9aa/Assets/Scripts/CamberMovement.cs) was designed by me to be retweaked from CaptainController.cs in order to focus on movement using a Vector2 function. For different techniques of horizontal movement, I referenced [GAME GLiTcH's 2D Movement Tutorial](https://www.youtube.com/watch?v=fcKGqxUuENk) on the differences between AddForce and Velocity. While experimenting between the two, Velocity produced a much more natural, human-like movement that was not based on acceleration and kept at a constant pace, whereas AddForce was focused on "vehicular" styled-movement, where it has momentum and acceleration build up. As a result, [Camber's movement is based on velocity](https://github.com/lennoncc/Reclaim/blob/bbaa894956cffaeffc3c6ba49dcff9231cfff9aa/Assets/Scripts/CamberMovement.cs#L46). There is also a jump function for Camber that also has [simulated gravity and weight to it](https://github.com/lennoncc/Reclaim/blob/3c332ba763a4ab98e13595f991b2f65f39426e14/Assets/Scripts/CamberMovement.cs#L48-L51) with the choice of using AddForce to have the effect of acceleration and momentum deliberately.
 
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+The next part was focusing on how the arrows that Camber fires would be implemented, as well as how the lasers would appear from the enemies Camber faced. [For the arrow prefab](https://github.com/lennoncc/Reclaim/blob/bbaa894956cffaeffc3c6ba49dcff9231cfff9aa/Assets/Scripts/BowArrowBehavior.cs), a behavior script was implemented to to dictate its movement in a constant direction towards the enemy and would destroy itself upon colliding with the enemy. [This would be instantiated](https://github.com/lennoncc/Reclaim/blob/e8ff2105a4fc96ede26990727a71b87f82f28dcb/Assets/Scripts/BowArrowController.cs) and [invoked in PlayerController.cs](https://github.com/lennoncc/Reclaim/blob/e8ff2105a4fc96ede26990727a71b87f82f28dcb/Assets/Scripts/PlayerController.cs#L146) in order to sync it up with Camber's firing animation. While a similar implementation was meant to be used for the enemy lasers, the choice was made to just make the enemy lasers appear and disappear as a [sprite when the enemy was attacking](https://github.com/lennoncc/Reclaim/blob/3c332ba763a4ab98e13595f991b2f65f39426e14/Assets/Scripts/EnemyController.cs#L60). It isn't quite as smooth or natural, but it still serves its purpose of being a visual indication. Potential improvements would have been to add flinching animations to each character when they were hit, but could have ultimately been a distracting factor during gameplay.
 
 ## Animation and Visuals
 
@@ -47,7 +49,6 @@ The default input configuration utilizes [WASD](https://github.com/lennoncc/Recl
 **Add an entry for each platform or input style your project supports.**
 
 ## Game Logic
-**Angelina Vu:** 
 
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
 
@@ -124,15 +125,3 @@ When searching for music, we knew our game was going to be in an 8-bit style, so
 ## Game Feel
 **Ferica Ting:** 
 We originally had arrow keys for the hit box, but then we changed it to larger rectangular boxes to account for spacing and sizing. The arrow keys were too small and close to each other, which does not provide the most optimal game feel.
-
-## Design Translation
-**Angelina Vu:**
-
-This is one of the roles that our team made up and the main task for this role is to create diagrams that help others understand how the game works. The following are things I worked on for this sub-role.
-
-Gantt Chart: https://ucdavis365-my.sharepoint.com/:w:/g/personal/athvu_ucdavis_edu/EdYyHaV_HlVChNt4J49-rfgBsqmByEnG_q7FALKK_8ApgA?e=4ePnla
-
-Reclaim Game Logic Diagram: https://www.figma.com/file/4hGvLDmeaYvzbiD3lzMAHl/Reclaim-Game-Logic?node-id=0%3A1
-
-
-Camber Animation FSM: https://docs.google.com/drawings/d/1jrccfaZD3c2KzukeoIZutvb3XEGru94xvKhegclnFGs/edit?usp=sharing
