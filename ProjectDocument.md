@@ -2,7 +2,7 @@
 
 ## Summary ##
 
-**A paragraph-length pitch for your game.**
+Our rhythm game follows a storyline, and the ultimate goal is to reclaim the lost kingdom by defeating enemies at each stage. Other rhythm games such as osu! and Beat Saber do not have a storyline; their only goal is just to play the game and pass the level. Our game adds on to that and is unique, because it connects the player to a novel storyline. The overall design of our game also follows a marvelous medieval theme, which allows the player to get the best gameplay experience. With our simple but unique storyline, Reclaim targets a younger age group – elementary/middle schoolers, since the game is easy to follow along and isn’t too overwhelming. This project is feasible, but because of time constraints, it is a little difficult to implement all the stages that we originally planned for. 
 
 ## Gameplay Explanation ##
 
