@@ -71,6 +71,29 @@ The default input configuration utilizes [WASD](https://github.com/lennoncc/Recl
 **Add an entry for each platform or input style your project supports.**
 
 ## Game Logic
+**Angelina Vu**
+Rhythm Game: For the rhythm part of the game, we followed this tutorial (https://youtu.be/cZzf1FQQFA0) to get a basic version of our game working. Similar to classic rhythm games, we have four different "notes" that fall from the sky that the player must match the input for using the dfjk keys on their keyboard. The buttons and falling notes are controlled here:
+
+https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/ButtonController.cs 
+
+https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/NoteObject.cs
+
+https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/NoteController.cs
+
+Depending on how accurate the player times the hits 
+(miss, ok, good, perfect), they will be rewarded more points.
+![image](https://user-images.githubusercontent.com/37753647/172221400-cecd518c-d3af-4cb7-ac8d-12f0e7f071cd.png)
+
+
+Game Manager: https://github.com/lennoncc/Reclaim/blob/7a4137f3d598ad8bbac0d6dd09eecde76a873909/Assets/Scripts/GameManager.cs 
+
+Score System: stars
+Combat System: toggle, multiplier, heal, attacks, update bars
+Player Controller:
+Enemy Controller:
+Bar controller:
+Lose/Win Logic:
+Arrow factory:
 
 **Document what game states and game data you managed and what design patterns you used to complete your task.**
 
@@ -179,3 +202,14 @@ We originally had arrow keys for the hit box, but then we changed it to larger r
 The game is primarily going to be played on PC, so most of the game logic and design was made to be PC friendly. I also made the game playable on mobile devices. I had to make some changes in the code to make the rhythm part work with mobile. I added invisible buttons where the notes are supposed to be pressed so that the player could tap there and the notes will be pressed. I had to add new logic to make the notes disappear [here](https://github.com/lennoncc/Reclaim/blob/6f58e883a3b49b89e7ddc93c49e2e161d7512e0e/Assets/Scripts/ButtonController.cs#L34) becuase the player would have to tap on the falling notes if I were to use the code we had for the PC version. I also added an invisible button to switch between attack and defense mode.
 
 Most of the UI elements already worked for the main menue and dialog. However, I still had to implement movement for the side scroller scenes. I did this by checking if the player tapped on the left or right side of Camber and that would cause Camber to walk in that [direction.](https://github.com/lennoncc/Reclaim/blob/6f58e883a3b49b89e7ddc93c49e2e161d7512e0e/Assets/Scripts/CamberMovement.cs#L29)
+
+## Design Translation
+**Angelina Vu:**
+
+This is one of the roles that our team made up and the main task for this role is to create diagrams that help others understand how the game works. The following are things I worked on for this sub-role.
+
+Gantt Chart: https://ucdavis365-my.sharepoint.com/:w:/g/personal/athvu_ucdavis_edu/EdYyHaV_HlVChNt4J49-rfgBsqmByEnG_q7FALKK_8ApgA?e=4ePnla
+
+Reclaim Game Logic Diagram: https://www.figma.com/file/4hGvLDmeaYvzbiD3lzMAHl/Reclaim-Game-Logic?node-id=0%3A1
+
+Camber Animation FSM: https://docs.google.com/drawings/d/1jrccfaZD3c2KzukeoIZutvb3XEGru94xvKhegclnFGs/edit?usp=sharing
