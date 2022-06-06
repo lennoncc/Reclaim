@@ -38,9 +38,31 @@ The next part was focusing on how the arrows that Camber fires would be implemen
 
 ## Animation and Visuals
 
-**List your assets including their sources and licenses.**
+**Assets used for Backgrounds:**  
+[Forest](https://anokolisa.itch.io/high-forest-assets-pack)  
+License: "Legacy Fantasy High Forest" by Anokolisa  
+[Demon Woods](https://aethrall.itch.io/demon-woods-parallax-background)  
+License: "Demon Woods Parallax Background" by Aethrall  
+[Village Props](https://cainos.itch.io/pixel-art-platformer-village-props)  
+License: "Pixel Art Platformer Village Props" by Cainos  
+[Castle](https://anokolisa.itch.io/heros-journey-castle-hall)  
+License: "Hero's Journey Castle Hall" by Anokolisa  
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+Animations and visuals were done on the Piskel browser site, allowing for both sketches and frame-by-frame animations of each of the characters we had in the game. Our game consisted of four main characters, Camber, the Mage Captain, the Witch, and King Elec.  
+A major factor in the game was to have the art to stay consistent when creating each level, including the external assets used for the background. As such, I decided to use a 16-bit retro style for the game environment, in agreement with Audio Design and Game Feel to use 8-bit music to create an immersive effect within the game.  
+Overall, Camber's gameplay was comprised of 10 animation clips, while each enemy had 2 animation clips, one for being Idle, and another for Attacking.  
+The animation clips themselves were comprised from anywhere between 5 to 20 frames depending on how complex the animation was (e.g Camber walking).  
+The state machines shown below show how actions were determined by using Boolean parameters in order to tell the animator which state to transition to next.  
+Camber:  
+![image](https://drive.google.com/uc?export=view&id=1JKCk8P1WSR9F8gYvaXmJXFhbb2WbCGF3)  
+  
+General Enemy:  
+![image](https://drive.google.com/uc?export=view&id=10opyI5vavvKgy0Azqf8gkWlcuyOOsOc3)  
+
+In addition to the animations and visual, the background used a [Parallax.cs](https://github.com/lennoncc/Reclaim/blob/bbaa894956cffaeffc3c6ba49dcff9231cfff9aa/Assets/Scripts/Parallax.cs) script similar to the one used in Exercise 1 in addition to coding implementations made in [PlayerController.cs](https://github.com/lennoncc/Reclaim/blob/bbaa894956cffaeffc3c6ba49dcff9231cfff9aa/Assets/Scripts/PlayerController.cs) and [EnemyController.cs](https://github.com/lennoncc/Reclaim/blob/bbaa894956cffaeffc3c6ba49dcff9231cfff9aa/Assets/Scripts/EnemyController.cs) in order to set and reset booleans listed in the state machine parameters in order for the state transitions to occur.
+
+In addition, the visual style guide for the character design and animations shown below:  
+[Visual Style Guide](https://docs.google.com/document/d/1BTymkhHpYFkGf392tWce5TPe7hf9extUBVgBbXq5NlM/edit?usp=sharing)
 
 ## Input
 **Lennon Cruz:** 
@@ -112,7 +134,7 @@ When searching for music, we knew our game was going to be in an 8-bit style, so
 Through gameplay testing with 10 individuals, we discovered that several difficulties that the players faced while playing the game.
 First and foremost, we initially did not include instructions in the game to determine how the players would react and see which controls were more intuitive.  
 We quickly discovered that WASD or the arrow keys were well-known between the majority of the players during the platformer portion of the game.  
-However, the playtesters were largely confused about which direction to head towards, resulting in some of them heading left to absolutely nothing. While we still wanted the element of exploration within the game, we decided to add an invisible barrier to the left of the gameplay area to prevent the player from infinitely heading towards the left of the game. We also did not want players to get confused by the invisible barrier, which resulted in a cat blocking your way :).
+However, the playtesters were largely confused about which direction to head towards, resulting in some of them heading left to absolutely nothing. While we still wanted the element of exploration within the game, we decided to add an invisible barrier to the left of the gameplay area to prevent the player from infinitely heading towards the left of the game. We also did not want players to get confused by the invisible barrier, which resulted in a cat blocking your way :).  
 In addition, some playtesters found it difficult to know when to use the spacebar to attack or defend during the rhythm/combat portion of the game. In an effort to mitigate the confusion, the team used a red overlay over the rhythm game whenever the enemy was attacking to signal the playtester to switch to defense mode.  
 Finally, the falling arrows and matching buttons that were initially used in the first draft of our rhythm game were scrapped for one major reason, the UI for the buttons were aligned in a row, while the arrow keys on a player's keyboard were not aligned. We decided to use rectangles instead, binded to the d, f, j, and k keys as input. This avoided the physical dissociation that the playtesters felt when playing the rhythm game while also allowing for them to be able to access the space bar with both hands when switching between attack/defense.  
 In addition to these control mechanisms that were edited, the UI and Physics were also revised from the playtesters' comments. For example, the dialogue text box was revised such that the text would scroll through faster, and Camber's movements were also speedier during the platformer parts of the game.  
