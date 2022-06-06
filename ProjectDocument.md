@@ -27,8 +27,8 @@ Here is an example:
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 ## User Interface
-**Jimmy Trinh:**
-The UI is present in every aspect of our game. From the start, the Main Menu allows players to Play, Quit, or control options. I implemented UI elements such as a volume slider to achieve a modern look. These are Unity UI components which I added onclicks to in order to switch to certain states/scenes. [MainMenu.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/MainMenu.cs), [SceneSwitchTrigger.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/SceneSwitchTrigger.cs). Within the game, I implemented a scalable Dialogue Box Manager. [Dialogue.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/Dialogue.cs), [DialogueManager.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/DialogueManager.cs), [DialogueTrigger.cs](https://github.com/lennoncc/Reclaim/blob/main/Assets/Scripts/DialogueTrigger.cs). The dialogue box is able to be used in any scene, and can take in text input to generate the dialogue. There are animation keyframes to have the dialoguebox go off and on the screen when it should. There is a way to continue dialogue and the text scrolls like a typewriter so it isn't just static text reading. Furthermore, during gameplay, UI elements such as health, enemy health, and score are being used. And upon player fail, there are UI elements that allow them to replay.
+**Jimmy Trinh**
+The UI is present in every aspect of our game. From the start, the Main Menu allows players to Play, Quit, or control options. I implemented UI elements such as a volume slider to achieve a modern look. Within the game, I implemented a scalable Dialogue Box Manager. The dialogue box is able to be used in any scene, and can take in text input to generate the dialogue. There are animation keyframes to have the dialoguebox go off and on the screen when it should. There is a way to continue dialogue and the text scrolls like a typewriter so it isn't just static text reading. Furthermore, during gameplay, UI elements such as health, enemy health, and score are being used. And upon player fail, there are UI elements that allow them to replay.
 
 ## Movement/Physics
 **Matthew Tom:**
@@ -111,18 +111,21 @@ When searching for music, we knew our game was going to be in an 8-bit style, so
 **Summarize the key findings from your gameplay tests.**
 
 ## Narrative Design
+**Matthew Tom:** The entire point about this story is the path of reclaiming what was lost to fit the theme of "It was the best of times, it was the worst of times." From the sound design of music to give that inspiring, heroic like atmosphere, to the tactical decisions of switching between attack and defense modes, as well as the powerful enemies Camber faces, they all combine together to demonstrate a tale of struggle, strife, and victory through overcoming the odds. Every battle Camber fought required moments of sacrifice in the gameplay, such as sacrificing potential moments to build up the charge meter to attack, only to be met with a relentless attack from the enemy. The medieval look of Reclaim as a whole was an intentional choice as a reference back to the Medieval and Dark Ages in our history, where humanity arguably was at one of its lowest peaks. The worn down castle and the burning village in the later levels contrasted the opening first level and prologue where everything was much brighter and hopeful, further driving the point of how far the kingdom had fallen, and it would be up to Camber to save it.
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+A full narrative story was prototyped by me, found [here](https://docs.google.com/presentation/d/1HUj8aGtn-xqBHmpcKCYfG4XwCgd9Raxp5f-lnLd8QSg/edit?usp=sharing). 
+
+Additional assets that were used to build scenes were found in free assets in Unity's asset store:
+[Medieval Pixel Art](https://assetstore.unity.com/packages/p/medieval-pixel-art-asset-free-130131) and
+[Pixel Art Platformer](https://assetstore.unity.com/packages/p/medieval-pixel-art-asset-free-130131).
+
 
 ## Press Kit and Trailer
 
 **Include links to your presskit materials and trailer.**
-[Video Trailer](https://youtu.be/7dvsoHZtaAM)
-[Presskit](https://github.com/lennoncc/Reclaim/blob/main/Presskit.md)
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
-- I decided to give an intro to the characters, and explain a little bit of the narrative. Our narrative designer took time to craft a story, so we felt it was good to showcase that. Then, we didn't want to spoil the scenes and music in our rhythm game levels, so we wanted to show as little gameplay as possible while hooking the audience. I mainly showed the first two levels, and our sidescrolling features, leaving the final boss out so it wouldn't spoil anything. Also, our animator spent a lot of time making great animations, so I made sure to include those in action.
-- For the screenshots, I decided to choose screenshots of each major scene throughout the game, as well as important visuals such as the attack and shielding aspects of Reclaim.
+
 
 
 ## Game Feel
